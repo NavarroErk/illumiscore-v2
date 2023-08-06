@@ -1,0 +1,90 @@
+/*? STSearchInput CSS */
+#searchInput{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+
+    /* align-items: center; */
+}
+#searchInputPara{
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 40px;
+    font-weight: bold;
+}
+#searchInputTextbox{
+    height: 40px;
+    width: 100%;
+    border: 2px solid rgb(69, 69, 69);
+    border-radius: 10px;
+    padding: 10px;
+    align-self: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+
+
+
+/*? STSearchIcon CSS */
+#searchIcon{
+    width: 60%;
+    padding: 10px;
+}
+#searchIcon > img{
+    width: 100%;
+}
+
+
+
+
+/*? STSearchCard CSS */
+#searchCard{
+    width: 90%;
+    border: 2px solid purple;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+}
+#searchCardDiv{
+    width: 100%;
+    padding: 10px;
+    margin-left: 10px;
+}
+#searchCardPara{
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+}
+#searchCardStatement{
+}
+.searchCardBtnContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.searchCardAddBtn{
+    width: 30px;
+    height: 30px;
+    font-size: 24px;
+    border-radius: 100%;
+    position: relative;
+    bottom: 5px;
+    right: 5px;
+    background-color: black;
+    color: white;
+}
+.searchCardAddBtn:hover{
+    background-color: rgb(73, 73, 73);
+    cursor: pointer;
+}
+
+
+
+

@@ -1,0 +1,64 @@
+
+#pricingDiv{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  .pricingCard {
+    margin: 30px;
+    flex-grow: 1;
+    border-radius: 50%;
+  }
+  .pricingCardLink {
+    display: block;
+    padding: 30px 20px;
+    background-color: #121212;
+    text-decoration: none;
+    overflow: hidden;
+    position: relative;
+    border-radius: 5%;
+  }
+  .pricingCardLink:hover,
+  .pricingCardLink:hover .pricingCardContent {
+    text-decoration: none;
+    color: #FFF;
+  }
+  .pricingCardLink:hover .pricingCardBg   {
+    transform: scale(10);
+  }
+  .pricingCardTitle {
+    min-height: 87px;
+    margin: 0 0 25px;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 30px;
+    color: #FFF;
+    z-index: 2;
+    position: relative;
+  }
+  .pricingCardPrice{
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    z-index: 3;
+  }
+  
+  .pricingCardContent {
+    font-size: 18px;
+    z-index: 2;
+    position: relative;
+    font-weight: bold;
+    color: #f9b234;
+    transition: color .5s ease
+  }
+  .pricingCardBg {
+    height: 128px;
+    width: 128px;
+    background-color: #af6f00;
+    z-index: 1;
+    position: absolute;
+    top: -75px;
+    right: -75px;
+    border-radius: 50%;
+    transition: all .5s ease;
+  }

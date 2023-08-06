@@ -1,0 +1,114 @@
+/*? STEditCard CSS  */
+.editCard{
+    margin: 20px;
+    display: flex;
+    height: 200px;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 1px solid #000;
+    border-radius: 10px;
+    border: 2px solid purple;
+    background-color: white;
+}
+.editCardDiv{
+    width: 100%;
+    padding: 10px;
+    margin-left: 20px;
+}
+.editCardPara{
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+}
+.editCardStatement{
+    margin: 0;
+    font-size: 18px;
+}
+.editCardBtnGroup{
+    margin-top: 15px;
+}
+.editCardBtnGroup > button{
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 700;
+}
+.editCardEditBtn{
+    background-color: rgb(74, 156, 255);
+    color: rgb(0, 26, 255);
+}
+.editCardDeleteBtn{
+    background-color: rgb(180, 0, 0);
+    color: rgb(255, 165, 180);
+    margin-left: 20px;
+}
+
+.editCardEditBtn:hover{
+    cursor: pointer;
+    background-color: rgb(19, 125, 255);
+    color: rgb(0, 16, 163);
+} 
+
+.editCardDeleteBtn:hover{
+    cursor: pointer;
+    background-color: rgb(116, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+
+
+
+/*? STEditIcon CSS  */
+#editIcon{
+    width: 150px;
+    margin: 15px;
+    display: flex;
+    align-items: center;
+}
+#editIcon > img{
+    width: 100%;
+}
+
+/*? STEditPopup CSS  */
+
+/* EditTS.css */
+#editSTPopup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    display: flex;    
+    justify-content: center;
+    align-items: center;
+  }
+  #editSTPopupContent{
+    width: 800px;
+    height: 600px;
+    background-color: white;
+    border: 3px solid black;
+  }
+  #editSTPopupContentHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  #editSTPopupTitle{
+    
+  }
+  #editSTPopupCloseBtn{
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    background-color: black;
+    color: white;
+    font-size: 32px;
+    border: none;
+    position: relative;
+    left: 335px;
+    top: 10px;
+    cursor: pointer;
+  }

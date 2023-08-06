@@ -1,0 +1,24 @@
+/*? Combined CSS  */
+.dashboardCardSportTile, .dashboardCardLightTile{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+/*? Sport Tiles CSS */
+
+.dashboardCardSportTileImg{
+    height: 90%;
+    width: 90%;
+}
+
+/*? Light Tiles CSS  */
+
+.dashboardCardLightTileImg{
+    max-height: 90%;
+    width: 90%;
+}
+

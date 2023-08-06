@@ -1,0 +1,91 @@
+#editTeams, #editSports{
+    display: flex;
+    flex-direction: row;
+}
+.searchColTS{
+    width: 30%;
+    height: 100%;
+    /* border: 3px solid blue; */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid black;
+}
+#searchColContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    height: 700px;
+    padding-top: 20px;
+    border: 5px solid black;
+    background-color: rgb(70, 70, 70);
+    border-radius: 10px;
+    overflow-y: scroll;
+}
+/*#region global scrollbar  */
+::-webkit-scrollbar {
+    width: 20px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: #818181;
+    border-radius: 10px;
+
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  /*#endregion global scrollbar  */
+
+/*#region searchColContainer scrollbar */
+  ::-webkit-scrollbar {
+    width: 15px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: #818181;
+    border-radius: 10px;
+
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  /*#endregion searchColContainer scrollbar */
+
+  .editColTS{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    align-items: center;
+    border: 5px solid black;
+}
+.editColTSTitle{
+  margin: 0;
+  font-size: 36px;
+  font-weight: bold;
+}
+.editColContainer{
+    border: 2px solid black;
+    border-radius: 10px;
+    height: 80%;
+    width: 60%;
+    overflow-y: scroll;
+    border: 5px solid black;
+    background-color: rgb(70, 70, 70);
+}
