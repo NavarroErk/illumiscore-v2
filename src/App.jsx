@@ -16,6 +16,7 @@ function App() {
   useEffect(() => {
     /* global google */
     getGoogleToken();
+    console.log("BUST");
 
     google.accounts.id.renderButton(
       document.querySelector("#googleSignInBtn"),
@@ -60,6 +61,16 @@ function App() {
     }
   }
 
+  async function HERESYOURBUTTONJERRY() {
+    const app = new RealmWeb.App({ id: "data-xsksb" });
+    const apiKey =
+      "eehr9IKwaVhUfgSkvu4FxohCIATY6avl7G5UKNWpjWggWlc4gyfBqTXBslUA5x90";
+    const credentials = RealmWeb.Credentials.apiKey(apiKey);
+    const user = await app.logIn(credentials);
+    const teams = await user.functions.FlashTeamFromWeb("Los Angeles Dodgers");
+    return teams;
+  }
+
   async function getDataFromMongoToken(_id) {
     const app = new RealmWeb.App({ id: "data-xsksb" });
     const apiKey =
@@ -98,7 +109,9 @@ function App() {
         <nav id="homeNav">
           <div id="homeNavBrandDiv">
             <p id="homeNavBrand">ILLUMISCORE</p>
-            <button>HERES YOUR BUTTON JERRY</button>
+            <button onClick={HERESYOURBUTTONJERRY}>
+              HERES YOUR BUTTON JERRY
+            </button>
             <div id="googleSignInBtn"></div>
           </div>
         </nav>

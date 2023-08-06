@@ -7,6 +7,7 @@ import STSearchInput from "../../../Components/Edit Components/Edit Sports and T
 import STEditCard from "../../../Components/Edit Components/Edit Sports and Teams Components/STEditColumn/STEditCard";
 import { GlobalContext } from "../../..";
 import * as RealmWeb from "realm-web";
+
 function EditTeams() {
   const [searchResults, setSearchResults] = useState([]);
   const tempEditFillers = GlobalContext.userData.data.MlbTeams;
