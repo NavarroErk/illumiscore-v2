@@ -3,8 +3,18 @@ import { Link } from "react-router-dom";
 import Header from "../../Components/Header/Header";
 import "./Dashboard.css";
 import NewDashboardCard from "../../Components/Dashboard Components/NewDashboardCard";
+import { GlobalContext } from "../..";
 
 function Dashboard() {
+  const context = useContext(GlobalContext);
+  const handleRandomValueUpdate = () => {
+    const newRandomValue = 12345;
+    context.setGlobalState((prevState) => ({
+      ...prevState,
+      randomValue: newRandomValue,
+    }));
+    console.log(context.globalState.randomValue);
+  };
   const teamData = [];
 
   const lightData = [
@@ -33,6 +43,7 @@ function Dashboard() {
       <Header />
       <main id="dashContainer">
         <section className="section1" id="banner">
+          <button onClick={handleRandomValueUpdate}>Update randomValue</button>
           <p id="bannerHeading">Banner</p>
           <div className="bannerContent">Upcoming Games</div>
           <div className="bannerContent">Active Games and Scores</div>

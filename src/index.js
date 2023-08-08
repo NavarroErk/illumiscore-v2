@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React, { createContext, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -8,6 +8,12 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import EditTeams from './Pages/Edit Pages/Edit Sports and Teams/EditTeams';
 import EditSports from './Pages/Edit Pages/Edit Sports and Teams/EditSports';
 import STEditPopup from './Components/Edit Components/Edit Sports and Teams Components/STEditColumn/STEditPopup';
+
+//? FUNCTIONS 
+import * as functionList from "./mongoDBClient";
+
+
+
 
 
 export const GlobalContext = React.createContext();  
@@ -30,22 +36,24 @@ const router = createBrowserRouter([
     path: "/dashboard/editSports", 
     element: <EditSports/>
   }, 
-  {
-    path: "", 
-    element: <STEditPopup />
-  }
 ])
 
 
-
+const RootComponent = () => {
+  const [globalState, setGlobalState] = useState({
+    userData: {},
+    functionList
+  })
+  return(
+    <GlobalContext.Provider value={{globalState, setGlobalState}}>
+      <RouterProvider router={router}/>
+    </GlobalContext.Provider>
+  )
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <GlobalContext.Provider value={{GlobalContext}}>
-      <RouterProvider router={router}/>
-    </GlobalContext.Provider>
-  </React.StrictMode>
+    <RootComponent/>
 );
 
 // If you want to start measuring performance in your app, pass a function

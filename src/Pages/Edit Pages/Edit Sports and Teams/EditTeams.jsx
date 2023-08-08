@@ -9,9 +9,15 @@ import { GlobalContext } from "../../..";
 import * as RealmWeb from "realm-web";
 
 function EditTeams() {
+  const context = useContext(GlobalContext);
   const [searchResults, setSearchResults] = useState([]);
-  const tempEditFillers = GlobalContext.userData.data.MlbTeams;
-  console.log(GlobalContext.userData);
+  const tempEditFillers = context.globalState.userData.data.MlbTeams;
+
+  //   function logBust() {
+  //     context.globalState.bust = "NOBUST";
+  //     console.log(context.globalState.bust);
+  //   }
+  //   logBust();
 
   async function getTeamsFromMongo(league) {
     const app = new RealmWeb.App({ id: "data-xsksb" });
@@ -23,16 +29,16 @@ function EditTeams() {
     return teams;
   }
 
-  useEffect(() => {
-    // Define an async function inside useEffect to fetch teams and update searchResults
-    const fetchTeams = async () => {
-      const teams = await getTeamsFromMongo("Major League Baseball");
-      setSearchResults(teams);
-    };
+  //   useEffect(() => {
+  //     // Define an async function inside useEffect to fetch teams and update searchResults
+  //     const fetchTeams = async () => {
+  //       const teams = await getTeamsFromMongo("Major League Baseball");
+  //       setSearchResults(teams);
+  //     };
 
-    // Call the async function to fetch and update searchResults
-    fetchTeams();
-  }, []); // Empty dependency array means this effect runs only once, on component mount
+  //     // Call the async function to fetch and update searchResults
+  //     fetchTeams();
+  //   }, []); // Empty dependency array means this effect runs only once, on component mount
 
   return (
     <Layout id="editTeams">
