@@ -10,35 +10,9 @@ import * as RealmWeb from "realm-web";
 
 function EditTeams() {
   const context = useContext(GlobalContext);
-  const [searchResults, setSearchResults] = useState([]);
-  const tempEditFillers = context.globalState.userData.data.MlbTeams;
-
-  //   function logBust() {
-  //     context.globalState.bust = "NOBUST";
-  //     console.log(context.globalState.bust);
-  //   }
-  //   logBust();
-
-  async function getTeamsFromMongo(league) {
-    const app = new RealmWeb.App({ id: "data-xsksb" });
-    const apiKey =
-      "eehr9IKwaVhUfgSkvu4FxohCIATY6avl7G5UKNWpjWggWlc4gyfBqTXBslUA5x90";
-    const credentials = RealmWeb.Credentials.apiKey(apiKey);
-    const user = await app.logIn(credentials);
-    const teams = await user.functions.GetTeamsInLeague(league);
-    return teams;
-  }
-
-  //   useEffect(() => {
-  //     // Define an async function inside useEffect to fetch teams and update searchResults
-  //     const fetchTeams = async () => {
-  //       const teams = await getTeamsFromMongo("Major League Baseball");
-  //       setSearchResults(teams);
-  //     };
-
-  //     // Call the async function to fetch and update searchResults
-  //     fetchTeams();
-  //   }, []); // Empty dependency array means this effect runs only once, on component mount
+  let searchResults = [];
+  const userTeams = JSON.parse(localStorage.getItem("userData")).data.data
+    .MlbTeams;
 
   return (
     <Layout id="editTeams">
@@ -56,7 +30,7 @@ function EditTeams() {
           <Link to="/dashboard/editSports">editSports</Link>
         </div>
         <div className="editColContainer">
-          {tempEditFillers.map((filler, index) => (
+          {userTeams.map((filler, index) => (
             <STEditCard key={index} name={filler}></STEditCard>
           ))}
         </div>

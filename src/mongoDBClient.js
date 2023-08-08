@@ -45,5 +45,15 @@ async function GetDataFromToken(token){
     return await user.functions.GetDataFromToken(token);
 }
 
+async function GetUserFromWeb(_id){
+    const user = await app().logIn(credentials());
+    return await user.functions.GetDataFromToken(_id);
+}
 
-export { FlashTeamFromWeb, CreateUserFromWeb, AddLifxLightFromWeb, AddMlbTeamsFromWeb, RemoveLifxLightFromWeb, RemoveMlbTeamsFromWeb, GetDataFromToken }
+async function GetTeamsInLeague(leagueName){
+    const user = await app().logIn(credentials());
+    return await user.functions.GetDataFromToken(leagueName);
+}
+
+
+export { FlashTeamFromWeb, CreateUserFromWeb, AddLifxLightFromWeb, AddMlbTeamsFromWeb, RemoveLifxLightFromWeb, RemoveMlbTeamsFromWeb, GetDataFromToken, GetUserFromWeb, GetTeamsInLeague }

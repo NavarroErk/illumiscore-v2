@@ -1,15 +1,16 @@
 import React, { createContext, useState } from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import './index.css';
+import reportWebVitals from './reportWebVitals';
+
+import App from './App';
 import Dashboard from './Pages/Dashboard/Dashboard';
+
 import EditTeams from './Pages/Edit Pages/Edit Sports and Teams/EditTeams';
 import EditSports from './Pages/Edit Pages/Edit Sports and Teams/EditSports';
 import STEditPopup from './Components/Edit Components/Edit Sports and Teams Components/STEditColumn/STEditPopup';
 
-//? FUNCTIONS 
 import * as functionList from "./mongoDBClient";
 
 
@@ -41,6 +42,7 @@ const router = createBrowserRouter([
 
 const RootComponent = () => {
   const [globalState, setGlobalState] = useState({
+    userData:{}, 
     functionList
   })
   return(

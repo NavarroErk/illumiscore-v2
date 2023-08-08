@@ -36,7 +36,7 @@ function App() {
       );
       if (userData) {
         localStorage.setItem("illumiScoreJWToken", credential);
-        localStorage.setItem("User Data", userData);
+        localStorage.setItem("userData", userData);
 
         setUserDataLocalStorage(userData);
         navigate("./dashboard");
@@ -45,11 +45,15 @@ function App() {
   }
 
   async function attemptToRedirectWithLocalStorage() {
-    let browserLocalStorage = localStorage.getItem("illumiScoreJWToken");
+    let browserLocalStorage = await JSON.parse(
+      await localStorage.getItem("userData")
+    )._id;
+    console.log(browserLocalStorage);
     if (browserLocalStorage) {
       const userData = await context.globalState.functionList.GetDataFromToken(
-        browserLocalStorage
+        localStorage.getItem("illumiScoreJWToken")
       );
+      console.log(userData);
       if (userData) {
         setUserDataLocalStorage(userData);
         localStorage.setItem("userData", JSON.stringify(userData));
