@@ -55,6 +55,11 @@ async function GetTeamsInLeague(leagueName){
     return await user.functions.GetTeamsInLeague(leagueName);
 }
 
+async function FlashLifxFromWeb(apiKey, lightId, color1, color2){
+    const user = await app().logIn(credentials());
+    return await user.functions.GetTeamsInLeague(apiKey, lightId, color1, color2);
+}
 
 
-export { FlashTeamFromWeb, CreateUserFromWeb, AddLifxLightFromWeb, AddMlbTeamFromWeb, RemoveLifxLightFromUser, RemoveMlbTeamFromUser, GetDataFromToken, GetUserFromWeb, GetTeamsInLeague }
+
+export { FlashTeamFromWeb, CreateUserFromWeb, AddLifxLightFromWeb, AddMlbTeamFromWeb, RemoveLifxLightFromUser, RemoveMlbTeamFromUser, GetDataFromToken, GetUserFromWeb, GetTeamsInLeague, FlashLifxFromWeb }

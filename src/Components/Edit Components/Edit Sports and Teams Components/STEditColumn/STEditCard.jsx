@@ -60,6 +60,19 @@ function STEditCard({
     window.location.reload();
   }
 
+  // async function flashLifxFromWeb() {
+  //   var red = "red";
+  //   var blue = "blue";
+  //   console.log(lightApiKey);
+  //   console.log(lightId);
+  //   await context.globalState.functionList.FlashLifxFromWeb(
+  //     lightApiKey,
+  //     lightId,
+  //     red,
+  //     blue
+  //   );
+  // }
+
   return (
     <div className="editCard">
       {/* <STEditIcon editImg={editImg}></STEditIcon> */}
@@ -74,6 +87,7 @@ function STEditCard({
           <button className="editCardDeleteBtn" onClick={checkLocation}>
             Delete
           </button>
+          {/* <button onClick={flashLifxFromWeb}>FLASH</button> */}
         </div>
       </div>
       {showEditComponent && (
