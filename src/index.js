@@ -10,6 +10,8 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import EditTeams from './Pages/Edit Pages/Edit Sports and Teams/EditTeams';
 import EditSports from './Pages/Edit Pages/Edit Sports and Teams/EditSports';
 import STEditPopup from './Components/Edit Components/Edit Sports and Teams Components/STEditColumn/STEditPopup';
+import About from "./Pages/About/About.jsx"
+import Contact from "./Pages/Contact/Contact.jsx"
 
 import * as functionList from "./mongoDBClient";
 import EditLights from './Pages/Edit Pages/Edit Lights/EditLights';
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
     path: "/", 
     element: <App/>,
   }, 
+  {
+    path: "/about", 
+    element: <About/>
+  },
+  {
+    path: "/contact",
+    element: <Contact/>
+  },
   {
     path: "/dashboard", 
     element: <Dashboard/>
