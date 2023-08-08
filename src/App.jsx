@@ -13,12 +13,11 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    attemptToRedirectWithCookies();
+    attemptToRedirectWithLocalStorage();
     /* global google */
     google.accounts.id.initialize({
       client_id:
         "790870897502-fqdi3s4r49a8741sbeqt19st74k6ddkc.apps.googleusercontent.com",
-      // if someone logs in, what function to call?
       callback: attemptToRedirect,
     });
 
@@ -27,31 +26,33 @@ function App() {
       // theme and size of button
       { theme: "outline", size: "medium" }
     );
-    // Add an empty dependency array to ensure this effect runs only once
   }, []);
 
   async function attemptToRedirect(token) {
     const credential = token.credential;
-    if (attemptToRedirectWithCookies !== true) {
+    if (attemptToRedirectWithLocalStorage !== true) {
       const userData = await context.globalState.functionList.GetDataFromToken(
         credential
       );
       if (userData) {
-        Cookies.set("illumiScoreJWToken", credential);
-        setUserDataState(userData);
+        localStorage.setItem("illumiScoreJWToken", credential);
+        localStorage.setItem("User Data", userData);
+
+        setUserDataLocalStorage(userData);
         navigate("./dashboard");
       }
     }
   }
 
-  async function attemptToRedirectWithCookies() {
-    let browserCookies = Cookies.get("illumiScoreJWToken");
-    if (browserCookies) {
+  async function attemptToRedirectWithLocalStorage() {
+    let browserLocalStorage = localStorage.getItem("illumiScoreJWToken");
+    if (browserLocalStorage) {
       const userData = await context.globalState.functionList.GetDataFromToken(
-        browserCookies
+        browserLocalStorage
       );
       if (userData) {
-        setUserDataState(userData);
+        setUserDataLocalStorage(userData);
+        localStorage.setItem("userData", JSON.stringify(userData));
         navigate("./dashboard");
         return true;
       }
@@ -59,11 +60,10 @@ function App() {
     return null;
   }
 
-  function setUserDataState(userData) {
-    context.setGlobalState((prevState) => ({
-      ...prevState,
-      userData: userData,
-    }));
+  function setUserDataLocalStorage(userData) {
+    localStorage.setItem("userData", JSON.stringify(userData));
+    // console.log(localStorage.getItem("userData"));
+    // console.log(JSON.parse(localStorage.getItem("userData")));
   }
 
   const pricingOptions = [

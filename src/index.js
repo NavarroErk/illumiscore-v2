@@ -41,7 +41,6 @@ const router = createBrowserRouter([
 
 const RootComponent = () => {
   const [globalState, setGlobalState] = useState({
-    userData: {},
     functionList
   })
   return(
