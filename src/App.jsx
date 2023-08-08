@@ -36,8 +36,6 @@ function App() {
       );
       if (userData) {
         localStorage.setItem("illumiScoreJWToken", credential);
-        localStorage.setItem("userData", userData);
-
         setUserDataLocalStorage(userData);
         navigate("./dashboard");
       }
@@ -45,18 +43,13 @@ function App() {
   }
 
   async function attemptToRedirectWithLocalStorage() {
-    let browserLocalStorage = await JSON.parse(
-      await localStorage.getItem("userData")
-    )._id;
-    console.log(browserLocalStorage);
+    let browserLocalStorage = JSON.parse(localStorage.getItem("userData"))._id;
     if (browserLocalStorage) {
-      const userData = await context.globalState.functionList.GetDataFromToken(
-        localStorage.getItem("illumiScoreJWToken")
+      const userData = await context.globalState.functionList.GetUserFromWeb(
+        browserLocalStorage
       );
-      console.log(userData);
       if (userData) {
         setUserDataLocalStorage(userData);
-        localStorage.setItem("userData", JSON.stringify(userData));
         navigate("./dashboard");
         return true;
       }
@@ -66,8 +59,6 @@ function App() {
 
   function setUserDataLocalStorage(userData) {
     localStorage.setItem("userData", JSON.stringify(userData));
-    // console.log(localStorage.getItem("userData"));
-    // console.log(JSON.parse(localStorage.getItem("userData")));
   }
 
   const pricingOptions = [

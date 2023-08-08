@@ -47,12 +47,12 @@ async function GetDataFromToken(token){
 
 async function GetUserFromWeb(_id){
     const user = await app().logIn(credentials());
-    return await user.functions.GetDataFromToken(_id);
+    return await user.functions.GetUserFromWeb(_id);
 }
 
 async function GetTeamsInLeague(leagueName){
     const user = await app().logIn(credentials());
-    return await user.functions.GetDataFromToken(leagueName);
+    return await user.functions.GetTeamsInLeague(leagueName);
 }
 
 
