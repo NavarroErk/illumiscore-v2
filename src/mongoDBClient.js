@@ -20,24 +20,24 @@ async function CreateUserFromWeb(_id){
     return await user.functions.CreateUserFromWeb(_id);
 }
 
-async function AddLifxLightFromWeb(_id, apiKey, lightId){
+async function AddLifxLightFromWeb(_id, lightName, apiKey, lightId){
     const user = await app().logIn(credentials());
-    return await user.functions.AddLifxLightFromWeb(_id, apiKey, lightId);
+    return await user.functions.AddLifxLightFromWeb(_id, lightName, apiKey, lightId);
 }
 
-async function AddMlbTeamsFromWeb(_id, team){
+async function AddMlbTeamFromWeb(_id, team){
     const user = await app().logIn(credentials());
-    return await user.functions.AddMlbTeamsFromWeb(_id, team);
+    return await user.functions.AddMlbTeamFromWeb(_id, team);
 }
 
-async function RemoveLifxLightFromWeb(_id, apiKey, lightId){
+async function RemoveLifxLightFromUser(_id, lightName){
     const user = await app().logIn(credentials());
-    return await user.functions.RemoveLifxLightFromWeb(_id, apiKey, lightId);
+    return await user.functions.RemoveLifxLightFromUser(_id, lightName);
 }
 
-async function RemoveMlbTeamsFromWeb(_id, team){
+async function RemoveMlbTeamFromUser(_id, team){
     const user = await app().logIn(credentials());
-    return await user.functions.RemoveMlbTeamsFromWeb(_id, team);
+    return await user.functions.RemoveMlbTeamFromUser(_id, team);
 }
 
 async function GetDataFromToken(token){
@@ -56,4 +56,5 @@ async function GetTeamsInLeague(leagueName){
 }
 
 
-export { FlashTeamFromWeb, CreateUserFromWeb, AddLifxLightFromWeb, AddMlbTeamsFromWeb, RemoveLifxLightFromWeb, RemoveMlbTeamsFromWeb, GetDataFromToken, GetUserFromWeb, GetTeamsInLeague }
+
+export { FlashTeamFromWeb, CreateUserFromWeb, AddLifxLightFromWeb, AddMlbTeamFromWeb, RemoveLifxLightFromUser, RemoveMlbTeamFromUser, GetDataFromToken, GetUserFromWeb, GetTeamsInLeague }

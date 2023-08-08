@@ -10,27 +10,19 @@ import * as RealmWeb from "realm-web";
 
 function EditTeams() {
   const context = useContext(GlobalContext);
-  let searchResults = [];
-  // let searchResults = context.globalState.functionList.GetTeamsInLeague(
-  //   "Major League Baseball"
-  // );
-  const userTeams = JSON.parse(localStorage.getItem("userData")).data.data
-    .MlbTeams;
+  const userTeams = JSON.parse(localStorage.getItem("userData")).data.MlbTeams;
+  const [searchResults, setSearchResults] = useState([]);
 
-  // context.setGlobalState((prevState) => ({
-  //   ...prevState,
-  //   searchResults: context.globalState.functionList.GetTeamsInLeague(
-  //     "Major League Baseball"
-  //   ),
-  // }));
-
-  async function doButtonThing() {
-    console.log(
-      await context.globalState.functionList.GetTeamsInLeague(
-        "Major League Baseball"
-      )
+  async function loadSearchResults() {
+    const results = await context.globalState.functionList.GetTeamsInLeague(
+      "Major League Baseball"
     );
+    setSearchResults(results);
   }
+
+  useEffect(() => {
+    loadSearchResults();
+  }, []);
 
   return (
     <Layout id="editTeams">
@@ -43,14 +35,13 @@ function EditTeams() {
         </div>
       </div>
       <div className="editColTS">
-        <button onClick={doButtonThing}>button</button>
         <div>
           <p className="editColTSTitle">Your Teams</p>
           <Link to="/dashboard/editSports">editSports</Link>
         </div>
         <div className="editColContainer">
           {userTeams.map((filler, index) => (
-            <STEditCard key={index} name={filler}></STEditCard>
+            <STEditCard key={index} title={filler}></STEditCard>
           ))}
         </div>
       </div>

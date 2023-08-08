@@ -30,10 +30,13 @@ function App() {
 
   async function attemptToRedirect(token) {
     const credential = token.credential;
+    console.log(token);
     if (attemptToRedirectWithLocalStorage !== true) {
       const userData = await context.globalState.functionList.GetDataFromToken(
         credential
       );
+      console.log("break");
+      console.log(userData);
       if (userData) {
         localStorage.setItem("illumiScoreJWToken", credential);
         setUserDataLocalStorage(userData);
@@ -43,10 +46,14 @@ function App() {
   }
 
   async function attemptToRedirectWithLocalStorage() {
-    let browserLocalStorage = JSON.parse(localStorage.getItem("userData"))._id;
-    if (browserLocalStorage) {
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    if (userData == null) {
+      return;
+    }
+    const _id = userData.data._id;
+    if (_id) {
       const userData = await context.globalState.functionList.GetUserFromWeb(
-        browserLocalStorage
+        _id
       );
       if (userData) {
         setUserDataLocalStorage(userData);

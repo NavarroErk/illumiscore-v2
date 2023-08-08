@@ -12,6 +12,7 @@ import EditSports from './Pages/Edit Pages/Edit Sports and Teams/EditSports';
 import STEditPopup from './Components/Edit Components/Edit Sports and Teams Components/STEditColumn/STEditPopup';
 
 import * as functionList from "./mongoDBClient";
+import EditLights from './Pages/Edit Pages/Edit Lights/EditLights';
 
 
 
@@ -34,8 +35,8 @@ const router = createBrowserRouter([
     element: <EditTeams/>
   }, 
   {
-    path: "/dashboard/editSports", 
-    element: <EditSports/>
+    path: "/dashboard/editLights", 
+    element: <EditLights/>
   }, 
 ])
 
