@@ -27,7 +27,7 @@ function EditTeams() {
   return (
     <Layout id="editTeams">
       <div className="searchColTS">
-        <STSearchInput searchTitle="Teams"></STSearchInput>
+        {/* <STSearchInput searchTitle="Teams"></STSearchInput> */}
         <div id="searchColContainer">
           {searchResults.map((result, index) => (
             <STSearchCard key={index} name={result}></STSearchCard>

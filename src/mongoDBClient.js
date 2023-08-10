@@ -60,6 +60,10 @@ async function FlashLifxFromWeb(apiKey, lightId, color1, color2){
     return await user.functions.GetTeamsInLeague(apiKey, lightId, color1, color2);
 }
 
+async function ListLifxLights(apiKey){
+    const user = await app().logIn(credentials());
+    return await user.functions.ListLifxLights(apiKey);
+}
 
 
-export { FlashTeamFromWeb, CreateUserFromWeb, AddLifxLightFromWeb, AddMlbTeamFromWeb, RemoveLifxLightFromUser, RemoveMlbTeamFromUser, GetDataFromToken, GetUserFromWeb, GetTeamsInLeague, FlashLifxFromWeb }
+export { FlashTeamFromWeb, CreateUserFromWeb, AddLifxLightFromWeb, AddMlbTeamFromWeb, RemoveLifxLightFromUser, RemoveMlbTeamFromUser, GetDataFromToken, GetUserFromWeb, GetTeamsInLeague, FlashLifxFromWeb, ListLifxLights }

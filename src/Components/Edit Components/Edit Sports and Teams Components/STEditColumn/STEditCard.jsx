@@ -17,7 +17,7 @@ function STEditCard({
   const [showEditComponent, setShowEditComponent] = useState(false);
   const location = useLocation();
 
-  function checkLocation() {
+  function removeFromUser() {
     if (location.pathname === "/dashboard/editTeams") {
       console.log("/dashboard/editTeams");
       removeTeamFromUser();
@@ -84,7 +84,7 @@ function STEditCard({
           <button className="editCardEditBtn" onClick={editSTBtnClicked}>
             Edit
           </button>
-          <button className="editCardDeleteBtn" onClick={checkLocation}>
+          <button className="editCardDeleteBtn" onClick={removeFromUser}>
             Delete
           </button>
           {/* <button onClick={flashLifxFromWeb}>FLASH</button> */}
