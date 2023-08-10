@@ -28,6 +28,8 @@ body{
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: auto auto auto 2fr 1fr;
+    height: 100%;
+    width: 100%;
 }
 #homeContainer>section{
   border: 2px solid black;

@@ -55,6 +55,9 @@ function EditLights() {
       <div className="searchColTS">
         <div id="">
           <h1>Enter LIFX API Key</h1>
+          <a href="https://cloud.lifx.com/">Go To LIFX Cloud Website</a>
+          <br />
+          <br />
           <input
             className="lightInfoFormInput"
             type="text"

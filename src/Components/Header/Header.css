@@ -44,3 +44,12 @@
 .headerLink:hover{
     background-color: rgb(211, 167, 255);
 }
+
+#signOutBtn{
+    border: none;
+    background-color: transparent;
+}
+#signOutBtn:hover{
+    background-color: rgb(211, 167, 255);
+    cursor: pointer;
+}

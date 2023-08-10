@@ -94,7 +94,7 @@ function App() {
       </header>
 
       <main id="homeContainer">
-        <iframe
+        {/* <iframe
           className="homeItem"
           id="homeItem1"
           width="51.5%"
@@ -138,7 +138,7 @@ function App() {
               <NewPricingCard className="pricingCard" key={index} {...option} />
             ))}
           </div>
-        </section>
+        </section> */}
       </main>
     </>
   );
