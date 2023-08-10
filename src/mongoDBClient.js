@@ -47,7 +47,9 @@ async function GetDataFromToken(token){
 
 async function GetUserFromWeb(_id){
     const user = await app().logIn(credentials());
-    return await user.functions.GetUserFromWeb(_id);
+    const res = await user.functions.GetUserFromWeb(_id);
+    localStorage.setItem("userData", JSON.stringify(res));
+    return res;
 }
 
 async function GetTeamsInLeague(leagueName){

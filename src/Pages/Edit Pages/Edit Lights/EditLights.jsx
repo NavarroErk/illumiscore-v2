@@ -1,21 +1,22 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Layout from "../../../Components/Layout";
 import "../Edit Sports and Teams/EditSportsTeams.css";
 import STSearchCard from "../../../Components/Edit Components/Edit Sports and Teams Components/STSearchColumn/STSearchCard/STSearchCard";
-import STSearchInput from "../../../Components/Edit Components/Edit Sports and Teams Components/STSearchColumn/STSearchInput/STSearchInput";
 import STEditCard from "../../../Components/Edit Components/Edit Sports and Teams Components/STEditColumn/STEditCard";
 import { GlobalContext } from "../../..";
+import { GetUserFromWeb } from "../../../mongoDBClient";
 
 function EditLights() {
   const context = useContext(GlobalContext);
-  const userLights = JSON.parse(localStorage.getItem("userData")).data
-    .LifxLights;
   const [searchResults, setSearchResults] = useState();
+  const [lightDataState, setLightDataState] = useState(
+    JSON.parse(localStorage.getItem("userData")).data.LifxLights
+  );
   const [userInput, setUserInput] = useState({
     _id: JSON.parse(localStorage.getItem("userData")).data._id,
     apiKey: "",
   });
+  GetUserFromWeb(JSON.parse(localStorage.getItem("userData")).data._id);
 
   function textboxValueChange(e, inputText) {
     setUserInput((prevState) => ({
@@ -28,6 +29,7 @@ function EditLights() {
     const userLightData = await context.globalState.functionList.ListLifxLights(
       userInput.apiKey
     );
+    console.log("userLightData: " + JSON.stringify(userLightData));
 
     let userLightInfo;
 
@@ -38,30 +40,15 @@ function EditLights() {
           apiKey={userInput.apiKey}
           lightId={userLightInfo.id}
           name={userLightInfo.label}
+          setLightDataState={setLightDataState}
         ></STSearchCard>
       ));
     });
 
     setSearchResults(userLightInfo);
-  }
 
-  // async function submitLightInfo() {
-  //   if (userInput.apiKey.length > 3) {
-  //     await context.globalState.functionList.AddLifxLightFromWeb(
-  //       userInput._id,
-  //       userInput.lightName,
-  //       userInput.apiKey,
-  //       userInput.lightId
-  //     );
-  //     const userData = await context.globalState.functionList.GetUserFromWeb(
-  //       JSON.parse(localStorage.getItem("userData")).data._id
-  //     );
-  //     localStorage.setItem("userData", JSON.stringify(userData));
-  //     window.location.reload();
-  //   } else {
-  //     alert("Please enter values");
-  //   }
-  // }
+    console.log(Array.isArray(lightDataState));
+  }
 
   return (
     <Layout id="editLights">
@@ -85,13 +72,14 @@ function EditLights() {
           <p className="editColTSTitle">Your Lights</p>
         </div>
         <div className="editColContainer">
-          {userLights.map((light, index) => (
+          {lightDataState.map((light, index) => (
             <STEditCard
               key={index}
               title={light.lightName}
+              lightName={light.lightName}
               lightApiKey={light.ApiKey}
               lightId={light.LightIds}
-              lightName={light.LightName}
+              setLightDataState={setLightDataState}
             ></STEditCard>
           ))}
         </div>

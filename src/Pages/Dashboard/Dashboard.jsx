@@ -3,47 +3,16 @@ import { Link } from "react-router-dom";
 import Header from "../../Components/Header/Header";
 import "./Dashboard.css";
 import NewDashboardCard from "../../Components/Dashboard Components/NewDashboardCard";
-import { GlobalContext } from "../..";
+import { GetUserFromWeb } from "../../mongoDBClient";
 
 function Dashboard() {
-  const context = useContext(GlobalContext);
-  const handleRandomValueUpdate = () => {
-    const newRandomValue = 12345;
-    context.setGlobalState((prevState) => ({
-      ...prevState,
-      randomValue: newRandomValue,
-    }));
-    console.log(context.globalState.randomValue);
-  };
-  const teamData = [];
-
-  const lightData = [
-    // {
-    //     img: "https://illustoon.com/photo/5770.png"
-    // },
-    // {
-    //     img: "https://illustoon.com/photo/5770.png"
-    // },
-    // {
-    //     img: "https://illustoon.com/photo/5770.png"
-    // },
-    // {
-    //     img: "https://illustoon.com/photo/5770.png"
-    // },
-    // {
-    //     img: "https://illustoon.com/photo/5770.png"
-    // },
-    // {
-    //     img: "https://illustoon.com/photo/5770.png"
-    // },
-  ];
+  GetUserFromWeb(JSON.parse(localStorage.getItem("userData")).data._id);
 
   return (
     <>
       <Header />
       <main id="dashContainer">
         <section className="section1" id="banner">
-          <button onClick={handleRandomValueUpdate}>Update randomValue</button>
           <p id="bannerHeading">Banner</p>
           <div className="bannerContent">Upcoming Games</div>
           <div className="bannerContent">Active Games and Scores</div>
@@ -53,12 +22,10 @@ function Dashboard() {
           <NewDashboardCard
             title="Teams"
             route="/dashboard/editTeams"
-            tileData={teamData}
           ></NewDashboardCard>
           <NewDashboardCard
             title="Lights"
             route="/dashboard/editLights"
-            tileData={lightData}
           ></NewDashboardCard>
         </section>
       </main>

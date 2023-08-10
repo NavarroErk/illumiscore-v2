@@ -4,7 +4,14 @@ import "../STSearch.css";
 import { GlobalContext } from "../../../../..";
 import { useLocation } from "react-router-dom";
 
-function STSearchCard({ name, searchImg, lightId, apiKey }) {
+function STSearchCard({
+  name,
+  searchImg,
+  lightId,
+  apiKey,
+  setLightDataState,
+  setTeamDataState,
+}) {
   const context = useContext(GlobalContext);
   const location = useLocation();
   const _id = JSON.parse(localStorage.getItem("userData")).data._id;
@@ -16,8 +23,17 @@ function STSearchCard({ name, searchImg, lightId, apiKey }) {
       addLightToUser();
     }
   }
+
+  async function addTeamToUser() {
+    console.log("addTeamToUser has run");
+    await context.globalState.functionList.AddMlbTeamFromWeb(_id, name);
+
+    const userData = await context.globalState.functionList.GetUserFromWeb(_id);
+    localStorage.setItem("userData", JSON.stringify(userData));
+    setTeamDataState(userData.data.MlbTeams);
+  }
+
   async function addLightToUser() {
-    console.log(context.globalState.functionList);
     await context.globalState.functionList.AddLifxLightFromWeb(
       _id,
       name,
@@ -27,16 +43,7 @@ function STSearchCard({ name, searchImg, lightId, apiKey }) {
 
     const userData = await context.globalState.functionList.GetUserFromWeb(_id);
     localStorage.setItem("userData", JSON.stringify(userData));
-    window.location.reload();
-  }
-
-  async function addTeamToUser() {
-    console.log(context.globalState.functionList);
-    await context.globalState.functionList.AddMlbTeamFromWeb(_id, name);
-
-    const userData = await context.globalState.functionList.GetUserFromWeb(_id);
-    localStorage.setItem("userData", JSON.stringify(userData));
-    window.location.reload();
+    setLightDataState(userData.data.LifxLights);
   }
 
   return (

@@ -1,42 +1,26 @@
 import React, { useState, useContext } from "react";
 import { useLocation } from "react-router-dom";
-import STEditIcon from "./STEditIcon";
 import "./STEdit.css";
 import STEditPopup from "./STEditPopup";
 import { GlobalContext } from "../../../..";
 
 function STEditCard({
   title,
-  statement,
   editImg,
-  sport,
-  lightApiKey,
-  lightId,
   lightName,
+  setLightDataState,
+  setTeamDataState,
 }) {
   const [showEditComponent, setShowEditComponent] = useState(false);
   const location = useLocation();
 
   function removeFromUser() {
     if (location.pathname === "/dashboard/editTeams") {
-      console.log("/dashboard/editTeams");
       removeTeamFromUser();
     } else if (location.pathname === "/dashboard/editLights") {
       removeLightFromUser();
     }
   }
-
-  function editSTBtnClicked() {
-    setShowEditComponent(true);
-  }
-
-  function closeSTEditPopup() {
-    setShowEditComponent(false);
-  }
-
-  //   function deleteSTBtnClicked() {
-  //     fetch("endpoint to delete sport/team from profile")
-  //   }
 
   const context = useContext(GlobalContext);
   const _id = JSON.parse(localStorage.getItem("userData")).data._id;
@@ -45,7 +29,7 @@ function STEditCard({
 
     const userData = await context.globalState.functionList.GetUserFromWeb(_id);
     localStorage.setItem("userData", JSON.stringify(userData));
-    window.location.reload();
+    setTeamDataState(userData.data.MlbTeams);
   }
 
   async function removeLightFromUser() {
@@ -57,21 +41,16 @@ function STEditCard({
     console.log(lightName);
     const userData = await context.globalState.functionList.GetUserFromWeb(_id);
     localStorage.setItem("userData", JSON.stringify(userData));
-    window.location.reload();
+    setLightDataState(userData.data.LifxLights);
   }
 
-  // async function flashLifxFromWeb() {
-  //   var red = "red";
-  //   var blue = "blue";
-  //   console.log(lightApiKey);
-  //   console.log(lightId);
-  //   await context.globalState.functionList.FlashLifxFromWeb(
-  //     lightApiKey,
-  //     lightId,
-  //     red,
-  //     blue
-  //   );
-  // }
+  function editSTBtnClicked() {
+    setShowEditComponent(true);
+  }
+
+  function closeSTEditPopup() {
+    setShowEditComponent(false);
+  }
 
   return (
     <div className="editCard">

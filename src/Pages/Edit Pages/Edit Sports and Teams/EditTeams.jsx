@@ -6,12 +6,17 @@ import STSearchCard from "../../../Components/Edit Components/Edit Sports and Te
 import STSearchInput from "../../../Components/Edit Components/Edit Sports and Teams Components/STSearchColumn/STSearchInput/STSearchInput";
 import STEditCard from "../../../Components/Edit Components/Edit Sports and Teams Components/STEditColumn/STEditCard";
 import { GlobalContext } from "../../..";
-import * as RealmWeb from "realm-web";
+import { GetUserFromWeb } from "../../../mongoDBClient";
 
 function EditTeams() {
   const context = useContext(GlobalContext);
   const userTeams = JSON.parse(localStorage.getItem("userData")).data.MlbTeams;
   const [searchResults, setSearchResults] = useState([]);
+  const [teamDataState, setTeamDataState] = useState(
+    JSON.parse(localStorage.getItem("userData")).data.MlbTeams
+  );
+
+  GetUserFromWeb(JSON.parse(localStorage.getItem("userData")).data._id);
 
   async function loadSearchResults() {
     const results = await context.globalState.functionList.GetTeamsInLeague(
@@ -30,7 +35,11 @@ function EditTeams() {
         {/* <STSearchInput searchTitle="Teams"></STSearchInput> */}
         <div id="searchColContainer">
           {searchResults.map((result, index) => (
-            <STSearchCard key={index} name={result}></STSearchCard>
+            <STSearchCard
+              key={index}
+              name={result}
+              setTeamDataState={setTeamDataState}
+            ></STSearchCard>
           ))}
         </div>
       </div>
@@ -41,7 +50,11 @@ function EditTeams() {
         </div>
         <div className="editColContainer">
           {userTeams.map((filler, index) => (
-            <STEditCard key={index} title={filler}></STEditCard>
+            <STEditCard
+              key={index}
+              title={filler}
+              setTeamDataState={setTeamDataState}
+            ></STEditCard>
           ))}
         </div>
       </div>
