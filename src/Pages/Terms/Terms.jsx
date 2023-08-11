@@ -28,6 +28,44 @@ function Terms() {
         </p>
 
         <p className="termsPara">
+          <strong>3. Privacy and Data Security</strong>
+        </p>
+        <p className="termsPara">
+          Your privacy is of utmost importance to us. Any personal information 
+          you provide to us is treated with care and discretion. We employ 
+          security measures to protect your data from unauthorized access.
+        </p>
+
+        <p className="termsPara">
+          <strong>4. Usage Restrictions</strong>
+        </p>
+        <p className="termsPara">
+          You are prohibited from using the Website in any way that might 
+          cause harm to us or any third party. This includes, but is not limited
+          to, any form of hacking, scraping, or distribution of malware.
+        </p>
+
+        <p className="termsPara">
+          <strong>5. Intellectual Property</strong>
+        </p>
+        <p className="termsPara">
+          All content, design, graphics, and other intellectual property related
+          to the Website are owned by or licensed to Thompson SWE LLC and are 
+          protected under intellectual property laws. Unauthorized use or 
+          duplication of such materials is prohibited.
+        </p>
+
+        <p className="termsPara">
+          <strong>6. Disclaimers</strong>
+        </p>
+        <p className="termsPara">
+          The services provided by Illumiscore.com are on an "as-is" basis 
+          without any warranties. We cannot guarantee uninterrupted or error-free
+          services. The integration with LIFX lights and the AllSportsAPI might
+          face occasional disruptions.
+        </p>
+
+        <p className="termsPara">
           <strong>7. Changes to Terms</strong>
         </p>
         <p className="termsPara">
@@ -44,6 +82,15 @@ function Terms() {
           accordance with the laws of the State of Georgia. Any disputes arising
           under or in connection with these terms shall be subject to the
           exclusive jurisdiction of the courts in the State of Georgia.
+        </p>
+
+        <p className="termsPara">
+          <strong>9. Contact</strong>
+        </p>
+        <p className="termsPara">
+          For any queries or clarifications related to these terms or any other 
+          aspect of the Website, feel free to reach out to us at 
+          support@illumiscore.com.
         </p>
 
         <p className="termsPara">
