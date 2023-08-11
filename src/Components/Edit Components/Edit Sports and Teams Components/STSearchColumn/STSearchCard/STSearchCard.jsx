@@ -46,6 +46,17 @@ function STSearchCard({
     setLightDataState(userData.data.LifxLights);
   }
 
+  async function flashLifxFromWeb() {
+    console.log(apiKey);
+    console.log(lightId);
+    await context.globalState.functionList.FlashLifxFromWeb(
+      apiKey,
+      lightId,
+      "red",
+      "blue"
+    );
+  }
+
   return (
     <div id="searchCard">
       {/* <STSearchIcon searchImg={searchImg}></STSearchIcon> */}
@@ -54,13 +65,13 @@ function STSearchCard({
         {/* {sport && <p id="searchCardStatement">{sport}</p>}
         {statement && <p id="searchCardStatement">{statement}</p>} */}
         <div className="searchCardBtnContainer">
-          {/* {location.pathname === "/dashboard/editTeams" ? (
-            <button className="editCardFlashBtn" onClick={flashLifxFromWeb}>
+          {location.pathname === "/dashboard/editLights" ? (
+            <button className="searchCardFlashBtn" onClick={flashLifxFromWeb}>
               Flash
             </button>
           ) : (
             <div></div>
-          )} */}
+          )}
           <button className="searchCardAddBtn" onClick={addToUser}>
             +
           </button>

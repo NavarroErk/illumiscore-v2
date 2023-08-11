@@ -22,10 +22,10 @@
     margin: 0;
     font-size: 18px;
 }
-.editCardBtnGroup{
+.editCardBtnContainer{
     margin-top: 15px;
 }
-.editCardBtnGroup > button{
+.editCardBtnContainer > button{
     width: 100px;
     height: 30px;
     border-radius: 10px;

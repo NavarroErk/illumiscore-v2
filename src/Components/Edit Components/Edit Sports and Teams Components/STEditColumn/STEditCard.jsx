@@ -71,7 +71,7 @@ function STEditCard({
         <p className="editCardPara">{title}</p>
         {/* {sport && <p className="editCardStatement">{sport}</p>}
             {statement && <p className="editCardStatement">{statement}</p>} */}
-        <div className="editCardBtnGroup">
+        <div className="editCardBtnContainer">
           {/* <button className="editCardEditBtn" onClick={editSTBtnClicked}>
             Edit
           </button> */}

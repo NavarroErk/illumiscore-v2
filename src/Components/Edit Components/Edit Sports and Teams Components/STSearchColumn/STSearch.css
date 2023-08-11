@@ -50,6 +50,7 @@
     align-items: center;
     background-color: rgb(0, 0, 0);
     border-radius: 10px;
+    padding: 10px;
 }
 #searchCardDiv{
     width: 100%;
@@ -58,6 +59,7 @@
 }
 #searchCardPara{
     margin: 0;
+    margin-bottom: 10px;
     font-size: 24px;
     font-weight: bold;
 }
@@ -66,16 +68,20 @@
 .searchCardBtnContainer{
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
+}
+.searchCardBtnContainer > button{
+    height: 30px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 700;
 }
 .searchCardAddBtn{
     width: 30px;
     height: 30px;
     font-size: 24px;
     border-radius: 100%;
-    position: relative;
-    bottom: 5px;
-    right: 5px;
     background-color: rgb(0, 21, 255);
     color: white;
     border: none;
@@ -83,6 +89,21 @@
 .searchCardAddBtn:hover{
     background-color: rgb(53, 70, 254);
     cursor: pointer;
+}
+.searchCardFlashBtn{
+    background-color: rgb(0, 21, 255);
+    color: rgb(255, 255, 255);
+    margin-left: 20px;
+    border: none;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    position: relative;
+    right: 20px;
+
+}
+.searchCardFlashBtn:hover{
+    cursor: pointer;
+    background-color: rgb(46, 64, 255);
 }
 
 

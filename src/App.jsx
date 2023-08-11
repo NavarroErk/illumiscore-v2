@@ -81,9 +81,117 @@ function App() {
     },
   ];
   return (
-    <Layout>
-      <main id="homeContainer">
-        {/* <iframe
+    <Layout id="app">
+      <section className="heroSection">
+        <h1>Welcome to Illumiscore.com</h1>
+        <p>
+          Where sports meet magic, lighting up your game-day like never before!
+        </p>
+      </section>
+
+      <section className="featuresContainer">
+        <h2 id="featuresContainerHeader">Why Choose Illumiscore?</h2>
+        <div className="features">
+          <div id="syncFeature" className="feature">
+            {/* <h3>Real-time Synchronization</h3>
+            <p>
+              Feel every score! Watch your LIFX lights dance in real-time with
+              your favorite MLB teams’ performance.
+            </p> */}
+            <div className="featureContent">
+              <h3>Real-time Synchronization</h3>
+              <p>
+                Feel every score! Watch your LIFX lights dance in real-time with
+                your favorite MLB teams’ performance.
+              </p>
+            </div>
+          </div>
+          <div id="stadiumFeature" className="feature">
+            <h3>Stadium Experience</h3>
+            <p>
+              Experience the thrill of being in the stadium from the comfort of
+              your couch. Every run, every homer, every light show!
+            </p>
+          </div>
+          <div id="securityFeature" className="feature">
+            <h3>Secure & Reliable</h3>
+            <p>
+              Your data is safe with us. Enjoy a seamless, hassle-free
+              experience backed by our robust tech stack.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing">
+        <div className="pricingHeaderContainer">
+          <h2 id="pricingHeader">Pricing Plans</h2>
+          <p>Choose the perfect plan to light up your game day!</p>
+        </div>
+
+        <div className="pricingTable">
+          <div className="pricingCard">
+            <h3>Free Plan</h3>
+            <span className="price">$0</span>
+            <ul>
+              <li>1 Light</li>
+              <li>1 Team</li>
+            </ul>
+            <a href="#" className="btn">
+              Get Started
+            </a>
+          </div>
+
+          <div className="pricingCard">
+            <h3>Standard Plan</h3>
+            <span className="price">$5/mo</span>
+            <ul>
+              <li>Up to 50 Lights</li>
+              <li>Unlimited Teams</li>
+            </ul>
+            <a href="#" className="btn">
+              Upgrade
+            </a>
+          </div>
+
+          <div className="pricingCard">
+            <h3>Premium Plan</h3>
+            <span className="price">$10/mo</span>
+            <ul>
+              <li>Unlimited Lights</li>
+              <li>Unlimited Teams</li>
+            </ul>
+            <a href="#" className="btn">
+              Upgrade
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* <section className="testimonial">
+        <h2>What Our Users Say</h2>
+        <blockquote>
+          "Never thought watching a game at home could be this electrifying.
+          Illumiscore has truly changed my game-day experience. Highly
+          recommend!"
+          <cite>- Alex Rodriguez</cite>
+        </blockquote>
+      </section> */}
+
+      <section className="joinUs">
+        <h2>Ready to Light Up Your Game-Day?</h2>
+        <p>
+          Join the Illumiscore family and transform your sports-watching
+          experience forever.
+        </p>
+        <br />
+        <br />
+        {/* <a href="./" className="cta-button">
+          Join Now
+        </a> */}
+      </section>
+      {/* <main id="homeContainer">
+        <iframe
           className="homeItem"
           id="homeItem1"
           width="51.5%"
@@ -127,8 +235,8 @@ function App() {
               <NewPricingCard className="pricingCard" key={index} {...option} />
             ))}
           </div>
-        </section> */}
-      </main>
+        </section>
+      </main> */}
     </Layout>
   );
 }
