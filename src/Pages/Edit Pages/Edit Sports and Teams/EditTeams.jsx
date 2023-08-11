@@ -1,9 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import "./EditSportsTeams.css";
 import Layout from "../../../Components/Layout";
 import STSearchCard from "../../../Components/Edit Components/Edit Sports and Teams Components/STSearchColumn/STSearchCard/STSearchCard";
-import STSearchInput from "../../../Components/Edit Components/Edit Sports and Teams Components/STSearchColumn/STSearchInput/STSearchInput";
 import STEditCard from "../../../Components/Edit Components/Edit Sports and Teams Components/STEditColumn/STEditCard";
 import { GlobalContext } from "../../..";
 import { GetUserFromWeb } from "../../../mongoDBClient";
@@ -12,9 +10,7 @@ function EditTeams() {
   const context = useContext(GlobalContext);
   const userTeams = JSON.parse(localStorage.getItem("userData")).data.MlbTeams;
   const [searchResults, setSearchResults] = useState([]);
-  const [teamDataState, setTeamDataState] = useState(
-    JSON.parse(localStorage.getItem("userData")).data.MlbTeams
-  );
+  const [teamDataState, setTeamDataState] = useState();
 
   GetUserFromWeb(JSON.parse(localStorage.getItem("userData")).data._id);
 
@@ -34,6 +30,7 @@ function EditTeams() {
       <div className="searchColTS">
         {/* <STSearchInput searchTitle="Teams"></STSearchInput> */}
         <div id="searchColContainer">
+          <p>Click the + button to add teams to your account</p>
           {searchResults.map((result, index) => (
             <STSearchCard
               key={index}
@@ -46,7 +43,6 @@ function EditTeams() {
       <div className="editColTS">
         <div>
           <p className="editColTSTitle">Your Teams</p>
-          <Link to="/dashboard/editSports">editSports</Link>
         </div>
         <div className="editColContainer">
           {userTeams.map((filler, index) => (

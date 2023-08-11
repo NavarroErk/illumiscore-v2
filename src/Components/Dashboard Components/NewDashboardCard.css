@@ -2,8 +2,8 @@
     height: 300px;
     width: 400px;
     border: 2px solid black;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    display: flex;
+    flex-direction: row;
     grid-gap: 10px;
     justify-content: center;
     align-items: center;
@@ -11,14 +11,25 @@
     padding: 20px;
 }
 .dashCardContainer{
+    height: 300px;
+    width: 300px;
     display: flex;
     flex-direction: row;
     font-size: 24px;
     font-weight: bold;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     padding: 50px;
 }
 #dashCardTitle{
-    font-size: 48px;
+    font-size: 40px;
+    text-decoration: none;
+    color: white;
+    height: 300px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0f0f0f;
+    border-radius: 10px;
 }

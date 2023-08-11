@@ -1,16 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
-import { GlobalContext } from "../..";
 
 function Header() {
-  const context = useContext(GlobalContext);
   const navigate = useNavigate();
+  let userSignedIn = function () {
+    if (!localStorage.getItem("userData")) {
+      return false;
+    }
+    return true;
+  };
 
   function signOutClicked() {
     localStorage.removeItem("userData");
     localStorage.removeItem("illumiScoreJWToken");
-    navigate("/");
+    navigate("/signedOut");
   }
 
   return (
@@ -19,19 +23,29 @@ function Header() {
         ILLUMISCORE
       </Link>
       <nav id="headerNav">
-        <Link className="headerLink" to="/dashboard">
-          Home
-        </Link>
-        <Link className="headerLink" to="/about">
-          About
-        </Link>
-        <Link className="headerLink" to="/contact">
-          Contact
-        </Link>
-        <button onClick={signOutClicked} className="headerLink" id="signOutBtn">
-          Sign Out
-        </button>
-        <div id="googleSignOutBtn"></div>
+        {userSignedIn() ? (
+          <Link className="headerLink" to="/dashboard">
+            Dashboard
+          </Link>
+        ) : (
+          <div></div>
+        )}
+
+        {userSignedIn() ? (
+          <>
+            <button
+              onClick={signOutClicked}
+              className="headerLink"
+              id="signOutBtn"
+            >
+              Sign Out
+            </button>
+          </>
+        ) : (
+          <>
+            <div id="googleSignInBtn"></div>
+          </>
+        )}
       </nav>
     </header>
   );

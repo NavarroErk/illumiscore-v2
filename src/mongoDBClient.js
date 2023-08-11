@@ -59,7 +59,7 @@ async function GetTeamsInLeague(leagueName){
 
 async function FlashLifxFromWeb(apiKey, lightId, color1, color2){
     const user = await app().logIn(credentials());
-    return await user.functions.GetTeamsInLeague(apiKey, lightId, color1, color2);
+    return await user.functions.FlashLifxFromWeb(apiKey, lightId, color1, color2);
 }
 
 async function ListLifxLights(apiKey){

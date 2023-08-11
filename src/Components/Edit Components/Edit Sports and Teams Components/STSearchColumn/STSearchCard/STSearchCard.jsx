@@ -48,12 +48,19 @@ function STSearchCard({
 
   return (
     <div id="searchCard">
-      <STSearchIcon searchImg={searchImg}></STSearchIcon>
+      {/* <STSearchIcon searchImg={searchImg}></STSearchIcon> */}
       <div id="searchCardDiv">
         <p id="searchCardPara">{name}</p>
         {/* {sport && <p id="searchCardStatement">{sport}</p>}
         {statement && <p id="searchCardStatement">{statement}</p>} */}
         <div className="searchCardBtnContainer">
+          {/* {location.pathname === "/dashboard/editTeams" ? (
+            <button className="editCardFlashBtn" onClick={flashLifxFromWeb}>
+              Flash
+            </button>
+          ) : (
+            <div></div>
+          )} */}
           <button className="searchCardAddBtn" onClick={addToUser}>
             +
           </button>

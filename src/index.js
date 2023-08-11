@@ -8,13 +8,14 @@ import App from './App';
 import Dashboard from './Pages/Dashboard/Dashboard';
 
 import EditTeams from './Pages/Edit Pages/Edit Sports and Teams/EditTeams';
-import EditSports from './Pages/Edit Pages/Edit Sports and Teams/EditSports';
-import STEditPopup from './Components/Edit Components/Edit Sports and Teams Components/STEditColumn/STEditPopup';
 import About from "./Pages/About/About.jsx"
 import Contact from "./Pages/Contact/Contact.jsx"
+import Terms from './Pages/Terms/Terms';
+import SignedOut from './Pages/SignedOut/SignedOut';
 
 import * as functionList from "./mongoDBClient";
 import EditLights from './Pages/Edit Pages/Edit Lights/EditLights';
+import PrivacyPolicy from './Pages/PrivacyPolicy/PrivacyPolicy';
 
 
 
@@ -48,12 +49,26 @@ const router = createBrowserRouter([
     path: "/dashboard/editLights", 
     element: <EditLights/>
   }, 
+  {
+    path: "/privacyPolicy", 
+    element: <PrivacyPolicy/>
+  }, 
+  {
+    path: "/terms", 
+    element: <Terms/>
+  },
+  {
+    path: "/signedOut", 
+    element: <SignedOut/>
+  }
 ])
 
 
+
+
 const RootComponent = () => {
-  const [globalState, setGlobalState] = useState({
-    userData:{}, 
+
+  const [globalState, setGlobalState] = useState({ 
     functionList
   })
   return(

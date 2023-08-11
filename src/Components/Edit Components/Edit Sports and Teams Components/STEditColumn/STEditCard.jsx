@@ -8,6 +8,8 @@ function STEditCard({
   title,
   editImg,
   lightName,
+  apiKey,
+  lightId,
   setLightDataState,
   setTeamDataState,
 }) {
@@ -51,6 +53,16 @@ function STEditCard({
   function closeSTEditPopup() {
     setShowEditComponent(false);
   }
+  async function flashLifxFromWeb() {
+    console.log(apiKey);
+    console.log(lightId);
+    await context.globalState.functionList.FlashLifxFromWeb(
+      apiKey,
+      lightId,
+      "red",
+      "blue"
+    );
+  }
 
   return (
     <div className="editCard">
@@ -60,13 +72,20 @@ function STEditCard({
         {/* {sport && <p className="editCardStatement">{sport}</p>}
             {statement && <p className="editCardStatement">{statement}</p>} */}
         <div className="editCardBtnGroup">
-          <button className="editCardEditBtn" onClick={editSTBtnClicked}>
+          {/* <button className="editCardEditBtn" onClick={editSTBtnClicked}>
             Edit
-          </button>
+          </button> */}
+          {location.pathname === "/dashboard/editLights" ? (
+            <button className="editCardFlashBtn" onClick={flashLifxFromWeb}>
+              Flash
+            </button>
+          ) : (
+            <div></div>
+          )}
+
           <button className="editCardDeleteBtn" onClick={removeFromUser}>
             Delete
           </button>
-          {/* <button onClick={flashLifxFromWeb}>FLASH</button> */}
         </div>
       </div>
       {showEditComponent && (

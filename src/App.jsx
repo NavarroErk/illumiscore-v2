@@ -6,7 +6,8 @@ import * as RealmWeb from "realm-web";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from ".";
-// import { FlashTeamFromWeb } from "./mongoDBClient";
+import Footer from "./Components/Footer/Footer";
+import Layout from "./Components/Layout";
 
 function App() {
   const context = useContext(GlobalContext);
@@ -24,19 +25,16 @@ function App() {
     google.accounts.id.renderButton(
       document.querySelector("#googleSignInBtn"),
       // theme and size of button
-      { theme: "outline", size: "medium" }
+      { theme: "outline", size: "large" }
     );
   }, []);
 
   async function attemptToRedirect(token) {
     const credential = token.credential;
-    console.log(token);
     if (attemptToRedirectWithLocalStorage !== true) {
       const userData = await context.globalState.functionList.GetDataFromToken(
         credential
       );
-      console.log("break");
-      console.log(userData);
       if (userData) {
         localStorage.setItem("illumiScoreJWToken", credential);
         setUserDataLocalStorage(userData);
@@ -57,7 +55,7 @@ function App() {
       );
       if (userData) {
         setUserDataLocalStorage(userData);
-        navigate("./dashboard");
+        // navigate("./dashboard");
         return true;
       }
     }
@@ -83,16 +81,7 @@ function App() {
     },
   ];
   return (
-    <>
-      <header id="homeHeader">
-        <nav id="homeNav">
-          <div id="homeNavBrandDiv">
-            <p id="homeNavBrand">ILLUMISCORE</p>
-            <div id="googleSignInBtn"></div>
-          </div>
-        </nav>
-      </header>
-
+    <Layout>
       <main id="homeContainer">
         {/* <iframe
           className="homeItem"
@@ -140,7 +129,7 @@ function App() {
           </div>
         </section> */}
       </main>
-    </>
+    </Layout>
   );
 }
 

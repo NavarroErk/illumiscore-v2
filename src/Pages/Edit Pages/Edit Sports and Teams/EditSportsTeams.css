@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 5px solid black;
+    border-right: 5px solid black;
 }
 #searchColContainer{
     display: flex;
@@ -74,7 +74,6 @@
     flex-direction: column;
     justify-content:space-evenly;
     align-items: center;
-    border: 5px solid black;
 }
 .editColTSTitle{
   margin: 0;

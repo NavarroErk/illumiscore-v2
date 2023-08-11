@@ -5,6 +5,7 @@
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: auto;
     border-bottom: 3px solid black;
+    background-color: black;
     /* z-index: 1; */
     /* position: absolute; */
 }
@@ -17,7 +18,7 @@
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    color: black;
+    color: white;
     font-size: 28px;
     font-weight: bold;
 }
@@ -25,16 +26,17 @@
     grid-column-start: 5;
     grid-column-end: 8;
     display: flex;
-    justify-content:space-around;
+    justify-content:end;
     align-items: center;
 }
 .headerLink{
     text-decoration: none;
     font-size: 22px;
     font-weight: bold;
-    color: black;
-    width: 100%;
-    height: 80%;
+    color: white;
+    /* border: 2px solid white; */
+    width: 130px;
+    height: 55px;
     margin-right: 10px;
     display: flex;
     justify-content: center;
@@ -42,14 +44,19 @@
     transition: background-color 0.5s ease-in-out;
 }
 .headerLink:hover{
-    background-color: rgb(211, 167, 255);
+    background-color: rgb(31, 31, 31);
+}
+#googleSignInBtn{
+    margin-right: 40px;
+    margin-left: 40px;
 }
 
 #signOutBtn{
     border: none;
     background-color: transparent;
+    margin-left: 8px;
 }
 #signOutBtn:hover{
-    background-color: rgb(211, 167, 255);
+    background-color: rgb(31, 31, 31);
     cursor: pointer;
 }

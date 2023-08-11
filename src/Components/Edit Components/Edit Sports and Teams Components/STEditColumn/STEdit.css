@@ -5,10 +5,8 @@
     height: 200px;
     flex-direction: row;
     justify-content: space-around;
-    border: 1px solid #000;
     border-radius: 10px;
-    border: 2px solid purple;
-    background-color: white;
+    background-color: rgb(0, 0, 0);
 }
 .editCardDiv{
     width: 100%;
@@ -37,24 +35,40 @@
 .editCardEditBtn{
     background-color: rgb(74, 156, 255);
     color: rgb(0, 26, 255);
+    border: none;
+    letter-spacing: 1px;
 }
-.editCardDeleteBtn{
-    background-color: rgb(180, 0, 0);
-    color: rgb(255, 165, 180);
-    margin-left: 20px;
-}
-
 .editCardEditBtn:hover{
     cursor: pointer;
     background-color: rgb(19, 125, 255);
     color: rgb(0, 16, 163);
 } 
-
+.editCardDeleteBtn{
+    background-color: rgb(180, 0, 0);
+    color: rgb(255, 255, 255);
+    margin-left: 20px;
+    border: none;
+    letter-spacing: 1px;
+}
 .editCardDeleteBtn:hover{
     cursor: pointer;
     background-color: rgb(116, 0, 0);
-    color: rgb(255, 255, 255);
 }
+.editCardFlashBtn{
+    background-color: rgb(0, 21, 255);
+    color: rgb(255, 255, 255);
+    margin-left: 20px;
+    border: none;
+    letter-spacing: 1px;
+}
+.editCardFlashBtn:hover{
+    cursor: pointer;
+    background-color: rgb(46, 64, 255);
+}
+
+
+
+
 
 
 
