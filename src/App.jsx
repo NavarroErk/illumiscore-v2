@@ -98,33 +98,43 @@ function App() {
         <h2 id="featuresContainerHeader">Why Choose Illumiscore?</h2>
         <div className="features">
           <div id="syncFeature" className="feature">
-            <div className="featureContent">
+            <div id="syncFeatureImg" className="featureContent">
               <h3>Real-time Synchronization</h3>
-              <p>
+            </div>
+            <div className="featureParaDiv">
+              <p className="featurePara">
                 Feel every score! Watch your LIFX lights dance in real-time with
                 your favorite MLB teams’ performance.
               </p>
             </div>
           </div>
           <div id="stadiumFeature" className="feature">
-            <h3>Stadium Experience</h3>
-            <p>
-              Experience the thrill of being in the stadium from the comfort of
-              your couch. Every run, every homer, every light show!
-            </p>
+            <div className="featureParaDiv">
+              <p className="featurePara">
+                Experience the thrill of being in the stadium from the comfort
+                of your couch. Every run, every homer, every light show!
+              </p>
+            </div>
+            <div id="stadiumFeatureImg" className="featureContent">
+              <h3>Stadium Experience</h3>
+            </div>
           </div>
           <div id="securityFeature" className="feature">
-            <h3>Secure & Reliable</h3>
-            <p>
-              Your data is safe with us. Enjoy a seamless, hassle-free
-              experience backed by our robust tech stack.
-            </p>
+            <div id="securityFeatureImg" className="featureContent">
+              <h3>Secure & Reliable</h3>
+            </div>
+            <div className="featureParaDiv">
+              <p className="featurePara">
+                Your data is safe with us. Enjoy a seamless, hassle-free
+                experience backed by our robust tech stack.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Pricing table section */}
-      <div className="pricingTable">
+      <section className="pricingTable">
         <NewPricingCard
           planName="Free Plan"
           price="$0"
@@ -146,7 +156,7 @@ function App() {
           onClick={() => handlePlanClick(10)} // price for Premium Plan
           linkText="Upgrade"
         />
-      </div>
+      </section>
 
       {/* Conditionally render the PayPal button if a paid plan is selected */}
       {showPayPalButton && (

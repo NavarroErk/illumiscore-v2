@@ -7,18 +7,19 @@
 
   
 .pricingCard {
-  padding: 20px;
+  /* padding: 50px; */
   width: 20px;
   transition: transform 0.3s;
   color: white;
   margin: 30px;
+  margin-bottom: 50px;
   flex-grow: 1;
   display: block;
-  padding: 30px 20px;
+  /* padding: 30px 20px; */
   text-decoration: none;
   overflow: hidden;
   position: relative;
-  border-radius: 5%;
+  border-radius: 10px;
   background-color: black;
 }
  .pricingCard:hover{
@@ -45,37 +46,43 @@
  .pricingCardLink{
   height: 50px;
   width: 120px;
-  background-color: rgb(0, 21, 255);
+  /* background-color: rgb(0, 17, 209); */
+  background-color: #0080ff;
   text-decoration: none;
   color: #efefef;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  transition: all .5s ease;
+  transition: all .2s ease;
  }
  .pricingCardLink:hover{
   cursor: pointer;
+  background-color: rgb(50, 68, 255);
  }
-  .pricingCard:hover,
+ .pricingCardLink:active{
+  background-color: rgb(0, 11, 136);
+ }
+
   .pricingCard:hover .pricingCardContent .pricingCardLink {
-    text-decoration: none;
-    color: #FFF;
-    background-color: black;
+    /* background-color: black; */
+    /* border: 2px solid white; */
     color: #efefef;
   }
   .pricingCard:hover .pricingCardBg   {
-    transform: scale(10);
+    transform: scale(250%);
   }
   .pricingCardTitle {
-    /* min-height: 87px; */
-    /* margin: 0 0 25px; */
     overflow: hidden;
     font-weight: bold;
     font-size: 30px;
-    color: #FFF;
     z-index: 2;
-    position: relative;
+    position: absolute;
+    transition: font-size .5s ease;
+    margin-left: 30px;
+  }
+  .pricingCard:hover .pricingCardTitle{
+    font-size: 36px;
   }
   .pricingCardPrice{
     font-size: 18px;
@@ -91,8 +98,65 @@
     font-weight: bold;
     color: #f9b234;
     transition: color .5s ease;
-    margin: 10px;
+    margin-left: 30px;
+    margin-top: 90px;
   }
-.pricingCardFeature{
-  color: #efefef;
+  .price{
+  }
+
+  .pricingCardFeature{
+    transition: color .5s ease;
+  }
+  .pricingCard:hover .pricingCardFeature{
+    color: #efefef;
+}
+
+.pricingCard:hover {
+  transform: translateY(-10px);
+}
+
+.price {
+  font-size: 24px;
+  color: #ffffff;
+  margin-top: 10px;
+}
+
+.pricingCard ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.pricingCard li {
+  margin: 15px 0;
+}
+
+/* .btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #007BFF;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+} */
+
+.testimonial {
+  background-color: black;
+  padding: 30px 50px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+}
+
+blockquote {
+  font-size: 20px;
+  font-style: italic;
+}
+
+cite {
+  display: block;
+  margin-top: 20px;
 }

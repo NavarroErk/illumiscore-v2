@@ -50,7 +50,7 @@
   
   #banner {
     /* flex: 1; Take remaining vertical space */
-    background-color: rgb(241, 154, 154);
+    background-color: white;
     padding: 20px;
     display: flex;
     flex-direction: column;
