@@ -5,17 +5,20 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 import App from './App';
-import Dashboard from './Pages/Dashboard/Dashboard';
 
+import Dashboard from './Pages/Dashboard/Dashboard';
 import EditTeams from './Pages/Edit Pages/Edit Sports and Teams/EditTeams';
+import EditLights from './Pages/Edit Pages/Edit Lights/EditLights';
 import About from "./Pages/About/About.jsx"
 import Contact from "./Pages/Contact/Contact.jsx"
 import Terms from './Pages/Terms/Terms';
 import SignedOut from './Pages/SignedOut/SignedOut';
+import Payment from './Pages/Payment/Payment';
+import PrivacyPolicy from './Pages/PrivacyPolicy/PrivacyPolicy';
 
 import * as functionList from "./mongoDBClient";
-import EditLights from './Pages/Edit Pages/Edit Lights/EditLights';
-import PrivacyPolicy from './Pages/PrivacyPolicy/PrivacyPolicy';
+
+
 
 
 
@@ -60,6 +63,10 @@ const router = createBrowserRouter([
   {
     path: "/signedOut", 
     element: <SignedOut/>
+  }, 
+  {
+    path: "/payment", 
+    element: <Payment/>
   }
 ])
 

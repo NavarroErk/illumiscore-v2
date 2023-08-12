@@ -5,6 +5,7 @@
     bottom: 0;
     background-color: black;
     display: flex;
+    z-index: 1000;
 }
 .footerLink{
     color: white;

@@ -148,13 +148,6 @@ body{
   
 }
 
-.pricingCard {
-  /* border: 1px solid #ddd; */
-  padding: 20px;
-  width: 20px;
-  transition: transform 0.3s;
-  color: white;
-}
 
 .pricingCard:hover {
   transform: translateY(-10px);

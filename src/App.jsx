@@ -66,20 +66,10 @@ function App() {
     localStorage.setItem("userData", JSON.stringify(userData));
   }
 
-  const pricingOptions = [
-    {
-      planName: "Basic",
-      price: "$9.99",
-      features: ["Feature 1", "Feature 2", "Feature 3"],
-      route: "/buybasic",
-    },
-    {
-      planName: "Pro",
-      price: "$19.99",
-      features: ["Feature 1", "Feature 2", "Feature 3"],
-      route: "/buypro",
-    },
-  ];
+  function paymentCardClicked() {
+    navigate("/payment");
+  }
+
   return (
     <Layout id="app">
       <section className="heroSection">
@@ -130,53 +120,40 @@ function App() {
         </div>
 
         <div className="pricingTable">
-          <div className="pricingCard">
+          {/* <div className="pricingCard">
             <h3>Free Plan</h3>
             <span className="price">$0</span>
             <ul>
               <li>1 Light</li>
               <li>1 Team</li>
             </ul>
-            <a href="#" className="btn">
+            <Link to="/payment" className="btn">
               Get Started
-            </a>
-          </div>
-
-          <div className="pricingCard">
-            <h3>Standard Plan</h3>
-            <span className="price">$5/mo</span>
-            <ul>
-              <li>Up to 50 Lights</li>
-              <li>Unlimited Teams</li>
-            </ul>
-            <a href="#" className="btn">
-              Upgrade
-            </a>
-          </div>
-
-          <div className="pricingCard">
-            <h3>Premium Plan</h3>
-            <span className="price">$10/mo</span>
-            <ul>
-              <li>Unlimited Lights</li>
-              <li>Unlimited Teams</li>
-            </ul>
-            <a href="#" className="btn">
-              Upgrade
-            </a>
-          </div>
+            </Link>
+          </div> */}
+          <NewPricingCard
+            planName="Free Plan"
+            price="$0"
+            features={["1 Light", "1 Team"]}
+            route="/payment"
+            linkText="Get Started"
+          ></NewPricingCard>
+          <NewPricingCard
+            planName="Standard Plan"
+            price="$5"
+            features={["Up to 50 Lights", "Unlimited Teams"]}
+            route="/payment"
+            linkText="Upgrade"
+          ></NewPricingCard>
+          <NewPricingCard
+            planName="Premium Plan"
+            price="$10"
+            features={["Unlimited", "Unlimited Teams"]}
+            route="/payment"
+            linkText="Upgrade"
+          ></NewPricingCard>
         </div>
       </section>
-
-      {/* <section className="testimonial">
-        <h2>What Our Users Say</h2>
-        <blockquote>
-          "Never thought watching a game at home could be this electrifying.
-          Illumiscore has truly changed my game-day experience. Highly
-          recommend!"
-          <cite>- Alex Rodriguez</cite>
-        </blockquote>
-      </section> */}
 
       <section className="joinUs">
         <h2>Ready to Light Up Your Game-Day?</h2>
@@ -186,9 +163,6 @@ function App() {
         </p>
         <br />
         <br />
-        {/* <a href="./" className="cta-button">
-          Join Now
-        </a> */}
       </section>
       {/* <main id="homeContainer">
         <iframe

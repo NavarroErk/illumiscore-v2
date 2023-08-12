@@ -67,5 +67,14 @@ async function ListLifxLights(apiKey){
     return await user.functions.ListLifxLights(apiKey);
 }
 
+async function CaptureOrder(_id, orderId){
+    const user = await app().logIn(credentials());
+    return await user.functions.CaptureOrder(_id, orderId);
+} 
+async function CreateOrder(cart){
+    const user = await app().logIn(credentials());
+    return await user.functions.CreateOrder(cart);
+} 
 
-export { FlashTeamFromWeb, CreateUserFromWeb, AddLifxLightFromWeb, AddMlbTeamFromWeb, RemoveLifxLightFromUser, RemoveMlbTeamFromUser, GetDataFromToken, GetUserFromWeb, GetTeamsInLeague, FlashLifxFromWeb, ListLifxLights }
+
+export { FlashTeamFromWeb, CreateUserFromWeb, AddLifxLightFromWeb, AddMlbTeamFromWeb, RemoveLifxLightFromUser, RemoveMlbTeamFromUser, GetDataFromToken, GetUserFromWeb, GetTeamsInLeague, FlashLifxFromWeb, ListLifxLights, CaptureOrder, CreateOrder }

@@ -80,7 +80,6 @@ function EditLights() {
           />
           <button onClick={addApiKeyClicked}>SUBMIT</button>
         </div>
-
         <div id="searchColContainer"> {searchResults} </div>
       </div>
       <div className="editColTS">
