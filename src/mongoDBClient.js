@@ -75,6 +75,10 @@ async function CreateOrder(cart){
     const user = await app().logIn(credentials());
     return await user.functions.CreateOrder(cart);
 } 
+async function CaptureSubscription(subscriptionId, _id){
+    const user = await app().logIn(credentials());
+    return await user.functions.CaptureSubscription(subscriptionId, _id);
+} 
 
 
-export { FlashTeamFromWeb, CreateUserFromWeb, AddLifxLightFromWeb, AddMlbTeamFromWeb, RemoveLifxLightFromUser, RemoveMlbTeamFromUser, GetDataFromToken, GetUserFromWeb, GetTeamsInLeague, FlashLifxFromWeb, ListLifxLights, CaptureOrder, CreateOrder }
+export { FlashTeamFromWeb, CreateUserFromWeb, AddLifxLightFromWeb, AddMlbTeamFromWeb, RemoveLifxLightFromUser, RemoveMlbTeamFromUser, GetDataFromToken, GetUserFromWeb, GetTeamsInLeague, FlashLifxFromWeb, ListLifxLights, CaptureOrder, CreateOrder, CaptureSubscription }

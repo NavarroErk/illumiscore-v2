@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { GlobalContext } from ".";
 import Layout from "./Components/Layout";
 import PayPalBtn from "./Components/PayPalBtn/PayPalBtn";
+import PayPalSubBtn from "./Components/PayPalBtn/PayPalSubBtn";
 
 function App() {
   // Accessing global state using context
@@ -164,7 +165,7 @@ function App() {
           <div className="selected-price">
             Selected Plan Price: ${selectedPlanPrice}
           </div>
-          <PayPalBtn price={selectedPlanPrice} />
+          <PayPalSubBtn price={selectedPlanPrice} />
         </>
       )}
 
