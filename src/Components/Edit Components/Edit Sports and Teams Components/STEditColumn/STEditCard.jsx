@@ -30,7 +30,6 @@ function STEditCard({
     await context.globalState.functionList.RemoveMlbTeamFromUser(_id, title);
 
     const userData = await context.globalState.functionList.GetUserFromWeb(_id);
-    localStorage.setItem("userData", JSON.stringify(userData));
     setTeamDataState(userData.data.MlbTeams);
   }
 
@@ -42,7 +41,6 @@ function STEditCard({
 
     console.log(lightName);
     const userData = await context.globalState.functionList.GetUserFromWeb(_id);
-    localStorage.setItem("userData", JSON.stringify(userData));
     setLightDataState(userData.data.LifxLights);
   }
 

@@ -15,12 +15,12 @@ function NewPricingCard({ planName, price, features, onClick, linkText }) {
           ))}
         </ul>
         <div className="pricingCardLinkContainer">
-          <div 
+          <div
             className="pricingCardLink"
             onClick={(e) => {
-              e.preventDefault();  // This prevents the default navigation behavior
+              e.preventDefault(); // This prevents the default navigation behavior
               if (onClick) {
-                onClick();  // Calling the passed onClick function
+                onClick(); // Calling the passed onClick function
               }
             }}
           >

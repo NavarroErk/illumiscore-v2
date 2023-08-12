@@ -54,11 +54,14 @@
   border-radius: 10px;
   transition: all .5s ease;
  }
+ .pricingCardLink:hover{
+  cursor: pointer;
+ }
   .pricingCard:hover,
   .pricingCard:hover .pricingCardContent .pricingCardLink {
     text-decoration: none;
     color: #FFF;
-        background-color: black;
+    background-color: black;
     color: #efefef;
   }
   .pricingCard:hover .pricingCardBg   {
@@ -90,6 +93,6 @@
     transition: color .5s ease;
     margin: 10px;
   }
-.pricingCardFeature:hover{
+.pricingCardFeature{
   color: #efefef;
 }

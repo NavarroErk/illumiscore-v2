@@ -19,10 +19,8 @@ function App() {
 
   const [showPayPalButton, setShowPayPalButton] = useState(false);
 
-
   // Side effect to check for redirection and initialize Google account sign in
   useEffect(() => {
-    attemptToRedirectWithLocalStorage();
     /* global google */
     google.accounts.id.initialize({
       client_id:
@@ -47,7 +45,7 @@ function App() {
       );
       if (userData) {
         localStorage.setItem("illumiScoreJWToken", credential);
-        setUserDataLocalStorage(userData);
+        localStorage.setItem("userData", JSON.stringify(userData));
         navigate("./dashboard");
       }
     }
@@ -65,7 +63,6 @@ function App() {
         _id
       );
       if (userData) {
-        setUserDataLocalStorage(userData);
         return true;
       }
     }
@@ -73,9 +70,6 @@ function App() {
   }
 
   // Set user data to local storage
-  function setUserDataLocalStorage(userData) {
-    localStorage.setItem("userData", JSON.stringify(userData));
-  }
 
   // Handler for when a plan is clicked
   function handlePlanClick(price) {
@@ -83,12 +77,11 @@ function App() {
 
     // Toggle the visibility of the PayPal button
     if (price !== 0) {
-        setShowPayPalButton(!showPayPalButton);
+      setShowPayPalButton(!showPayPalButton);
     } else {
-        setShowPayPalButton(false); // Hide the PayPal button for the Free Plan
+      setShowPayPalButton(false); // Hide the PayPal button for the Free Plan
     }
-}
-
+  }
 
   return (
     <Layout id="app">
@@ -157,15 +150,13 @@ function App() {
 
       {/* Conditionally render the PayPal button if a paid plan is selected */}
       {showPayPalButton && (
-    <>
-        <div className="selected-price">
+        <>
+          <div className="selected-price">
             Selected Plan Price: ${selectedPlanPrice}
-        </div>
-        <PayPalBtn price={selectedPlanPrice} />
-    </>
-)}
-
-
+          </div>
+          <PayPalBtn price={selectedPlanPrice} />
+        </>
+      )}
 
       {/* Call to action section */}
       <section className="joinUs">

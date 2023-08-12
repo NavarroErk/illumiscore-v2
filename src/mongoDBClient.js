@@ -67,9 +67,9 @@ async function ListLifxLights(apiKey){
     return await user.functions.ListLifxLights(apiKey);
 }
 
-async function CaptureOrder(_id, orderId){
+async function CaptureOrder(_id, orderId, selectedPlan){
     const user = await app().logIn(credentials());
-    return await user.functions.CaptureOrder(_id, orderId);
+    return await user.functions.CaptureOrder(_id, orderId, selectedPlan);
 } 
 async function CreateOrder(cart){
     const user = await app().logIn(credentials());

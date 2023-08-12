@@ -29,7 +29,6 @@ function STSearchCard({
     await context.globalState.functionList.AddMlbTeamFromWeb(_id, name);
 
     const userData = await context.globalState.functionList.GetUserFromWeb(_id);
-    localStorage.setItem("userData", JSON.stringify(userData));
     setTeamDataState(userData.data.MlbTeams);
   }
 
@@ -42,7 +41,6 @@ function STSearchCard({
     );
 
     const userData = await context.globalState.functionList.GetUserFromWeb(_id);
-    localStorage.setItem("userData", JSON.stringify(userData));
     setLightDataState(userData.data.LifxLights);
   }
 

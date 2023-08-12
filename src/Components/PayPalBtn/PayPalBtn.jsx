@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../..";
 
-const PayPalBtn = ({ selectedPlan }) => { // Take selectedPlan as a prop
+const PayPalBtn = ({ selectedPlan }) => {
+  // Take selectedPlan as a prop
   const context = useContext(GlobalContext);
   const userData = localStorage.getItem("userData");
   const _id = JSON.parse(userData).data._id;
@@ -24,8 +25,8 @@ const PayPalBtn = ({ selectedPlan }) => { // Take selectedPlan as a prop
                 quantity: "YOUR_PRODUCT_QUANTITY",
                 unit_amount: {
                   currency_code: "USD",
-                  value: selectedPlan // Use the price here
-                }
+                  value: selectedPlan, // Use the price here
+                },
               },
             ],
           };
@@ -44,7 +45,8 @@ const PayPalBtn = ({ selectedPlan }) => { // Take selectedPlan as a prop
             const responseData =
               await context.globalState.functionList.CaptureOrder(
                 data.orderID,
-                _id
+                _id,
+                selectedPlan
               );
             if (responseData && responseData.success) {
               alert(responseData.message);
