@@ -1,98 +1,27 @@
-body{
-  height: calc(100% - 150px)
-}
-/*
-#homeHeader{
-  height: 100px;
-  width: 100%;
-  background-color: black;
+body {
+  height: calc(100% - 150px);
+  font-family: Arial, sans-serif;  /* Added a general font for better readability */
 }
 
-#homeNav{
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-#homeNavBrand{
-  margin: 0;
-  padding: 0;
-  font-size: 32px;
-  font-weight: bold;
-}
-
-#homeContainer{
-  background-color: #151b54;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: auto auto auto 2fr 1fr;
-    height: 100%;
-    width: 100%;
-}
-#homeContainer>section{
-  border: 2px solid black;
-}
-.homeItem{
-  padding: 20px;
-  background-color: white;
-  border-radius: 1%;
-}
-#homeItem1{
-  margin-top: 100px;
-  width: 50vw;
-  grid-row: 1;
-  grid-column-start: 4;
-  grid-column-end: 7;
-  text-align: center;
-}
-#homeItem2{
-  grid-row: 2;
-  grid-column-start: 1;
-  grid-column-end: 4;
-  position: relative;
-  bottom: 150px;
-  left: 150px;
-  height: 250px;
-}
-#homeItem3{
-  grid-row: 3;
-  grid-column-start: 5;
-  grid-column-end: 8;
-  position: relative;
-  bottom: 50px;
-  right: 250px;
-  height: 250px;
-}
-#homeItem4{
-  grid-row: 4;
-  grid-column-start: 2;
-  grid-column-end: 7;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-} */
-
-#app{
+#app {
   overflow-y: scroll;
 }
-.heroSection{
+
+.heroSection {
   text-align: center;
 }
 
-.featuresContainer{
+.featuresContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-#featuresContainerHeader{
+
+#featuresContainerHeader {
   margin-top: 50px;
   margin-bottom: -20px;
 }
+
 .features {
   margin-top: 50px;
   display: flex;
@@ -104,50 +33,44 @@ body{
   text-align: center;
   margin: 10px;
   padding: 20px;
-  /* background-color: black; */
   border-radius: 8px;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
-  background-color: rgba(0, 0, 0, 0.7)
+  background-color: rgba(0, 0, 0, 0.7);
 }
-.featureContent{
+
+.featureContent {
   background-color: rgba(0, 0, 0, 1);
 }
+
 .feature img {
   max-width: 100px;
   margin-bottom: 20px;
   border: 2px solid white;
-} 
-#syncFeature{
-  background-image: url("https://images.pexels.com/photos/296322/pexels-photo-296322.jpeg");
-  background-size:cover;
-}
-#stadiumFeature{
-  background-image: url("https://images.pexels.com/photos/269948/pexels-photo-269948.jpeg");
-  background-size: cover;
-}
-#securityFeature{
-  background-image: url("https://images.pexels.com/photos/3941855/pexels-photo-3941855.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
-  background-size: cover;
 }
 
-#pricing {
-  text-align: center;
-  padding: 50px 0;
-  /* background-color: rgb(21, 21, 21); */
-  background-color: transparent;
+#syncFeature {
+  background-image: url("https://images.pexels.com/photos/296322/pexels-photo-296322.jpeg");
+  background-size: cover;
+  height: 300px;
 }
-.pricingHeaderContainer{
-  margin-top: 30px;
-  margin-bottom: -40px;
+
+#stadiumFeature {
+  background-image: url("https://images.pexels.com/photos/269948/pexels-photo-269948.jpeg");
+  background-size: cover;
+  height: 300px;
+}
+
+#securityFeature {
+  background-image: url("https://images.pexels.com/photos/3941855/pexels-photo-3941855.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-size: cover;
+  height: 300px;
 }
 
 .pricingTable {
   display: flex;
   justify-content: space-around;
   margin-top: 40px;
-  
 }
-
 
 .pricingCard:hover {
   transform: translateY(-10px);
@@ -167,6 +90,7 @@ body{
 .pricingCard li {
   margin: 15px 0;
 }
+
 .btn {
   display: inline-block;
   margin-top: 20px;
@@ -178,7 +102,6 @@ body{
   text-decoration: none;
   transition: background-color 0.3s;
 }
-
 
 .testimonial {
   background-color: black;
@@ -200,13 +123,22 @@ cite {
 }
 
 .joinUs {
-  /* margin-top: 50px; */
   text-align: center;
   padding: 40px;
   background-color: #3498db;
   color: #ffffff;
   border-radius: 8px;
 }
-.joinUs > p{
+
+.joinUs > p {
   padding-bottom: 20px;
 }
+
+.selected-price {
+  font-size: 24px; /* Slightly increased the size for better visibility */
+  margin: 20px 0; /* Increased margin for better spacing */
+  font-weight: bold;
+  color: #333;   /* Adjusted the color for better visibility */
+  text-align: center;  /* Centered the text */
+}
+

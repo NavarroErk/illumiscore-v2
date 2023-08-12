@@ -1,18 +1,26 @@
-import React, { useContext, useEffect } from "react";
+// Required dependencies and components
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./App.css";
 import NewPricingCard from "./Components/New Pricing Card/NewPricingCard";
 import * as RealmWeb from "realm-web";
-import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from ".";
-import Footer from "./Components/Footer/Footer";
 import Layout from "./Components/Layout";
+import PayPalBtn from "./Components/PayPalBtn/PayPalBtn";
 
 function App() {
+  // Accessing global state using context
   const context = useContext(GlobalContext);
   const navigate = useNavigate();
 
+  // State to store the selected plan price
+  const [selectedPlanPrice, setSelectedPlanPrice] = useState(null);
+
+  const [showPayPalButton, setShowPayPalButton] = useState(false);
+
+
+  // Side effect to check for redirection and initialize Google account sign in
   useEffect(() => {
     attemptToRedirectWithLocalStorage();
     /* global google */
@@ -22,13 +30,15 @@ function App() {
       callback: attemptToRedirect,
     });
 
+    // Render the Google sign-in button
     google.accounts.id.renderButton(
       document.querySelector("#googleSignInBtn"),
-      // theme and size of button
+      // Specify theme and size of the button
       { theme: "outline", size: "large" }
     );
   }, []);
 
+  // Try redirecting after sign-in
   async function attemptToRedirect(token) {
     const credential = token.credential;
     if (attemptToRedirectWithLocalStorage !== true) {
@@ -43,6 +53,7 @@ function App() {
     }
   }
 
+  // Check if user data is present in local storage and attempt redirection
   async function attemptToRedirectWithLocalStorage() {
     const userData = JSON.parse(localStorage.getItem("userData"));
     if (userData == null) {
@@ -55,23 +66,33 @@ function App() {
       );
       if (userData) {
         setUserDataLocalStorage(userData);
-        // navigate("./dashboard");
         return true;
       }
     }
     return null;
   }
 
+  // Set user data to local storage
   function setUserDataLocalStorage(userData) {
     localStorage.setItem("userData", JSON.stringify(userData));
   }
 
-  function paymentCardClicked() {
-    navigate("/payment");
-  }
+  // Handler for when a plan is clicked
+  function handlePlanClick(price) {
+    setSelectedPlanPrice(price);
+
+    // Toggle the visibility of the PayPal button
+    if (price !== 0) {
+        setShowPayPalButton(!showPayPalButton);
+    } else {
+        setShowPayPalButton(false); // Hide the PayPal button for the Free Plan
+    }
+}
+
 
   return (
     <Layout id="app">
+      {/* Hero section */}
       <section className="heroSection">
         <h1>Welcome to Illumiscore.com</h1>
         <p>
@@ -79,15 +100,11 @@ function App() {
         </p>
       </section>
 
+      {/* Features section */}
       <section className="featuresContainer">
         <h2 id="featuresContainerHeader">Why Choose Illumiscore?</h2>
         <div className="features">
           <div id="syncFeature" className="feature">
-            {/* <h3>Real-time Synchronization</h3>
-            <p>
-              Feel every score! Watch your LIFX lights dance in real-time with
-              your favorite MLB teams’ performance.
-            </p> */}
             <div className="featureContent">
               <h3>Real-time Synchronization</h3>
               <p>
@@ -113,48 +130,44 @@ function App() {
         </div>
       </section>
 
-      <section id="pricing">
-        <div className="pricingHeaderContainer">
-          <h2 id="pricingHeader">Pricing Plans</h2>
-          <p>Choose the perfect plan to light up your game day!</p>
-        </div>
+      {/* Pricing table section */}
+      <div className="pricingTable">
+        <NewPricingCard
+          planName="Free Plan"
+          price="$0"
+          features={["1 Light", "1 Team"]}
+          onClick={() => handlePlanClick(0)} // price for Free Plan
+          linkText="Get Started"
+        />
+        <NewPricingCard
+          planName="Standard Plan"
+          price="$5"
+          features={["Up to 50 Lights", "Unlimited Teams"]}
+          onClick={() => handlePlanClick(5)} // price for Standard Plan
+          linkText="Upgrade"
+        />
+        <NewPricingCard
+          planName="Premium Plan"
+          price="$10"
+          features={["Unlimited", "Unlimited Teams"]}
+          onClick={() => handlePlanClick(10)} // price for Premium Plan
+          linkText="Upgrade"
+        />
+      </div>
 
-        <div className="pricingTable">
-          {/* <div className="pricingCard">
-            <h3>Free Plan</h3>
-            <span className="price">$0</span>
-            <ul>
-              <li>1 Light</li>
-              <li>1 Team</li>
-            </ul>
-            <Link to="/payment" className="btn">
-              Get Started
-            </Link>
-          </div> */}
-          <NewPricingCard
-            planName="Free Plan"
-            price="$0"
-            features={["1 Light", "1 Team"]}
-            route="/payment"
-            linkText="Get Started"
-          ></NewPricingCard>
-          <NewPricingCard
-            planName="Standard Plan"
-            price="$5"
-            features={["Up to 50 Lights", "Unlimited Teams"]}
-            route="/payment"
-            linkText="Upgrade"
-          ></NewPricingCard>
-          <NewPricingCard
-            planName="Premium Plan"
-            price="$10"
-            features={["Unlimited", "Unlimited Teams"]}
-            route="/payment"
-            linkText="Upgrade"
-          ></NewPricingCard>
+      {/* Conditionally render the PayPal button if a paid plan is selected */}
+      {showPayPalButton && (
+    <>
+        <div className="selected-price">
+            Selected Plan Price: ${selectedPlanPrice}
         </div>
-      </section>
+        <PayPalBtn price={selectedPlanPrice} />
+    </>
+)}
 
+
+
+      {/* Call to action section */}
       <section className="joinUs">
         <h2>Ready to Light Up Your Game-Day?</h2>
         <p>
@@ -164,53 +177,6 @@ function App() {
         <br />
         <br />
       </section>
-      {/* <main id="homeContainer">
-        <iframe
-          className="homeItem"
-          id="homeItem1"
-          width="51.5%"
-          height="500px"
-          src="https://www.youtube.com/embed/8WaTd3z8sHE"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-        ></iframe>
-
-        <section className="homeItem" id="homeItem2">
-          <h1>Clever Headline Goes Here</h1>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui sequi
-            pariatur et quidem labore ut vel provident praesentium reprehenderit
-            facere corporis corrupti, itaque.
-          </p>
-          <Link to="/dashboard">Sign In</Link>
-        </section>
-        <section className="features homeItem" id="homeItem3">
-          <h2>Features?</h2>
-          <ul>
-            <li>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Quisquam, ratione?
-            </li>
-            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</li>
-            <li>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
-              laborum provident quisquam facilis numquam!
-            </li>
-          </ul>
-        </section>
-
-        <section className="pricing homeItem" id="homeItem4">
-          <h2>
-            Pricing <br />
-          </h2>
-          <div id="pricingDiv">
-            {pricingOptions.map((option, index) => (
-              <NewPricingCard className="pricingCard" key={index} {...option} />
-            ))}
-          </div>
-        </section>
-      </main> */}
     </Layout>
   );
 }

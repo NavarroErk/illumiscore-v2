@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../..";
 
-const PayPalBtn = () => {
+const PayPalBtn = ({ selectedPlan }) => { // Take selectedPlan as a prop
   const context = useContext(GlobalContext);
   const userData = localStorage.getItem("userData");
   const _id = JSON.parse(userData).data._id;
@@ -12,6 +12,8 @@ const PayPalBtn = () => {
       return;
     }
 
+    if (selectedPlan === 0) return; // No operation for Free Plan
+
     window.paypal
       .Buttons({
         async createOrder() {
@@ -20,6 +22,10 @@ const PayPalBtn = () => {
               {
                 sku: "YOUR_PRODUCT_STOCK_KEEPING_UNIT",
                 quantity: "YOUR_PRODUCT_QUANTITY",
+                unit_amount: {
+                  currency_code: "USD",
+                  value: selectedPlan // Use the price here
+                }
               },
             ],
           };
@@ -51,7 +57,7 @@ const PayPalBtn = () => {
         },
       })
       .render("#paypal-button-container");
-  }, []);
+  }, [selectedPlan]); // add selectedPlan as a dependency
 
   return <div id="paypal-button-container"></div>;
 };

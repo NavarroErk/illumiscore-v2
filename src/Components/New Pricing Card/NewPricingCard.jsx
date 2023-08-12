@@ -1,9 +1,7 @@
 import React from "react";
 import "./NewPricingCard.css";
-import { Link, useNavigate } from "react-router-dom";
 
-function NewPricingCard({ planName, price, features, route, linkText }) {
-  const navigateToPayment = useNavigate("/payment");
+function NewPricingCard({ planName, price, features, onClick, linkText }) {
   return (
     <div className="pricingCard">
       <h2 className="pricingCardTitle">{planName}</h2>
@@ -17,9 +15,17 @@ function NewPricingCard({ planName, price, features, route, linkText }) {
           ))}
         </ul>
         <div className="pricingCardLinkContainer">
-          <Link className="pricingCardLink" to="/payment">
+          <div 
+            className="pricingCardLink"
+            onClick={(e) => {
+              e.preventDefault();  // This prevents the default navigation behavior
+              if (onClick) {
+                onClick();  // Calling the passed onClick function
+              }
+            }}
+          >
             {linkText}
-          </Link>
+          </div>
         </div>
       </div>
       <div className="pricingCardBg"></div>
