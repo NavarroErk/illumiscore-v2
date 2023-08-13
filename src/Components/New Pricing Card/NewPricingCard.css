@@ -3,12 +3,15 @@
     width: 100%;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 
   
 .pricingCard {
   /* padding: 50px; */
-  width: 20px;
+  width: 300px;
+  /* border: 2px solid white; */
   transition: transform 0.3s;
   color: white;
   margin: 30px;
@@ -20,7 +23,11 @@
   overflow: hidden;
   position: relative;
   border-radius: 10px;
-  background-color: black;
+  background-color: #171717;
+  border: 2px solid #626262;
+
+  /* background-color: #0080ff; */
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
 }
  .pricingCard:hover{
   /* cursor: pointer; */
@@ -28,7 +35,8 @@
    .pricingCardBg {
     height: 128px;
     width: 128px;
-    background-color: #af6f00;
+    /* background-color: #af6f00; */
+    background-color: #ff9900;
     z-index: 1;
     position: absolute;
     top: -75px;
@@ -46,8 +54,8 @@
  .pricingCardLink{
   height: 50px;
   width: 120px;
-  /* background-color: rgb(0, 17, 209); */
-  background-color: #0080ff;
+  background-color: rgb(0, 17, 209);
+  background-color: #641788;
   text-decoration: none;
   color: #efefef;
   display: flex;
@@ -58,10 +66,12 @@
  }
  .pricingCardLink:hover{
   cursor: pointer;
-  background-color: rgb(50, 68, 255);
+  background-color: #0080ff;
+  background-color: #9235bd;
  }
  .pricingCardLink:active{
   background-color: rgb(0, 11, 136);
+  background-color: #41075c;
  }
 
   .pricingCard:hover .pricingCardContent .pricingCardLink {
@@ -79,6 +89,7 @@
     z-index: 2;
     position: absolute;
     transition: font-size .5s ease;
+    margin-top: 50px;
     margin-left: 30px;
   }
   .pricingCard:hover .pricingCardTitle{
@@ -92,14 +103,15 @@
   }
   
   .pricingCardContent {
-    font-size: 18px;
+    font-size: 20px;
     z-index: 2;
     position: relative;
     font-weight: bold;
-    color: #f9b234;
+    /* color: #f9b234; */
+    color: #ff9900;
     transition: color .5s ease;
     margin-left: 30px;
-    margin-top: 90px;
+    margin-top: 100px;
   }
   .price{
   }
@@ -160,3 +172,4 @@ cite {
   display: block;
   margin-top: 20px;
 }
+

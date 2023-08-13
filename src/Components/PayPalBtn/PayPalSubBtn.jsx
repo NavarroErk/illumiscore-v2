@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { GlobalContext } from "../..";
 
-const PayPalSubBtn = ({ selectedPlan }) => {
+const PayPalSubBtn = ({ selectedPlan, planId }) => {
   const context = useContext(GlobalContext);
   const userData = localStorage.getItem("userData");
 
@@ -27,31 +27,39 @@ const PayPalSubBtn = ({ selectedPlan }) => {
     }
 
     // Render PayPal Button
-    window.paypal.Buttons({
-      async createSubscription(data, actions) {
-        console.log("Attempting to create subscription with data:", data);
-        return actions.subscription.create({
-          'plan_id': "P-0B3312413S344771CMTLSR5I", 
-        });
-      },
+    window.paypal
+      .Buttons({
+        async createSubscription(data, actions) {
+          console.log("Attempting to create subscription with data:", data);
+          return actions.subscription.create({
+            plan_id: planId,
+          });
+        },
 
-      async onApprove(data) {
-        console.log("Approval received with data:", data);
-        try {
-          const responseData = await context.globalState.functionList.CaptureSubscription(data.subscriptionID, _id);
-          if (responseData && responseData.success) {
-            console.log("Subscription response data:", responseData);
-            alert(data.subscriptionID);
-          } else {
-            console.error("Failed to complete subscription. Response data:", responseData);
+        async onApprove(data) {
+          console.log("Approval received with data:", data);
+          try {
+            const responseData =
+              await context.globalState.functionList.CaptureSubscription(
+                data.subscriptionID,
+                _id
+              );
+            if (responseData && responseData.success) {
+              console.log("Subscription response data:", responseData);
+              alert(data.subscriptionID);
+            } else {
+              console.error(
+                "Failed to complete subscription. Response data:",
+                responseData
+              );
+            }
+          } catch (error) {
+            console.error("Error approving subscription:", error);
           }
-        } catch (error) {
-          console.error("Error approving subscription:", error);
-        }
-      }
-    }).render("#paypal-button-container");
+        },
+      })
+      .render("#paypal-button-container");
     console.log("PayPal button rendered.");
-
   }, [selectedPlan, context.globalState.functionList, _id]);
 
   return <div id="paypal-button-container"></div>;

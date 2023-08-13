@@ -17,6 +17,7 @@ function App() {
 
   // State to store the selected plan price
   const [selectedPlanPrice, setSelectedPlanPrice] = useState(null);
+  const [planId, setPlanId] = useState(null);
 
   const [showPayPalButton, setShowPayPalButton] = useState(false);
 
@@ -73,8 +74,9 @@ function App() {
   // Set user data to local storage
 
   // Handler for when a plan is clicked
-  function handlePlanClick(price) {
+  function handlePlanClick(price, planId) {
     setSelectedPlanPrice(price);
+    setPlanId(planId);
 
     // Toggle the visibility of the PayPal button
     if (price !== 0) {
@@ -99,8 +101,12 @@ function App() {
         <h2 id="featuresContainerHeader">Why Choose Illumiscore?</h2>
         <div className="features">
           <div id="syncFeature" className="feature">
-            <div id="syncFeatureImg" className="featureContent">
-              <h3>Real-time Synchronization</h3>
+            <div className="featureImgPlatform">
+              <div id="syncFeatureImg" className="featureContent">
+                <h3 id="syncFeatureHeader" className="featureHeader">
+                  Real-time Synchronization
+                </h3>
+              </div>
             </div>
             <div className="featureParaDiv">
               <p className="featurePara">
@@ -116,13 +122,21 @@ function App() {
                 of your couch. Every run, every homer, every light show!
               </p>
             </div>
-            <div id="stadiumFeatureImg" className="featureContent">
-              <h3>Stadium Experience</h3>
+            <div className="featureImgPlatform">
+              <div id="stadiumFeatureImg" className="featureContent">
+                <h3 id="stadiumFeatureHeader" className="featureHeader">
+                  Stadium Experience
+                </h3>
+              </div>
             </div>
           </div>
           <div id="securityFeature" className="feature">
-            <div id="securityFeatureImg" className="featureContent">
-              <h3>Secure & Reliable</h3>
+            <div className="featureImgPlatform">
+              <div id="securityFeatureImg" className="featureContent">
+                <h3 id="securityFeatureHeader" className="featureHeader">
+                  Secure & Reliable
+                </h3>
+              </div>
             </div>
             <div className="featureParaDiv">
               <p className="featurePara">
@@ -137,24 +151,24 @@ function App() {
       {/* Pricing table section */}
       <section className="pricingTable">
         <NewPricingCard
-          planName="Free Plan"
-          price="$0"
+          planName="Basic Plan"
+          price="Free"
           features={["1 Light", "1 Team"]}
           onClick={() => handlePlanClick(0)} // price for Free Plan
           linkText="Get Started"
         />
         <NewPricingCard
           planName="Standard Plan"
-          price="$5"
+          price="$5 / month"
           features={["Up to 50 Lights", "Unlimited Teams"]}
-          onClick={() => handlePlanClick(5)} // price for Standard Plan
+          onClick={() => handlePlanClick(5, "P-0B3312413S344771CMTLSR5I")} // price for Standard Plan
           linkText="Upgrade"
         />
         <NewPricingCard
           planName="Premium Plan"
-          price="$10"
+          price="$10 / month"
           features={["Unlimited", "Unlimited Teams"]}
-          onClick={() => handlePlanClick(10)} // price for Premium Plan
+          onClick={() => handlePlanClick(10, "P-8YJ70211W29776809MTLSWOY")} // price for Premium Plan
           linkText="Upgrade"
         />
       </section>
@@ -165,7 +179,7 @@ function App() {
           <div className="selected-price">
             Selected Plan Price: ${selectedPlanPrice}
           </div>
-          <PayPalSubBtn price={selectedPlanPrice} />
+          <PayPalSubBtn planId={planId} price={selectedPlanPrice} />
         </>
       )}
 

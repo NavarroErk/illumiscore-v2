@@ -5,6 +5,10 @@ body {
 
 #app {
   overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
 }
 
 .heroSection {
@@ -15,6 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* border: 2px solid white; */
 }
 
 #featuresContainerHeader {
@@ -27,7 +32,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 2px solid purple;
+  /* border: 2px solid purple; */
 }
 
 .feature {
@@ -40,44 +45,64 @@ body {
   /* background-color: rgba(0, 0, 0, 0.7); */
   display: flex;
   flex-direction: row;
-  border: 2px solid yellow;
+  justify-content: space-between;
+  /* border: 2px solid yellow; */
 }
 
 .featureContent {
   /* background-color: rgba(0, 0, 0, 1); */
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center;
+  align-items: center; */
+}
+.featureHeader{
+  /* width: 50%; */
+  /* background-color: rgba(0, 0, 0, 0.7); */
+  /* border-radius: 10px; */
+  /* font-size: 28px; */
+}
+#syncFeatureHeader{
+  font-size: 2vw;
+  position: relative;
+  left: 20px;
+  top: 40px;
+}
+.featureImgPlatform{
+  height: 300px;
+  width: 100%;
+  background-color: rgba(#147abd, 0.2);
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin: 0 10px 0 10px;
+  /* border: 2px solid #626262; */
 }
 
 #syncFeature, #stadiumFeature, #securityFeature {
-  height: 300px;
+  /* height: 90%; */
 }
 #syncFeatureImg, #stadiumFeatureImg, #securityFeatureImg{
   border-radius: 10px;
+  border: 1px solid rgb(154, 154, 154);
 }
 #syncFeatureImg{
   background-image: url("https://images.pexels.com/photos/296322/pexels-photo-296322.jpeg");
   background-size: cover;
-  background-position: center bottom;
+  background-position: center 90%;
 }
-.featureParaDiv{
-  border: 2px solid white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f9b234;
-}
-.featurePara{
-  font-size: 24px;
-  color: black;
-}
+
 
 #stadiumFeature {
 }
 #stadiumFeatureImg{
     background-image: url("https://images.pexels.com/photos/269948/pexels-photo-269948.jpeg");
   background-size: cover;
-  background-position: center bottom;
+  background-position: center 60%;
 }
 
 #securityFeature {
@@ -85,14 +110,33 @@ body {
 #securityFeatureImg{
     background-image: url("https://images.pexels.com/photos/3941855/pexels-photo-3941855.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
   background-size: cover;
-  background-position: center;
+  background-position: center 40%;
+}
+.featureParaDiv{
+  width: 80%;
+  /* border: 2px solid rgb(255, 0, 0); */
+  /* border-radius: 10px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #171717; */
+  padding: 50px;
+  margin: 0 10px 0 10px;
+}
+.featurePara{
+  background-color: #641788;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 24px;
+  height: 100%;
 }
 
 .pricingTable {
+  width: 80%;
   display: flex;
   justify-content: space-around;
   margin-top: 40px;
-  position: relative;
+  margin-bottom: 20px;
 }
 
 .selected-price {
@@ -105,14 +149,20 @@ body {
 
 
 .joinUs {
+  width: 100%;
   text-align: center;
   padding: 40px;
-  background-color: #3498db;
+  background-color: #147abd;
   color: #ffffff;
   border-radius: 8px;
   position: relative;
 }
 
+.joinUs > h2{
+  font-size: 48px;
+}
+
 .joinUs > p {
-  padding-bottom: 20px;
+  padding-bottom: 40px;
+  font-size: 24px;
 }

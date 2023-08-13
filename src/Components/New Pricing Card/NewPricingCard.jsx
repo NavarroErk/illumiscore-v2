@@ -6,7 +6,7 @@ function NewPricingCard({ planName, price, features, onClick, linkText }) {
     <div className="pricingCard">
       <h2 className="pricingCardTitle">{planName}</h2>
       <div className="pricingCardContent">
-        <p className="price">{price} / month</p>
+        <p className="price">{price}</p>
         <ul>
           {features.map((feature, index) => (
             <li className="pricingCardFeature" key={index}>
