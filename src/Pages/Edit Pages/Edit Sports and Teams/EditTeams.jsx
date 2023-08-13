@@ -45,10 +45,12 @@ function EditTeams() {
           <p className="editColTSTitle">Your Teams</p>
         </div>
         <div className="editColContainer">
-          {userTeams.map((filler, index) => (
+          {userTeams.map((teamObj, index) => (
             <STEditCard
               key={index}
-              title={filler}
+              title={teamObj.teamName}
+              teamColor1={teamObj.color1}
+              teamColor2={teamObj.color2}
               setTeamDataState={setTeamDataState}
             ></STEditCard>
           ))}

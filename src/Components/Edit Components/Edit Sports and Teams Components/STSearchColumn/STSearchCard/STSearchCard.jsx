@@ -29,6 +29,8 @@ function STSearchCard({
     await context.globalState.functionList.AddMlbTeamFromWeb(_id, name);
 
     const userData = await context.globalState.functionList.GetUserFromWeb(_id);
+
+    //! maybe add MlbTeams.teamName?
     setTeamDataState(userData.data.MlbTeams);
   }
 

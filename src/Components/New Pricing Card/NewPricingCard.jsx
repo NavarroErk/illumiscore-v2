@@ -28,7 +28,7 @@ function NewPricingCard({ planName, price, features, onClick, linkText }) {
           </div>
         </div>
       </div>
-      <div className="pricingCardBg"></div>
+      {/* <div className="pricingCardBg"></div> */}
     </div>
   );
 }

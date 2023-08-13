@@ -12,6 +12,8 @@ function STEditCard({
   lightId,
   setLightDataState,
   setTeamDataState,
+  teamColor1,
+  teamColor2,
 }) {
   const [showEditComponent, setShowEditComponent] = useState(false);
   const location = useLocation();

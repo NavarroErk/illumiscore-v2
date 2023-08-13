@@ -106,29 +106,22 @@ function App() {
                 <h3 id="syncFeatureHeader" className="featureHeader">
                   Real-time Synchronization
                 </h3>
+                <p className="featurePara">
+                  Feel every score! Watch your LIFX lights dance in real-time
+                  with your favorite MLB teams’ performance.
+                </p>
               </div>
             </div>
-            <div className="featureParaDiv">
-              <p className="featurePara">
-                Feel every score! Watch your LIFX lights dance in real-time with
-                your favorite MLB teams’ performance.
-              </p>
-            </div>
+            {/* <div className="featureParaDiv"></div> */}
           </div>
           <div id="stadiumFeature" className="feature">
-            <div className="featureParaDiv">
-              <p className="featurePara">
-                Experience the thrill of being in the stadium from the comfort
-                of your couch. Every run, every homer, every light show!
-              </p>
-            </div>
-            <div className="featureImgPlatform">
-              <div id="stadiumFeatureImg" className="featureContent">
-                <h3 id="stadiumFeatureHeader" className="featureHeader">
-                  Stadium Experience
-                </h3>
-              </div>
-            </div>
+            <h3 id="stadiumFeatureHeader" className="featureHeader">
+              Stadium Experience
+            </h3>
+            <p id="stadiumFeaturePara" className="featurePara">
+              Experience the thrill of being in the stadium from the comfort of
+              your couch. Every run, every homer, every light show!
+            </p>
           </div>
           <div id="securityFeature" className="feature">
             <div className="featureImgPlatform">
@@ -136,14 +129,13 @@ function App() {
                 <h3 id="securityFeatureHeader" className="featureHeader">
                   Secure & Reliable
                 </h3>
+                <p className="featurePara">
+                  Your data is safe with us. Enjoy a seamless, hassle-free
+                  experience backed by our robust tech stack.
+                </p>
               </div>
             </div>
-            <div className="featureParaDiv">
-              <p className="featurePara">
-                Your data is safe with us. Enjoy a seamless, hassle-free
-                experience backed by our robust tech stack.
-              </p>
-            </div>
+            {/* <div className="featureParaDiv"></div> */}
           </div>
         </div>
       </section>

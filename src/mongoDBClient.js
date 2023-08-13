@@ -10,10 +10,6 @@ function credentials(){
     return RealmWeb.Credentials.apiKey(apiKey);
 }
 
-async function FlashTeamFromWeb(teamName){
-    const user = await app().logIn(credentials());
-    return await user.functions.FlashTeamFromWeb(teamName);
-}
 
 async function CreateUserFromWeb(_id){
     const user = await app().logIn(credentials());
@@ -81,4 +77,4 @@ async function CaptureSubscription(subscriptionId, _id){
 } 
 
 
-export { FlashTeamFromWeb, CreateUserFromWeb, AddLifxLightFromWeb, AddMlbTeamFromWeb, RemoveLifxLightFromUser, RemoveMlbTeamFromUser, GetDataFromToken, GetUserFromWeb, GetTeamsInLeague, FlashLifxFromWeb, ListLifxLights, CaptureOrder, CreateOrder, CaptureSubscription }
+export { CreateUserFromWeb, AddLifxLightFromWeb, AddMlbTeamFromWeb, RemoveLifxLightFromUser, RemoveMlbTeamFromUser, GetDataFromToken, GetUserFromWeb, GetTeamsInLeague, FlashLifxFromWeb, ListLifxLights, CaptureOrder, CreateOrder, CaptureSubscription }

@@ -18,31 +18,44 @@ function Dashboard() {
     });
   });
 
+  // const mlbCookieBanner = document.getElementById("onetrust-banner-sdk");
+  // setTimeout(() => {
+  //   if (mlbCookieBanner) {
+  //     mlbCookieBanner.remove();
+  //   } else {
+  //     alert("FUCK YOU");
+  //   }
+  // }, 1000);
+
   return (
     <Layout id="dashboard">
       <div id="dashContainer">
-        <section className="section1" id="banner">
-          <p id="bannerHeading">Welcome to Your Dashboard</p>
-          <div className="bannerContent">
-            Manage Your Upcoming Games, Active Games, and More!
+        {/* <section id="googleSportsViewSection">
+          <iframe
+            title="googleSportsView"
+            id="googleSportsView"
+            src="http://mlb.com/scores"
+            frameborder="0"
+          ></iframe>
+        </section> */}
+        <section>
+          <div className="section1" id="banner">
+            <p id="bannerHeading">Welcome to Your Dashboard</p>
+            <div className="bannerContent">
+              Manage Your Upcoming Games, Active Games, and More!
+            </div>
+          </div>
+          <div className="section2" id="dashContent">
+            <NewDashboardCard
+              title="Manage Your Teams"
+              route="/dashboard/editTeams"
+            />
+            <NewDashboardCard
+              title="Manage Your Lights"
+              route="/dashboard/editLights"
+            />
           </div>
         </section>
-        <section className="section2" id="dashContent">
-          <NewDashboardCard
-            title="Manage Your Teams"
-            route="/dashboard/editTeams"
-          />
-          <NewDashboardCard
-            title="Manage Your Lights"
-            route="/dashboard/editLights"
-          />
-        </section>
-        <iframe
-          title="googleSportsView"
-          id="googleSportsView"
-          src="https://www.google.com/search?q=mlb+game&sca_esv=556231409&rlz=1C1GCEA_enUS1054US1054&sxsrf=AB5stBiPNr1SB3sxl7SenWifyhGJZsmarg%3A1691825488865&ei=UDXXZPCvNM_G0PEP4euGIA&ved=0ahUKEwjwl6SKzdaAAxVPIzQIHeG1AQQQ4dUDCBA&oq=mlb+game+right+now&gs_lp=Egxnd3Mtd2l6LXNlcnAiEm1sYiBnYW1lIHJpZ2h0IG5vd0gAUABYAHAAeAGQAQCYAQCgAQCqAQC4AQzIAQDiAwQYACBB&sclient=gws-wiz-serp"
-          frameborder="0"
-        ></iframe>
       </div>
     </Layout>
   );
