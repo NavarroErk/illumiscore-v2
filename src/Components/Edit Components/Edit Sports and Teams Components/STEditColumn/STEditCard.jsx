@@ -17,6 +17,7 @@ function STEditCard({
 }) {
   const [showEditComponent, setShowEditComponent] = useState(false);
   const location = useLocation();
+  const context = useContext(GlobalContext);
 
   function removeFromUser() {
     if (location.pathname === "/dashboard/editTeams") {
@@ -26,7 +27,6 @@ function STEditCard({
     }
   }
 
-  const context = useContext(GlobalContext);
   const _id = JSON.parse(localStorage.getItem("userData")).data._id;
   async function removeTeamFromUser() {
     await context.globalState.functionList.RemoveMlbTeamFromUser(_id, title);
@@ -72,9 +72,14 @@ function STEditCard({
         {/* {sport && <p className="editCardStatement">{sport}</p>}
             {statement && <p className="editCardStatement">{statement}</p>} */}
         <div className="editCardBtnContainer">
-          {/* <button className="editCardEditBtn" onClick={editSTBtnClicked}>
-            Edit
-          </button> */}
+          {location.pathname === "/dashboard/editTeams" ? (
+            <button className="editCardEditBtn" onClick={editSTBtnClicked}>
+              Edit
+            </button>
+          ) : (
+            <div></div>
+          )}
+
           {location.pathname === "/dashboard/editLights" ? (
             <button className="editCardFlashBtn" onClick={flashLifxFromWeb}>
               Flash
@@ -89,7 +94,7 @@ function STEditCard({
         </div>
       </div>
       {showEditComponent && (
-        <STEditPopup popupTitle={title} onClose={closeSTEditPopup} />
+        <STEditPopup title={title} onClose={closeSTEditPopup} />
       )}
     </div>
   );

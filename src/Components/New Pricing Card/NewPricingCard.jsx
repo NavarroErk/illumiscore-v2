@@ -1,7 +1,7 @@
 import React from "react";
 import "./NewPricingCard.css";
 
-function NewPricingCard({ planName, price, features, onClick, linkText }) {
+function NewPricingCard({ planName, price, features, onClick, linkText, id }) {
   return (
     <div className="pricingCard">
       <h2 className="pricingCardTitle">{planName}</h2>
@@ -15,7 +15,8 @@ function NewPricingCard({ planName, price, features, onClick, linkText }) {
           ))}
         </ul>
         <div className="pricingCardLinkContainer">
-          <div
+          <button
+            id={id}
             className="pricingCardLink"
             onClick={(e) => {
               e.preventDefault(); // This prevents the default navigation behavior
@@ -25,7 +26,7 @@ function NewPricingCard({ planName, price, features, onClick, linkText }) {
             }}
           >
             {linkText}
-          </div>
+          </button>
         </div>
       </div>
       {/* <div className="pricingCardBg"></div> */}

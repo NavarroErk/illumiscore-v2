@@ -75,6 +75,15 @@ async function CaptureSubscription(subscriptionId, _id){
     const user = await app().logIn(credentials());
     return await user.functions.CaptureSubscription(subscriptionId, _id);
 } 
+async function UpdateUserTeamColors(_id, team, color1, color2){
+    const user = await app().logIn(credentials());
+    return await user.functions.UpdateUserTeamColors(_id, team, color1, color2)
+}
+async function GetTeamColors(team){
+    const user = await app().logIn(credentials());
+    return await user.functions.GetTeamColors(team)
+}
 
 
-export { CreateUserFromWeb, AddLifxLightFromWeb, AddMlbTeamFromWeb, RemoveLifxLightFromUser, RemoveMlbTeamFromUser, GetDataFromToken, GetUserFromWeb, GetTeamsInLeague, FlashLifxFromWeb, ListLifxLights, CaptureOrder, CreateOrder, CaptureSubscription }
+
+export { CreateUserFromWeb, AddLifxLightFromWeb, AddMlbTeamFromWeb, RemoveLifxLightFromUser, RemoveMlbTeamFromUser, GetDataFromToken, GetUserFromWeb, GetTeamsInLeague, FlashLifxFromWeb, ListLifxLights, CaptureOrder, CreateOrder, CaptureSubscription, UpdateUserTeamColors, GetTeamColors }

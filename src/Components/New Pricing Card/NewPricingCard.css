@@ -27,7 +27,7 @@
   border: 2px solid #626262;
 
   /* background-color: #0080ff; */
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 3px 10px rgba(253, 248, 248, 0.3);
 }
  .pricingCard:hover{
   /* cursor: pointer; */
@@ -54,8 +54,9 @@
  .pricingCardLink{
   height: 50px;
   width: 120px;
-  background-color: rgb(0, 17, 209);
   background-color: #641788;
+  background-color: rgb(0, 0, 0);
+  border: 1px solid white;
   text-decoration: none;
   color: #efefef;
   display: flex;
@@ -66,12 +67,13 @@
  }
  .pricingCardLink:hover{
   cursor: pointer;
-  background-color: #0080ff;
   background-color: #9235bd;
+  background-color: rgb(31, 31, 31);
+
  }
  .pricingCardLink:active{
-  background-color: rgb(0, 11, 136);
   background-color: #41075c;
+  background-color: rgb(17, 17, 23);
  }
 
   .pricingCard:hover .pricingCardContent .pricingCardLink {
@@ -93,7 +95,7 @@
     margin-left: 30px;
   }
   .pricingCard:hover .pricingCardTitle{
-    font-size: 36px;
+    /* font-size: 36px; */
   }
   .pricingCardPrice{
     font-size: 18px;
@@ -107,8 +109,7 @@
     z-index: 2;
     position: relative;
     font-weight: bold;
-    /* color: #f9b234; */
-    color: #ff9900;
+    /* color: #ff9900; */
     transition: color .5s ease;
     margin-left: 30px;
     margin-top: 100px;

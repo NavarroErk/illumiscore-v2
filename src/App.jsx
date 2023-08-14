@@ -92,7 +92,7 @@ function App() {
       <section className="heroSection">
         <h1>Welcome to Illumiscore.com</h1>
         <p>
-          Where sports meet magic, lighting up your game-day like never before!
+          Where sports meets magic, lighting up your game-day like never before!
         </p>
       </section>
 
@@ -143,6 +143,7 @@ function App() {
       {/* Pricing table section */}
       <section className="pricingTable">
         <NewPricingCard
+          id="basicPlanCardLink"
           planName="Basic Plan"
           price="Free"
           features={["1 Light", "1 Team"]}
@@ -150,13 +151,16 @@ function App() {
           linkText="Get Started"
         />
         <NewPricingCard
+          id="standardPlanCardLink"
           planName="Standard Plan"
           price="$5 / month"
           features={["Up to 50 Lights", "Unlimited Teams"]}
           onClick={() => handlePlanClick(5, "P-0B3312413S344771CMTLSR5I")} // price for Standard Plan
           linkText="Upgrade"
+          // linkText={linkText}
         />
         <NewPricingCard
+          id="premiumPlanCardLink"
           planName="Premium Plan"
           price="$10 / month"
           features={["Unlimited", "Unlimited Teams"]}

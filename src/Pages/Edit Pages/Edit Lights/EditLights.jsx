@@ -158,11 +158,10 @@ function EditLights() {
 
               <h2>Step 6: Generate Your API Key</h2>
               <p>
-                Once you're logged in, navigate to your account settings or
-                developer settings (these may vary based on the interface at the
-                time). Look for an option to generate an API key. This key is
-                what allows external services, like Illumiscore.com, to
-                communicate with and control your LIFX lights.
+                Once you're logged in, navigate to your account settings (arrow
+                next your email on the top right corner of the webpage). Click
+                the "Personal access tokens" option on the dropdown menu, then
+                click the button labeled "Generate New Token".
               </p>
 
               <h2>Step 7: Copy and Save Your API Key</h2>
