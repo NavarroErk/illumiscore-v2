@@ -8,8 +8,7 @@ function Contact() {
       <section id="contactContent">
         <h1>Contact Us</h1>
         <p className="contactPara">
-          If you have any questions or need assistance, feel free to get in
-          touch with us. We're here to help!
+          We're committed to offering you the best experience. If you have questions, suggestions, or need assistance, we're here to help.
         </p>
 
         <h2>Get in Touch</h2>
@@ -40,7 +39,15 @@ function Contact() {
         </form> */}
 
         <p className="contactPara">
-          We'll get back to you as soon as possible.
+          You're important to us. We'll respond to your queries as promptly as possible.
+        </p>
+
+        <h2>Follow Us</h2>
+        <p className="contactPara">
+          Stay updated with our latest news and features by following us on social media.
+          <br />
+          {/* Update with your social media links and icons */}
+          <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
         </p>
 
         <p className="contactPara">

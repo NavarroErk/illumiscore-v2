@@ -1,9 +1,52 @@
-#about{
+/* Default styles */
+#about {
     overflow-y: scroll;
+    font-family: Arial, sans-serif;
 }
 
-#aboutContent{
+#aboutContent {
     padding: 20px;
     color: white;
     margin-bottom: 50px;
+    max-width: 1200px; /* Ensures content isn't too stretched on large screens */
+    margin: 0 auto; /* Centers the content on the page */
+}
+
+h1, h2 {
+    padding: 10px 0;
+}
+
+a {
+    color: #00A0E8; /* Change this color if you have a theme color for links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Tablet devices (portrait) */
+@media only screen and (max-width: 768px) {
+    #aboutContent {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5em; /* Slightly smaller header for tablets */
+    }
+}
+
+/* Mobile devices */
+@media only screen and (max-width: 480px) {
+    #aboutContent {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.3em;
+    }
+
+    h2 {
+        font-size: 1.1em;
+    }
 }

@@ -1,19 +1,50 @@
-#contact{
+/* Default styles */
+#contact {
     width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;  /* vertically centers content */
+    padding: 20px 0;
 }
-#contactContent{
-    display: flex;
-    flex-direction: column;
-    width: 600px;
-    height: 700px;
+
+#contactContent {
+    width: 80%;
+    max-width: 700px;  /* Using max-width for better responsiveness */
     border-radius: 10px;
-    justify-content: center;
-    align-items: center;
     padding: 30px;
 }
-.contactPara{
-    font-size: 24px;
+
+h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contactPara {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    text-align: center;  /* For a more symmetric look */
+}
+
+/* Tablet devices (portrait) */
+@media only screen and (max-width: 768px) {
+    #contactContent {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .contactPara {
+        font-size: 1.1em;
+    }
+}
+
+/* Mobile devices */
+@media only screen and (max-width: 480px) {
+    #contactContent {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .contactPara {
+        font-size: 1em;
+    }
 }

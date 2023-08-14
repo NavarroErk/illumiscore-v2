@@ -12,9 +12,8 @@ function Terms() {
           <strong>1. Acceptance of Terms</strong>
         </p>
         <p className="termsPara">
-          By accessing and using Illumiscore.com ("the Website"), you agree to
-          comply with and be bound by these Terms of Service. If you do not
-          agree with any part of these terms, you must not use the Website.
+          By accessing Illumiscore.com, you accept and agree to these 
+          Terms of Service. Do not use the website if you disagree with any term.
         </p>
 
         <p className="termsPara">
