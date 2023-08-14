@@ -12,12 +12,17 @@ function STEditCard({
   lightId,
   setLightDataState,
   setTeamDataState,
-  teamColor1,
-  teamColor2,
+  profileColor1,
+  profileColor2,
 }) {
   const [showEditComponent, setShowEditComponent] = useState(false);
+  // const [userTeamColors, setUserTeamColors] = useState([color1, color2]);
+  let userTeamColors = [profileColor1, profileColor2];
   const location = useLocation();
   const context = useContext(GlobalContext);
+
+  // const userTeamColors = [color1, color2];
+  // console.log(userTeamColors);
 
   function removeFromUser() {
     if (location.pathname === "/dashboard/editTeams") {
@@ -64,6 +69,19 @@ function STEditCard({
     );
   }
 
+  // let defaultTeamColorsArr;
+  // async function getDefaultTeamColors() {
+  //   // this gets team colors associated to user's profile
+  //   const defaultTeamColors =
+  //     await context.globalState.functionList.GetTeamColors(title);
+  //   defaultTeamColorsArr = [
+  //     defaultTeamColors.PrimaryColor,
+  //     defaultTeamColors.SecondaryColor,
+  //   ];
+  //   setDefaultTeamColors(defaultTeamColorsArr);
+  // }
+  // console.log(defaultTeamColors);
+
   return (
     <div className="editCard">
       {/* <STEditIcon editImg={editImg}></STEditIcon> */}
@@ -94,7 +112,12 @@ function STEditCard({
         </div>
       </div>
       {showEditComponent && (
-        <STEditPopup title={title} onClose={closeSTEditPopup} />
+        <STEditPopup
+          title={title}
+          onClose={closeSTEditPopup}
+          // setUserTeamColors={setUserTeamColors}
+          userTeamColors={userTeamColors}
+        />
       )}
     </div>
   );

@@ -123,7 +123,16 @@
     font-size: 32px;
     border: none;
     position: relative;
-    left: 90px;
-    top: 10px;
+    left: 93%;
+    top: 2%;
     cursor: pointer;
+  }
+  .steditPopupColorContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 80%;
+    border: 2px solid black;
   }

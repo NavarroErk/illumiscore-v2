@@ -49,8 +49,8 @@ function EditTeams() {
             <STEditCard
               key={index}
               title={teamObj.teamName}
-              teamColor1={teamObj.color1}
-              teamColor2={teamObj.color2}
+              profileColor1={teamObj.color1}
+              profileColor2={teamObj.color2}
               setTeamDataState={setTeamDataState}
             ></STEditCard>
           ))}
