@@ -53,8 +53,17 @@ function Contact() {
             social media.
             <br />
             {/* Update with your social media links and icons */}
-            <a href="#">Facebook</a> | <a href="#">Twitter</a> |{" "}
-            <a href="#">Instagram</a>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://www.facebook.com/profile.php?id=61550097122790"
+            >
+              Facebook
+            </a>{" "}
+            {/* |{" "}
+            <a target="_blank" rel="noreferrer" href="#">
+              Instagram
+            </a> */}
           </p>
 
           <p className="contactPara">
