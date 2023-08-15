@@ -41,7 +41,7 @@
 
 
 /*? STSearchCard CSS */
-#searchCard{
+.searchCard{
     width: 90%;
     margin-bottom: 25px;
     display: flex;
@@ -49,22 +49,22 @@
     justify-content: space-around;
     align-items: center;
     background-color: rgb(0, 0, 0);
-    border-radius: 10px;
     padding: 10px;
+    box-shadow: 0px 3px 10px rgba(253, 253, 253, 0.9);
+    border-radius: 10px;
 }
-#searchCardDiv{
+.searchCardDiv{
     width: 100%;
     padding: 10px;
     margin-left: 10px;
 }
-#searchCardPara{
+.searchCardPara{
     margin: 0;
     margin-bottom: 10px;
     font-size: 24px;
     font-weight: bold;
 }
-#searchCardStatement{
-}
+
 .searchCardBtnContainer{
     display: flex;
     flex-direction: row;

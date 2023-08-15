@@ -59,8 +59,6 @@ function STEditCard({
     setShowEditComponent(false);
   }
   async function flashLifxFromWeb() {
-    console.log(apiKey);
-    console.log(lightId);
     await context.globalState.functionList.FlashLifxFromWeb(
       apiKey,
       lightId,
@@ -117,6 +115,8 @@ function STEditCard({
           onClose={closeSTEditPopup}
           // setUserTeamColors={setUserTeamColors}
           userTeamColors={userTeamColors}
+          _id={_id}
+          popupTitle={title}
         />
       )}
     </div>

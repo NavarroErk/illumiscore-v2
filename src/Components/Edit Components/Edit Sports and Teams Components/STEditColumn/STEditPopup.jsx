@@ -1,17 +1,30 @@
 import React, { useContext, useState } from "react";
 import "./STEdit.css";
 import { GlobalContext } from "../../../..";
+import { UpdateUserTeamColors } from "../../../../mongoDBClient";
+import { useNavigate } from "react-router-dom";
 
-function STEditPopup({ popupTitle, onClose, title, userTeamColors }) {
+function STEditPopup({
+  popupTitle,
+  onClose,
+  title,
+  userTeamColors,
+  defaultTeamColors,
+  _id,
+}) {
   const context = useContext(GlobalContext);
+  const navigate = useNavigate();
   const userData = JSON.parse(localStorage.getItem("userData"));
   const lifxLights = userData.data.LifxLights;
 
+  const [userTeamColor1, setUserTeamColor1] = useState(userTeamColors[0]);
+  const [userTeamColor2, setUserTeamColor2] = useState(userTeamColors[1]);
+
+  // let userTeamColor1 = userTeamColors[0];
+  // let userTeamColor2 = userTeamColors[1];
+
   const [tempColor1, setTempColor1] = useState(userTeamColors[0]);
   const [tempColor2, setTempColor2] = useState(userTeamColors[1]);
-
-  const userTeamColor1 = userTeamColors[0];
-  const userTeamColor2 = userTeamColors[1];
 
   const colorPicker1Changed = (event) => {
     const newColor = event.target.value;
@@ -34,6 +47,17 @@ function STEditPopup({ popupTitle, onClose, title, userTeamColors }) {
     );
   }
 
+  async function updateUserTeamColors() {
+    await context.globalState.functionList.UpdateUserTeamColors(
+      _id,
+      title,
+      tempColor1,
+      tempColor2
+    );
+    window.location.reload();
+    alert(`Success! ${title} colors have been updated.`);
+  }
+
   return (
     <section id="editSTPopup">
       <div id="editSTPopupContent">
@@ -43,11 +67,15 @@ function STEditPopup({ popupTitle, onClose, title, userTeamColors }) {
 
         <div id="editSTPopupContentHeader">
           <p id="editSTPopupTitle">Edit {popupTitle} Colors</p>
+          <ul id="editSTPopupList">
+            <li>Select a colored circle to bring up the color selector</li>
+          </ul>
         </div>
         <div className="steditPopupColorContainer">
           <div className="steditPopupColorRow">
-            <button>Set To Default Team Primary Color</button>
+            {/* <button>Set To Default Team Primary Color</button> */}
             <input
+              className="teamColorPicker"
               id="colorPicker1"
               type="color"
               value={tempColor1}
@@ -56,8 +84,9 @@ function STEditPopup({ popupTitle, onClose, title, userTeamColors }) {
             <p className="teamEditColorPara">Primary Color</p>
           </div>
           <div className="steditPopupColorRow">
-            <button>Set To Default Team Secondary Color</button>
+            {/* <button>Set To Default Team Secondary Color</button> */}
             <input
+              className="teamColorPicker"
               id="colorPicker2"
               type="color"
               value={tempColor2}
@@ -80,7 +109,11 @@ function STEditPopup({ popupTitle, onClose, title, userTeamColors }) {
             >
               Flash
             </button>
-            <button className="steditPopupBottomRowBtn" id="steditPopupSaveBtn">
+            <button
+              className="steditPopupBottomRowBtn"
+              id="steditPopupSaveBtn"
+              onClick={updateUserTeamColors}
+            >
               Save
             </button>
           </div>

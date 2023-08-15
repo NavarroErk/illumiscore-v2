@@ -1,15 +1,30 @@
 /* Default styles */
 #about {
-    overflow-y: scroll;
-    font-family: Arial, sans-serif;
+    /* overflow-y: scroll; */
+    /* font-family: Arial, sans-serif; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    padding: 30px 0 30px 30px ;
+}
+#aboutTitle{
+    margin-top: 20px; /* Reduced margin-top for better appearance */
+    font-size: 2em; /* Use em for scalable sizes */
+}
+.aboutHeader{
+    text-align: left;
 }
 
 #aboutContent {
-    padding: 20px;
+    padding: 30px;
     color: white;
     margin-bottom: 50px;
+    width: 80%;
     max-width: 1200px; /* Ensures content isn't too stretched on large screens */
     margin: 0 auto; /* Centers the content on the page */
+    padding-bottom: 50px;
 }
 
 h1, h2 {

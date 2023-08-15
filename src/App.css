@@ -4,11 +4,12 @@ body {
 }
 
 #app {
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
   align-items: center;
+  /* height: 100%; */
   /* background-image: url("https://images.pexels.com/photos/3941855/pexels-photo-3941855.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"); */
   /* background-image: url("https://images.pexels.com/photos/2093323/pexels-photo-2093323.jpeg?auto=compress&cs=tinysrgb&w=600"); */
   /* background-size:cover;
@@ -69,11 +70,20 @@ body {
   /* border-radius: 10px; */
   /* font-size: 28px; */
 }
+#syncFeatureContent{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  bottom: 30px;
+}
 #syncFeatureHeader{
   font-size: 2vw;
   position: relative;
   left: 20px;
   top: 40px;
+}
+#syncFeaturePara{
+  /* align-items: baseline; */
 }
 .featureImgPlatform{
   height: 300px;
@@ -136,8 +146,11 @@ body {
   width: 50%;
 }
 #securityFeatureImg{
-
   background-position: center 40%;
+}
+#securityFeatureContent{
+  position: relative;
+  top: 50px;
 }
 .featureParaDiv{
   width: 80%;
@@ -181,9 +194,9 @@ body {
   padding: 40px;
   background-color: #147abd;
   color: #ffffff;
-  border-radius: 8px;
   position: relative;
 }
+
 
 .joinUs > h2{
   font-size: 48px;

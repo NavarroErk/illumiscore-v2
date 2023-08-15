@@ -1,9 +1,10 @@
 /* Default styles */
 #privacyPolicy {
     width: 100%;
-    height: calc(100vh - 75px);
+    height: 100%;
     display: flex;
     justify-content: center;
+    align-items: baseline;
     padding: 30px 0 30px 30px ;
 }
 
@@ -12,7 +13,7 @@
     max-width: 1200px;
     border-radius: 10px;
     padding: 30px;
-    overflow-y: scroll;
+    padding-bottom: 100px;
 }
 
 #privacyPolicyHeader {

@@ -2,9 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./NewDashboardCard.css";
 
-function NewDashboardCard({ title, route }) {
+function NewDashboardCard({ title, route, className }) {
   return (
-    <div className="dashCardContainer">
+    <div
+      className={className}
+      // className="dashCardContainer"
+    >
       <Link id="dashCardTitle" to={route}>
         {title}
       </Link>

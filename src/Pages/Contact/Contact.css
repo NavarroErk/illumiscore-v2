@@ -6,6 +6,10 @@
     align-items: center;  /* vertically centers content */
     padding: 20px 0;
 }
+#contactTitle{
+    margin-top: 20px; /* Reduced margin-top for better appearance */
+    font-size: 2em; /* Use em for scalable sizes */
+}
 
 #contactContent {
     width: 80%;

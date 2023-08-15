@@ -58,12 +58,10 @@ function STSearchCard({
   }
 
   return (
-    <div id="searchCard">
+    <div className="searchCard">
       {/* <STSearchIcon searchImg={searchImg}></STSearchIcon> */}
-      <div id="searchCardDiv">
-        <p id="searchCardPara">{name}</p>
-        {/* {sport && <p id="searchCardStatement">{sport}</p>}
-        {statement && <p id="searchCardStatement">{statement}</p>} */}
+      <div className="searchCardDiv">
+        <p className="searchCardPara">{name}</p>
         <div className="searchCardBtnContainer">
           {location.pathname === "/dashboard/editLights" ? (
             <button className="searchCardFlashBtn" onClick={flashLifxFromWeb}>

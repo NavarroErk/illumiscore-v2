@@ -1,21 +1,29 @@
 /*? STEditCard CSS  */
 .editCard{
-    margin: 20px;
+    margin: 10px;
+    margin-bottom: 20px;
     display: flex;
-    height: 200px;
+    height: 120px;
+    width: 90%;
     flex-direction: row;
     justify-content: space-around;
-    border-radius: 10px;
     background-color: rgb(0, 0, 0);
+    box-shadow: 0px 3px 10px rgba(253, 253, 253, 0.9);
+    border-radius: 10px;
 }
 .editCardDiv{
     width: 100%;
     padding: 10px;
     margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
 }
 .editCardPara{
     margin: 0;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: bold;
 }
 .editCardStatement{
@@ -24,6 +32,7 @@
 }
 .editCardBtnContainer{
     margin-top: 15px;
+    display: flex;
 }
 .editCardBtnContainer > button{
     width: 100px;
@@ -104,15 +113,22 @@
     height: 600px;
     background-color: white;
     border: 3px solid black;
+    display: flex;
+    flex-direction: column;
   }
   #editSTPopupContentHeader{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
   }
   #editSTPopupTitle{
     font-size: 36px;
     color: black;
+  }
+  #editSTPopupList > li{
+    color: black;
+    list-style: none;
   }
   #editSTPopupCloseBtn{
     height: 40px;
@@ -132,7 +148,67 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 400px;
-    width: 80%;
+    height: 300px;
+    width: 100%;
+    /* background-color: #ff0000; */
+  }
+  .steditPopupColorRow{
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    /* border: 2px solid black; */
+    
+    width: 60%;
+  }
+  .teamColorPicker{
+    opacity: 1;
+    width: 80px;
+    height: 80px;
+    /* background: #FFFFFF 0% 0% no-repeat padding-box; */
+    /* box-shadow: 0px 3px 6px #0000001A; */
+    padding: 0;
+    overflow: hidden;
+    border-radius:100%;
     border: 2px solid black;
+  }
+  .teamColorPicker::-webkit-color-swatch-wrapper {
+    padding: 0;
+    border: none;
+  }
+  .teamColorPicker::-webkit-color-swatch{
+    border: none;
+  }
+  .teamEditColorPara{
+    color: black;
+    font-size: 28px;
+    margin-left: 50px;
+  }
+  .steditPopupBottomRow{
+    /* margin-top: 30px; */
+    position: relative;
+    top: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 60%;
+
+  }
+  .steditPopupBottomRow > select{
+    font-size: 24px;
+    border: none;
+  }
+
+  #steditPopupFlashBtn, #steditPopupSaveBtn{
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 24px;
+
+  }
+  #steditPopupFlashBtn{
+    background-color: #fff;
+  }
+  #steditPopupSaveBtn{
+    background-color: #008000;
+    color: #efefef;
   }

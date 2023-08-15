@@ -1,14 +1,19 @@
 import React from "react";
-import Layout from "../../Components/Layout";
 import PayPalBtn from "../../Components/PayPalBtn/PayPalBtn";
+import Header from "../../Components/Header/Header";
+import Footer from "../../Components/Footer/Footer";
 
 function Payment() {
   return (
-    <Layout id="payment">
-      <div>
-        <PayPalBtn></PayPalBtn>
-      </div>
-    </Layout>
+    <>
+      <Header></Header>
+      <main id="payment">
+        <div>
+          <PayPalBtn></PayPalBtn>
+        </div>
+      </main>
+      <Footer></Footer>
+    </>
   );
 }
 

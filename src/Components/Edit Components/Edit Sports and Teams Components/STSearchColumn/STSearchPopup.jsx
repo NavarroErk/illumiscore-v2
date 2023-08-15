@@ -5,7 +5,7 @@ function STSearchPopup({ popupTitle, onClose, children }) {
     <section id="searchSTPopup">
       <div id="searchSTPopupContent">
         <div id="searchSTPopupContentHeader">
-          <p id="searchSTPopupTitle"> {popupTitle} </p>
+          <div> {popupTitle} </div>
           <button onClick={onClose} id="searchSTPopupCloseBtn">
             X
           </button>

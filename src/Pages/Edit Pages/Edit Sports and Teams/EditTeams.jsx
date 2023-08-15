@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./EditSportsTeams.css";
-import Layout from "../../../Components/Layout";
 import STSearchCard from "../../../Components/Edit Components/Edit Sports and Teams Components/STSearchColumn/STSearchCard/STSearchCard";
 import STEditCard from "../../../Components/Edit Components/Edit Sports and Teams Components/STEditColumn/STEditCard";
 import { GlobalContext } from "../../..";
 import { GetUserFromWeb } from "../../../mongoDBClient";
+import Header from "../../../Components/Header/Header";
+import Footer from "../../../Components/Footer/Footer";
 
 function EditTeams() {
   const context = useContext(GlobalContext);
@@ -26,37 +27,47 @@ function EditTeams() {
   }, []);
 
   return (
-    <Layout id="editTeams">
-      <div className="searchColTS">
-        {/* <STSearchInput searchTitle="Teams"></STSearchInput> */}
-        <div id="searchColContainer">
-          <p>Click the + button to add teams to your account</p>
-          {searchResults.map((result, index) => (
-            <STSearchCard
-              key={index}
-              name={result}
-              setTeamDataState={setTeamDataState}
-            ></STSearchCard>
-          ))}
+    <>
+      <Header></Header>
+      <main id="editTeams">
+        <div className="searchColTS">
+          {/* <STSearchInput searchTitle="Teams"></STSearchInput> */}
+          <div id="searchColContainer">
+            <h1>Add Teams</h1>
+            <p className="searchColContainerPara">
+              Click the + button to add teams to your account
+            </p>
+            {searchResults.map((result, index) => (
+              <STSearchCard
+                key={index}
+                name={result}
+                setTeamDataState={setTeamDataState}
+              ></STSearchCard>
+            ))}
+          </div>
         </div>
-      </div>
-      <div className="editColTS">
-        <div>
-          <p className="editColTSTitle">Your Teams</p>
+        <div className="editColTS">
+          <div className="editColContainer">
+            <p className="editColTSTitle">Your Teams</p>
+            {userTeams.length === 0 ? (
+              <p id="editColTSPara">Your teams will appear here</p>
+            ) : (
+              <></>
+            )}
+            {userTeams.map((teamObj, index) => (
+              <STEditCard
+                key={index}
+                title={teamObj.teamName}
+                profileColor1={teamObj.color1}
+                profileColor2={teamObj.color2}
+                setTeamDataState={setTeamDataState}
+              ></STEditCard>
+            ))}
+          </div>
         </div>
-        <div className="editColContainer">
-          {userTeams.map((teamObj, index) => (
-            <STEditCard
-              key={index}
-              title={teamObj.teamName}
-              profileColor1={teamObj.color1}
-              profileColor2={teamObj.color2}
-              setTeamDataState={setTeamDataState}
-            ></STEditCard>
-          ))}
-        </div>
-      </div>
-    </Layout>
+      </main>
+      <Footer></Footer>
+    </>
   );
 }
 

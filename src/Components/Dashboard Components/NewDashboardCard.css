@@ -10,26 +10,17 @@
     background-color: white;
     padding: 20px;
 }
-.dashCardContainer{
-    height: 300px;
-    width: 300px;
-    display: flex;
-    flex-direction: row;
-    font-size: 24px;
-    font-weight: bold;
-    justify-content: center;
-    align-items: center;
-    padding: 50px;
-}
+
 #dashCardTitle{
     font-size: 40px;
     text-decoration: none;
     color: white;
-    height: 300px;
-    width: 300px;
+    height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #0f0f0f;
+    background-color: #171717;
+    box-shadow: 0px 3px 10px rgba(253, 253, 253, 0.9);
     border-radius: 10px;
 }
