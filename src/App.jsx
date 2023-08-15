@@ -150,10 +150,11 @@ function App() {
         </section>
 
         {/* Pricing table section */}
+        <h1 id="pricingTableTitle">Plans</h1>
         <section className="pricingTable">
           <NewPricingCard
             id="basicPlanCardLink"
-            planName="Basic Plan"
+            planName="Basic"
             price="$3 / month"
             features={["Up to 5 Lights", "Up to 5 Teams"]}
             onClick={() => handlePlanClick(0)} // price for Free Plan
@@ -161,7 +162,7 @@ function App() {
           />
           <NewPricingCard
             id="standardPlanCardLink"
-            planName="Standard Plan"
+            planName="Standard"
             price="$10 / month"
             features={["Up to 30 Lights", "Up to 30 Teams"]}
             onClick={() => handlePlanClick(5, "P-0B3312413S344771CMTLSR5I")} // price for Standard Plan
@@ -170,7 +171,7 @@ function App() {
           />
           <NewPricingCard
             id="premiumPlanCardLink"
-            planName="Premium Plan"
+            planName="Premium"
             price="$20 / month"
             features={["Up to 100 Lights", "Unlimited Teams"]}
             onClick={() => handlePlanClick(10, "P-8YJ70211W29776809MTLSWOY")} // price for Premium Plan

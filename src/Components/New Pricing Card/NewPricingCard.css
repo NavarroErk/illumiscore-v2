@@ -16,7 +16,7 @@
   color: white;
   margin: 30px;
   margin-bottom: 50px;
-  flex-grow: 1;
+  /* flex-grow: 1; */
   display: block;
   /* padding: 30px 20px; */
   text-decoration: none;
@@ -172,5 +172,229 @@ blockquote {
 cite {
   display: block;
   margin-top: 20px;
+}
+
+/*? Medium Screen CSS */
+@media (max-width: 1000px) {
+  
+#pricingDiv{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.pricingCard {
+width: 90%;
+height: 25vh;
+transition: transform 0.3s;
+padding-bottom: 20px;
+text-decoration: none;
+/* overflow: hidden; */
+position: relative;
+border-radius: 10px;
+background-color: #171717;
+border: 2px solid #626262;
+display: flex;
+align-items: center;
+flex-direction: column;
+/* justify-content: space-between; */
+
+
+/* background-color: #0080ff; */
+box-shadow: 0px 3px 10px rgba(253, 248, 248, 0.3);
+}
+.pricingCard:hover{
+/* cursor: pointer; */
+}
+.pricingCardTitle {
+  /* overflow: hidden; */
+  font-weight: bold;
+  font-size: 32px;
+  z-index: 2;
+  position: relative;
+  bottom: 20px;
+  transition: font-size .5s ease;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+.pricingCardContent {
+  font-size: 20px;
+  z-index: 2;
+  position: relative;
+  bottom: 50px;
+  left: 160px;
+  margin: auto;
+  font-weight: bold;
+  transition: color .5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.pricingCardContent ul li{
+  width: 200px;
+  margin-left: 20px;
+}
+.price{
+  margin-left: 20px;
+  margin-right: 20px;
+  position: relative;
+  top: 10px;
+}
+
+ .pricingCardBg {
+  height: 128px;
+  width: 128px;
+  /* background-color: #af6f00; */
+  background-color: #ff9900;
+  z-index: 1;
+  position: absolute;
+  top: -75px;
+  right: -75px;
+  border-radius: 50%;
+  transition: all .5s ease;
+}
+.pricingCardLinkContainer{
+height: 100px;
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.pricingCardLink{
+height: 50px;
+width: 120px;
+background-color: #641788;
+background-color: rgb(0, 0, 0);
+border: 1px solid white;
+text-decoration: none;
+color: #efefef;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 10px;
+transition: all .2s ease;
+}
+.pricingCardLink:hover{
+cursor: pointer;
+background-color: #9235bd;
+background-color: rgb(31, 31, 31);
+
+}
+.pricingCardLink:active{
+background-color: #41075c;
+background-color: rgb(17, 17, 23);
+}
+
+.pricingCard:hover .pricingCardContent .pricingCardLink {
+  /* background-color: black; */
+  /* border: 2px solid white; */
+  color: #efefef;
+}
+.pricingCard:hover .pricingCardBg   {
+  transform: scale(250%);
+}
+
+.pricingCard:hover .pricingCardTitle{
+  /* font-size: 36px; */
+}
+.pricingCardPrice{
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  z-index: 3;
+}
+
+
+.price{
+}
+
+.pricingCardFeature{
+  transition: color .5s ease;
+}
+.pricingCard:hover .pricingCardFeature{
+  color: #efefef;
+}
+
+.pricingCard:hover {
+transform: translateY(-10px);
+}
+
+.price {
+font-size: 24px;
+color: #ffffff;
+margin-top: 10px;
+}
+
+.pricingCard ul {
+list-style: none;
+padding-left: 0;
+}
+
+.pricingCard li {
+margin: 15px 0;
+}
+
+/* .btn {
+display: inline-block;
+margin-top: 20px;
+padding: 10px 20px;
+border: none;
+background-color: #007BFF;
+color: #fff;
+border-radius: 5px;
+text-decoration: none;
+transition: background-color 0.3s;
+} */
+
+.testimonial {
+background-color: black;
+padding: 30px 50px;
+border-radius: 8px;
+text-align: center;
+box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+margin-top: 50px;
+}
+
+blockquote {
+font-size: 20px;
+font-style: italic;
+}
+
+cite {
+display: block;
+margin-top: 20px;
+}
+}
+
+/*? Small Screen CSS */
+@media screen and (max-width: 480px) {
+  .pricingCard{
+    margin-bottom: 0;
+    height: 200px;
+  }
+  .pricingCardTitle{
+    position: relative;
+    right: 15px;
+  }
+  .price{
+    position: relative;
+    right: 130px;
+    font-size: 20px;
+  }
+  .pricingCardContent ul{
+    position: relative;
+    right: 150px;
+    top: 10px;
+    font-size: 20px;
+  }
+  .joinUs{
+    margin-top: 20px;
+  }
 }
 

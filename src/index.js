@@ -15,6 +15,7 @@ import Terms from './Pages/Terms/Terms';
 import SignedOut from './Pages/SignedOut/SignedOut';
 import Payment from './Pages/Payment/Payment';
 import PrivacyPolicy from './Pages/PrivacyPolicy/PrivacyPolicy';
+import AccountSettings from './Pages/AccountSettings/AccountSettings';
 
 import * as functionList from "./mongoDBClient";
 
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
   {
     path: "/payment", 
     element: <Payment/>
+  }, 
+  {
+    path: "/accountSettings", 
+    element: <AccountSettings/>
   }
 ])
 

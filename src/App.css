@@ -81,9 +81,8 @@ body {
   background-color: rgba(0, 0, 0, 0.4); 
 }
 #syncFeatureHeader{
-  font-size: 2vw;
+  font-size: 32px;
   position: relative;
-  left: 20px;
   top: 40px;
 }
 #syncFeaturePara{
@@ -102,7 +101,7 @@ body {
   /* border: 2px solid #626262; */
 }
 #syncFeature{
-  width: 50%;
+  width: 70%;
 }
 
 #syncFeature, #stadiumFeature, #securityFeature {
@@ -221,4 +220,265 @@ body {
 .joinUs > p {
   padding-bottom: 40px;
   font-size: 24px;
+}
+
+
+/*? Medium Screen CSS */
+@media (max-width: 1000px) {
+  
+  #app {
+    width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* overflow-x: hidden; */
+  /* height: 100%; */
+  /* background-image: url("https://images.pexels.com/photos/3941855/pexels-photo-3941855.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"); */
+  /* background-image: url("https://images.pexels.com/photos/2093323/pexels-photo-2093323.jpeg?auto=compress&cs=tinysrgb&w=600"); */
+  /* background-size:cover;
+  background-position: center center; */
+}
+
+.heroSection {
+  text-align: center;
+  font-size: 16px;
+  /* margin-top: 10px; */
+  padding-top: 20px;
+}
+
+.featuresContainer {
+  margin-top: -10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#featuresContainerHeader {
+  margin-top: 50px;
+  margin-bottom: -20px;
+}
+
+.features {
+  width: 100%;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.feature {
+  width: 100%;
+  text-align: center;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  /* background-color: rgba(0, 0, 0, 0.7); */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* border: 2px solid yellow; */
+}
+
+.featureContent {
+  /* background-color: rgba(0, 0, 0, 1); */
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;
+  align-items: center; */
+}
+.featureHeader{
+  /* width: 50%; */
+  /* background-color: rgba(0, 0, 0, 0.7); */
+  /* border-radius: 10px; */
+  /* font-size: 28px; */
+}
+#syncFeatureContent{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  content: "";
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); 
+}
+#syncFeatureHeader{
+  font-size: 32px;
+  position: relative;
+  top: 40px;
+}
+#syncFeaturePara{
+  /* align-items: baseline; */
+}
+.featureImgPlatform{
+  height: 300px;
+  width: 100%;
+  background-color: rgba(#147abd, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin: 0 10px 0 10px;
+}
+#syncFeature{
+  width: 90%;
+}
+
+#syncFeature, #stadiumFeature, #securityFeature {
+  /* height: 90%; */
+}
+#syncFeatureImg, #stadiumFeatureImg, #securityFeatureImg{
+  border-radius: 10px;
+  border: 1px solid rgb(154, 154, 154);
+  box-shadow: 0px 3px 10px rgba(253, 248, 248, 0.3);
+
+}
+#syncFeatureImg{
+  background-color: rgba(0, 0, 0, 0.9);
+  background-image: url("https://images.pexels.com/photos/296322/pexels-photo-296322.jpeg");
+  background-size: cover;
+  background-position: center 90%;
+}
+
+
+
+#stadiumFeature {
+  background-image: url("https://images.pexels.com/photos/269948/pexels-photo-269948.jpeg");
+  background-size: cover;
+  background-position: center 55%;
+  height: 500px;
+  /* width: 90%; */
+  align-self: center;
+  /* border: 2px solid white; */
+  display: flex;
+  flex-direction: column;
+}
+#stadiumFeatureHeader{
+  width: 100%;
+  font-size: 36px;
+  position: relative;
+  top: 0px;
+  /* right: ; */
+  /* text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3); */
+  display: flex;
+  align-items: center;
+}
+
+#stadiumFeaturePara{
+  background-color: rgba(0, 0, 0, 0.5);
+  /* background-color: transparent; */
+  align-self: end;
+  display: flex;
+  align-items: center;
+  height: 150px;
+  width: 60%;
+  padding: 10px;
+  font-size: 18px;
+  position: relative;
+  /* top: 150px;
+  right: 80px; */
+}
+
+#securityFeature {
+  width: 80%;
+}
+#securityFeatureImg{
+  background-position: center 40%;
+}
+#securityFeatureContent{
+  position: relative;
+  top: 30px;
+}
+.featureParaDiv{
+  width: 80%;
+  /* border: 2px solid rgb(255, 0, 0); */
+  /* border-radius: 10px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #171717; */
+  padding: 50px;
+  margin: 0 10px 0 10px;
+}
+.featurePara{
+  /* background-color: #641788; */
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 24px;
+  height: 100%;
+}
+
+.pricingTable {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  align-items: center;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+#pricingTableTitle{
+  font-size: 40px;
+}
+
+.selected-price {
+  font-size: 24px; /* Slightly increased the size for better visibility */
+  margin: 20px 0; /* Increased margin for better spacing */
+  font-weight: bold;
+  color: #333;   /* Adjusted the color for better visibility */
+  text-align: center;  /* Centered the text */
+}
+
+
+.joinUs {
+  width: 100%;
+  text-align: center;
+  padding: 40px;
+  background-color: #147abd;
+  color: #ffffff;
+  position: relative;
+}
+
+
+.joinUs > h2{
+  font-size: 40px;
+}
+
+.joinUs > p {
+  padding-bottom: 40px;
+  font-size: 18px;
+}
+
+}
+
+/*? Small Screen CSS */
+@media screen and (max-width: 480px) {
+  /* Your mobile styles here */
+  #syncFeature{
+    width: 100%;
+  }
+  #syncFeatureHeader{
+    font-size: 24px;
+  }
+  #syncFeaturePara{
+    font-size: 20px;
+  }
+  #stadiumFeatureHeader{
+    font-size: 24px;
+  }
+  #stadiumFeature{
+    height: 50%;
+  }
+  #stadiumFeaturePara{
+    font-size: 16px;
+  }
+  #securityFeature{
+    width: 100%;
+  }
 }

@@ -19,32 +19,39 @@ function Header() {
 
   return (
     <header id="header">
-      <Link to="../" id="headerTitle">
+      <Link to="/" id="headerTitle">
         ILLUMISCORE
       </Link>
       <nav id="headerNav">
         {userSignedIn() ? (
-          <Link className="headerLink" to="/dashboard">
-            Dashboard
-          </Link>
+          <div className="dropdown">
+            <button className="dropbtn">Menu</button>
+            <div className="dropdownContent">
+              <Link
+                id="headerDashboardLink"
+                className="headerLink"
+                to="/dashboard"
+              >
+                Dashboard
+              </Link>
+              <Link
+                id="headerAccountSettingsLink"
+                className="headerLink"
+                to="/accountSettings"
+              >
+                Account Settings
+              </Link>
+              <button
+                onClick={signOutClicked}
+                className="headerLink"
+                id="signOutBtn"
+              >
+                Sign Out
+              </button>
+            </div>
+          </div>
         ) : (
-          <div></div>
-        )}
-
-        {userSignedIn() ? (
-          <>
-            <button
-              onClick={signOutClicked}
-              className="headerLink"
-              id="signOutBtn"
-            >
-              Sign Out
-            </button>
-          </>
-        ) : (
-          <>
-            <div id="googleSignInBtn"></div>
-          </>
+          <div id="googleSignInBtn"></div>
         )}
       </nav>
     </header>
