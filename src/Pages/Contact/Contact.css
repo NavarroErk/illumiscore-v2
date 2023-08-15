@@ -28,6 +28,12 @@ h1, h2 {
     margin-bottom: 20px;
     text-align: center;  /* For a more symmetric look */
 }
+#feedbackLink{
+    font-size: 32px;
+    position: relative;
+    top: 10px;
+    /* color: ; */
+}
 
 /* Tablet devices (portrait) */
 @media only screen and (max-width: 768px) {

@@ -52,6 +52,7 @@ function Contact() {
             Stay updated with our latest news and features by following us on
             social media.
             <br />
+            <br />
             {/* Update with your social media links and icons */}
             <a
               target="_blank"
@@ -64,6 +65,15 @@ function Contact() {
             <a target="_blank" rel="noreferrer" href="#">
               Instagram
             </a> */}
+            <br />
+            <a
+              id="feedbackLink"
+              target="_blank"
+              rel="noreferrer"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfpdHYa-riEmPDwr_1b7O0RYHM3aLCkoTT6BDTKCNG7ni_q3A/viewform?usp=pp_url"
+            >
+              Feedback Form for Beta Testers
+            </a>
           </p>
 
           <p className="contactPara">

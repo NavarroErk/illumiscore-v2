@@ -69,7 +69,24 @@ function Terms() {
           </p>
 
           <p className="termsPara">
-            <strong>7. Changes to Terms</strong>
+            <strong>7. LIFX Integration Terms</strong>
+          </p>
+          <p className="termsPara">
+            For services and products integrated with LIFX, users are also
+            subject to LIFX's terms and conditions. Before using these
+            integrated features, please ensure you are in agreement with{" "}
+            <a
+              href="https://www.lifx.com/pages/terms-of-service"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LIFX's Terms of Service
+            </a>
+            .
+          </p>
+
+          <p className="termsPara">
+            <strong>8. Changes to Terms</strong>
           </p>
           <p className="termsPara">
             We reserve the right to modify these Terms of Service at any time.
@@ -78,7 +95,7 @@ function Terms() {
           </p>
 
           <p className="termsPara">
-            <strong>8. Governing Law</strong>
+            <strong>9. Governing Law</strong>
           </p>
           <p className="termsPara">
             These Terms of Service shall be governed by and construed in
@@ -88,7 +105,7 @@ function Terms() {
           </p>
 
           <p className="termsPara">
-            <strong>9. Contact</strong>
+            <strong>10. Contact</strong>
           </p>
           <p className="termsPara">
             For any queries or clarifications related to these terms or any
