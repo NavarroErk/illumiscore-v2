@@ -79,7 +79,7 @@
       font-size: 32px;
     }
     .bannerContent{
-      margin-bottom: 50px;
+      margin-bottom: 30px;
     }
 
   }
@@ -87,20 +87,21 @@
   /*? Small Screen CSS */
 @media screen and (max-width: 480px) {
   #banner{
-    height: 80%;
+    height: 60%;
+    padding-top: 30px;
   }
   #bannerHeading{
     font-size: 24px;
-    margin-top: 40px;
   }
   .bannerContent{
     font-size: 20px;
     text-align: center;
   }
   #newDashCardContainer{
-    height: 500px;
     width: 100%;
     flex-direction: column;
     justify-content:space-between;
+    position: relative;
+    bottom: 40px;
   }
 }

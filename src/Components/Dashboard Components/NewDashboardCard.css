@@ -41,7 +41,8 @@
   /*? Small Screen CSS */
   @media screen and (max-width: 480px) {
     .newDashboardCard{
-        height: 200px;
+        height: 150px;
         width: 50%;
+        margin-bottom: 10px;
       }
   }
