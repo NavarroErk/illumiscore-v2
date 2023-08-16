@@ -62,8 +62,8 @@
 }
 
 #googleSignInBtn{
-    margin-right: 40px;
-    margin-left: 40px;
+    /* margin-right: 40px; */
+    /* margin-left: 40px; */
 }
 
 #signOutBtn{
@@ -152,8 +152,9 @@
       align-items: center;
       text-decoration: none;
       color: black;
-      font-size: 24px;
+      font-size: 20px;
       font-weight: bold;
+      margin-left: 10px;
   }
   #headerNav{
       /* grid-column-start: 6;
@@ -195,8 +196,8 @@
   }
   
   #googleSignInBtn{
-      margin-right: 40px;
-      margin-left: 40px;
+      /* margin-right: 40px; */
+      /* margin-left: 40px; */
   }
   
   #signOutBtn{
@@ -216,6 +217,7 @@
   .dropdown {
       position: relative;
       display: inline-block;
+      border: 2px solid pink;
     }
     
     /* Style for the dropdown button */

@@ -8,7 +8,7 @@ function NewDashboardCard({ title, route, className }) {
       className={className}
       // className="dashCardContainer"
     >
-      <Link id="dashCardTitle" to={route}>
+      <Link className="dashCardTitle" to={route}>
         {title}
       </Link>
     </div>
