@@ -130,22 +130,6 @@ function App() {
                 of your couch. Every run, every homer, every light show!
               </p>
             </div>
-            <div id="securityFeature" className="feature">
-              <div className="featureImgPlatform">
-                <div id="securityFeatureImg" className="featureContent">
-                  <div id="securityFeatureContent">
-                    <h3 id="securityFeatureHeader" className="featureHeader">
-                      Secure & Reliable
-                    </h3>
-                    <p className="featurePara">
-                      Your data is safe with us. Enjoy a seamless, hassle-free
-                      experience backed by our robust tech stack.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              {/* <div className="featureParaDiv"></div> */}
-            </div>
           </div>
         </section>
 
