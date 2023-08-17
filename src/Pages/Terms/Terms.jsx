@@ -62,21 +62,28 @@ function Terms() {
           </p>
 
           <p className="termsPara">
-            <strong>8. Changes to Terms</strong>
+              <strong>8. Seizure Warning</strong>
+          </p>
+          <p className="termsPara">
+              A small percentage of individuals may experience epileptic seizures or blackouts when exposed to certain light patterns or flashing lights. These conditions may trigger previously undetected epileptic symptoms or seizures in persons who have no history of prior seizures or epilepsy. If you or anyone in your family has an epileptic condition or has had seizures of any kind, consult your physician before using our service. Immediately discontinue use of Illumiscore and consult your physician if you experience any of the following symptoms while using our service: dizziness, altered vision, eye or muscle twitches, loss of awareness, disorientation, any involuntary movement, or convulsions.
+          </p>
+
+          <p className="termsPara">
+            <strong>9. Changes to Terms</strong>
           </p>
           <p className="termsPara">
             We reserve the right to modify these Terms of Service at any time. Changes will be effective immediately upon posting to the Website. It is your responsibility to review these terms regularly. If you disagree with changes to the terms, we reserve the right to revoke your permissions.
           </p>
 
           <p className="termsPara">
-            <strong>9. Governing Law</strong>
+            <strong>10. Governing Law</strong>
           </p>
           <p className="termsPara">
             These Terms of Service shall be governed by and construed in accordance with the laws of the State of Georgia. Any disputes arising under or in connection with these terms shall be subject to the exclusive jurisdiction of the courts in the State of Georgia.
           </p>
 
           <p className="termsPara">
-            <strong>10. Contact</strong>
+            <strong>11. Contact</strong>
           </p>
           <p className="termsPara">
             For any queries or clarifications related to these terms or any other aspect of the Website, feel free to reach out to us at support@illumiscore.com.
