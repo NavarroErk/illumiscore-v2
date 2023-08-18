@@ -98,8 +98,8 @@ function EditLights() {
           </div>
           <div id="adColTS">
             <iframe
+              className="affiliateAd"
               sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin"
-              style={{ width: "120px", height: "240px" }}
               marginwidth="0"
               marginheight="0"
               scrolling="no"
@@ -108,8 +108,8 @@ function EditLights() {
             ></iframe>
 
             <iframe
+              className="affiliateAd"
               sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin"
-              style={{ width: "120px", height: "240px" }}
               marginwidth="0"
               marginheight="0"
               scrolling="no"
@@ -118,8 +118,8 @@ function EditLights() {
             ></iframe>
 
             <iframe
+              className="affiliateAd"
               sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin"
-              style={{ width: "120px", height: "240px" }}
               marginwidth="0"
               marginheight="0"
               scrolling="no"
@@ -128,8 +128,8 @@ function EditLights() {
             ></iframe>
 
             <iframe
+              className="affiliateAd"
               sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin"
-              style={{ width: "120px", height: "240px" }}
               marginwidth="0"
               marginheight="0"
               scrolling="no"
@@ -137,6 +137,7 @@ function EditLights() {
               src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=thompsonswe-20&language=en_US&marketplace=amazon&region=US&placement=B073177QS8&asins=B073177QS8&linkId=13ff8d1d39749af87ee3b629c0680a26&show_border=true&link_opens_in_new_window=true"
             ></iframe>
           </div>
+          ;
         </div>
         <div className="editColTS">
           <div className="editColContainer">

@@ -120,20 +120,22 @@ function STEditPopup({
                 );
               })}
             </select>
-            <button
-              className="steditPopupBottomRowBtn"
-              id="steditPopupFlashBtn"
-              onClick={flashLifxFromWeb}
-            >
-              Flash
-            </button>
-            <button
-              className="steditPopupBottomRowBtn"
-              id="steditPopupSaveBtn"
-              onClick={updateUserTeamColors}
-            >
-              Save
-            </button>
+            <div id="editPopupBtnContainer">
+              <button
+                className="steditPopupBottomRowBtn"
+                id="steditPopupFlashBtn"
+                onClick={flashLifxFromWeb}
+              >
+                Flash
+              </button>
+              <button
+                className="steditPopupBottomRowBtn"
+                id="steditPopupSaveBtn"
+                onClick={updateUserTeamColors}
+              >
+                Save
+              </button>
+            </div>
           </div>
         </div>
       </div>

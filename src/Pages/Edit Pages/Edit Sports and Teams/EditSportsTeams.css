@@ -24,6 +24,10 @@
   justify-content: space-between;
   margin-top: 20px;
 }
+.affiliateAd{
+  width: 120px;
+  height: 240px;
+}
 
 .searchColTS {
   /* overflow: auto;  */
@@ -171,6 +175,19 @@
     height: 50%;
     margin-bottom: 20px;
   }
+  #adColTS{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 260px;
+  margin-bottom: 50px;
+
+}
+.affiliateAd{
+  width: 120px;
+  height: 240px;
+  border: 2px solid white;
+}
   .editColTS{
     height: 55%;
   }
@@ -209,8 +226,21 @@
 }
 
 
-/* @media (max-width: 480px) {
-  .editColTSTitle, #searchColContainer > p, #lightInfoForm > h1 {
-      font-size: 20px;
+@media (max-width: 480px) {
+  #adColTS{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 340px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+
   }
-} */
+  .affiliateAd{
+    width: 120px;
+    height: 240px;
+    border: 2px solid white;
+  }
+  
+}
+
