@@ -96,6 +96,7 @@ function STEditPopup({
             <p className="teamEditColorPara">Secondary Color</p>
           </div>
           <div className="steditPopupBottomRow">
+            {/* <label htmlFor="lightSelect">Select a Light to Flash</label> */}
             <select
               name=""
               id="lightSelect"
@@ -118,15 +119,6 @@ function STEditPopup({
                   </option>
                 );
               })}
-              <option
-                value={JSON.stringify({
-                  apiKey:
-                    "c346eb4dc80adfbfdbef915dafd597171c53ae3ac99e4d4a695d518c2664fa7e",
-                  lightId: "d073d56c928b",
-                })}
-              >
-                BravesLight
-              </option>
             </select>
             <button
               className="steditPopupBottomRowBtn"
