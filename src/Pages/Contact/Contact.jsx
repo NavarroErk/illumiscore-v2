@@ -61,10 +61,14 @@ function Contact() {
             >
               Facebook
             </a>{" "}
-            {/* |{" "}
-            <a target="_blank" rel="noreferrer" href="#">
+            |{" "}
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://instagram.com/illumiscore"
+            >
               Instagram
-            </a> */}
+            </a>
             <br />
             <a
               id="feedbackLink"
