@@ -18,6 +18,12 @@
   width: 40%;
   height: 100%;
 }
+#adColTS{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+}
 
 .searchColTS {
   /* overflow: auto;  */
