@@ -37,11 +37,12 @@ function STEditPopup({
   };
 
   async function flashLifxFromWeb() {
-    //! NEED TO GRAB LIGHT FROM DROPDOWN
+    const lightSelect = document.querySelector("#lightSelect");
+    const selectedValue = JSON.parse(lightSelect.value);
 
     await context.globalState.functionList.FlashLifxFromWeb(
-      userData.data.LifxLights[0].ApiKey,
-      userData.data.LifxLights[0].LightIds,
+      selectedValue.apiKey,
+      selectedValue.lightId,
       tempColor1,
       tempColor2
     );
@@ -95,12 +96,37 @@ function STEditPopup({
             <p className="teamEditColorPara">Secondary Color</p>
           </div>
           <div className="steditPopupBottomRow">
-            <select name="" id="">
-              {lifxLights.map((light, index) => (
-                <option key={index} value={light.lightName}>
-                  {light.lightName}
-                </option>
-              ))}
+            <select
+              name=""
+              id="lightSelect"
+              onChange={(e) => {
+                console.log(e);
+              }}
+            >
+              {lifxLights.map((light, index) => {
+                console.log(light);
+                return (
+                  <option
+                    id={light.LightIds}
+                    key={index}
+                    value={JSON.stringify({
+                      apiKey: light.ApiKey,
+                      lightId: light.LightIds,
+                    })}
+                  >
+                    {light.lightName}
+                  </option>
+                );
+              })}
+              <option
+                value={JSON.stringify({
+                  apiKey:
+                    "c346eb4dc80adfbfdbef915dafd597171c53ae3ac99e4d4a695d518c2664fa7e",
+                  lightId: "d073d56c928b",
+                })}
+              >
+                BravesLight
+              </option>
             </select>
             <button
               className="steditPopupBottomRowBtn"
