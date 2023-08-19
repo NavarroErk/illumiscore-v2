@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./NewDashboardCard.css";
 
-function NewDashboardCard({ title, route, className }) {
+function NewDashboardCard({ title, route, className, lightsAndTeams }) {
   return (
     <div
       className={className}
@@ -10,6 +10,7 @@ function NewDashboardCard({ title, route, className }) {
     >
       <Link className="dashCardTitle" to={route}>
         {title}
+        <p>: {lightsAndTeams} </p>
       </Link>
     </div>
   );

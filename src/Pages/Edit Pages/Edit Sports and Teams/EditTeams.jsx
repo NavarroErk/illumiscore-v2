@@ -17,16 +17,14 @@ function EditTeams() {
 
   async function loadSearchResults() {
     const leagueSelect = document.querySelector("#leagueSelect");
-    console.log(leagueSelect.value);
     const results = await context.globalState.functionList.GetTeamsInLeague(
       leagueSelect.value
     );
-    console.log(results);
 
     // leagueSelect.addEventListener("change", console.log("BUST"));
     // onclick of specific league button, pass league value into GetTeamsInLeague() function, the code will do the rest
 
-    setSearchResults(results);
+    setSearchResults(results.sort());
   }
 
   // useEffect(() => {
@@ -44,19 +42,38 @@ function EditTeams() {
             <p className="searchColContainerPara">
               Click the + button to add teams to your account
             </p>
-            <select onChange={loadSearchResults} name="" id="leagueSelect">
+            <select onChange={loadSearchResults} id="leagueSelect">
               <option value="">Please Choose a League</option>
               <optgroup label="Baseball">
-                <option value="Major League Baseball">MLB</option>
+                <option value="Major League Baseball">
+                  Major League Baseball
+                </option>
+                <option value="Nippon Professional Baseball">
+                  Nippon Professional Baseball
+                </option>
               </optgroup>
               <optgroup label="Football">
-                <option value="National Football League">NFL</option>
+                <option value="National Football League">
+                  National Football League
+                </option>
               </optgroup>
               <optgroup label="Hockey">
-                <option value="National Hockey League">NHL</option>
+                <option value="National Hockey League">
+                  National Hockey League
+                </option>
               </optgroup>
               <optgroup label="Soccer">
-                <option value="fifa">FIFA</option>
+                <option value="English Football League">
+                  English Football League
+                </option>
+                <option value="Major League Soccer">Major League Soccer</option>
+                <option value="LaLiga">LaLiga</option>
+                <option value="Serie A">Serie A</option>
+                <option value="Bundesliga">Bundesliga</option>
+                <option value="Ligue 1">Ligue 1</option>
+                <option value="Chinese Super League">
+                  Chinese Super League
+                </option>
               </optgroup>
             </select>
             {searchResults.length === 0 ? (

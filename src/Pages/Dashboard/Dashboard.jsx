@@ -7,7 +7,9 @@ import NewDashboardCard from "../../Components/Dashboard Components/NewDashboard
 import { GetUserFromWeb } from "../../mongoDBClient";
 
 function Dashboard() {
-  GetUserFromWeb(JSON.parse(localStorage.getItem("userData")).data._id);
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  GetUserFromWeb(userData.data._id);
+  console.log(userData);
 
   document.addEventListener("DOMContentLoaded", function () {
     const googleSportsView = document.getElementById("googleSportsView");
@@ -43,11 +45,13 @@ function Dashboard() {
           <section id="dashSection2">
             <div id="newDashCardContainer">
               <NewDashboardCard
+                lightsAndTeams={userData.data.MlbTeams.length}
                 className="newDashboardCard"
                 title="Manage Your Teams"
                 route="/dashboard/editTeams"
               />
               <NewDashboardCard
+                lightsAndTeams={userData.data.LifxLights.length}
                 className="newDashboardCard"
                 title="Manage Your Lights"
                 route="/dashboard/editLights"
