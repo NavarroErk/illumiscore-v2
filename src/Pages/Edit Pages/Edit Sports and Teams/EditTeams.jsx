@@ -16,15 +16,22 @@ function EditTeams() {
   GetUserFromWeb(JSON.parse(localStorage.getItem("userData")).data._id);
 
   async function loadSearchResults() {
+    const leagueSelect = document.querySelector("#leagueSelect");
+    console.log(leagueSelect.value);
     const results = await context.globalState.functionList.GetTeamsInLeague(
-      "Major League Baseball"
+      leagueSelect.value
     );
+    console.log(results);
+
+    // leagueSelect.addEventListener("change", console.log("BUST"));
+    // onclick of specific league button, pass league value into GetTeamsInLeague() function, the code will do the rest
+
     setSearchResults(results);
   }
 
-  useEffect(() => {
-    loadSearchResults();
-  }, []);
+  // useEffect(() => {
+  //   loadSearchResults();
+  // }, []);
 
   return (
     <>
@@ -37,13 +44,34 @@ function EditTeams() {
             <p className="searchColContainerPara">
               Click the + button to add teams to your account
             </p>
-            {searchResults.map((result, index) => (
-              <STSearchCard
-                key={index}
-                name={result}
-                setTeamDataState={setTeamDataState}
-              ></STSearchCard>
-            ))}
+            <select onChange={loadSearchResults} name="" id="leagueSelect">
+              <option value="">Please Choose a League</option>
+              <optgroup label="Baseball">
+                <option value="Major League Baseball">MLB</option>
+              </optgroup>
+              <optgroup label="Football">
+                <option value="National Football League">NFL</option>
+              </optgroup>
+              <optgroup label="Hockey">
+                <option value="National Hockey League">NHL</option>
+              </optgroup>
+              <optgroup label="Soccer">
+                <option value="fifa">FIFA</option>
+              </optgroup>
+            </select>
+            {searchResults.length === 0 ? (
+              <div style={{ color: "#efefef" }}>
+                List of teams will appear here
+              </div>
+            ) : (
+              searchResults.map((result, index) => (
+                <STSearchCard
+                  key={index}
+                  name={result}
+                  setTeamDataState={setTeamDataState}
+                ></STSearchCard>
+              ))
+            )}
           </div>
         </div>
         <div className="editColTS">
