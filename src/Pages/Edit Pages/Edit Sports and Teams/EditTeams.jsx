@@ -58,6 +58,21 @@ function EditTeams() {
                 <option value="National Football League">
                   National Football League
                 </option>
+                <option value="American Athletic Conference">
+                  American Athletic Conference
+                </option>
+                <option value="ACC (Atlantic Coast Conference)">
+                  ACC (Atlantic Coast Conference)
+                </option>
+                <option value="Big 12">Big 12</option>
+                <option value="Big Ten">Big Ten</option>
+                <option value="Conference USA">Conference USA</option>
+                <option value="FBS Independents">FBS Independents</option>
+                <option value="Mid-American">Mid-American</option>
+                <option value="Mountain West">Mountain West</option>
+                <option value="Pac-12">Pac-12</option>
+                <option value="SEC">SEC</option>
+                <option value="Sun Belt">Sun Belt</option>
               </optgroup>
               <optgroup label="Hockey">
                 <option value="National Hockey League">
