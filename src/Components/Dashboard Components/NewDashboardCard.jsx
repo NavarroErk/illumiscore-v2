@@ -10,7 +10,7 @@ function NewDashboardCard({ title, route, className, lightsAndTeams }) {
     >
       <Link className="dashCardTitle" to={route}>
         {title}
-        <p>: {lightsAndTeams} </p>
+        <p> {lightsAndTeams} </p>
       </Link>
     </div>
   );
