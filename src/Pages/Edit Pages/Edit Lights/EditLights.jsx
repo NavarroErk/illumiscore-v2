@@ -57,6 +57,16 @@ function EditLights() {
   function closeLightsHelpPopup() {
     setShowHelpComponent(false);
   }
+
+  function setDelayClicked() {
+    const lightDelayInput = document.querySelector(".lightDelayInput");
+    console.log(lightDelayInput.value);
+    context.globalState.functionList.AddDelayToLights(
+      JSON.parse(localStorage.getItem("userData")).data._id,
+      lightDelayInput.value
+    );
+  }
+
   return (
     <>
       <Header></Header>
@@ -142,6 +152,34 @@ function EditLights() {
         <div className="editColTS">
           <div className="editColContainer">
             <p className="editColTSTitle">Your Lights</p>
+
+            <div className="delayContainer">
+              <div>
+                <p>Flashing Too Early? Set a Delay: </p>
+                <input
+                  type="number"
+                  className="lightDelayInput"
+                  min="0"
+                  max="10"
+                />
+                <button onClick={setDelayClicked}>Set Delay</button>
+              </div>
+              <div>
+                <p>
+                  Current Delay:{" "}
+                  {/* UPDATE LIGHTDATA STATE TO REFLECT UPDATED DELAY */}
+                  {JSON.parse(localStorage.getItem("userData")).data
+                    .LifxLights[0].lightDelay ? (
+                    JSON.parse(localStorage.getItem("userData")).data
+                      .LifxLights[0].lightDelay
+                  ) : (
+                    <></>
+                  )}{" "}
+                  second
+                </p>
+              </div>
+            </div>
+
             {lightDataState.map((light, index) => (
               <STEditCard
                 key={index}

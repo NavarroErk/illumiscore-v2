@@ -12,6 +12,7 @@ function EditTeams() {
   const userTeams = JSON.parse(localStorage.getItem("userData")).data.MlbTeams;
   const [searchResults, setSearchResults] = useState([]);
   const [teamDataState, setTeamDataState] = useState();
+  const [teamDefaultColors, setTeamDefaultColors] = useState();
 
   GetUserFromWeb(JSON.parse(localStorage.getItem("userData")).data._id);
 
@@ -20,6 +21,7 @@ function EditTeams() {
     const results = await context.globalState.functionList.GetTeamsInLeague(
       leagueSelect.value
     );
+    console.log(results);
 
     // leagueSelect.addEventListener("change", console.log("BUST"));
     // onclick of specific league button, pass league value into GetTeamsInLeague() function, the code will do the rest
