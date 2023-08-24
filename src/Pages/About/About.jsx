@@ -107,7 +107,61 @@ function About() {
               Software Publishers
             </em>
           </p>
+
+          <div id="adColTS">
+            <iframe
+              className="affiliateAd"
+              sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin"
+              marginwidth="0"
+              marginheight="0"
+              scrolling="no"
+              frameborder="0"
+              src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=thompsonswe-20&language=en_US&marketplace=amazon&region=US&placement=B08BL16M81&asins=B08BL16M81&linkId=43b6279d28e2147bcc8490c9038aec2a&show_border=true&link_opens_in_new_window=true"
+            ></iframe>
+
+            <iframe
+              className="affiliateAd"
+              sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin"
+              marginwidth="0"
+              marginheight="0"
+              scrolling="no"
+              frameborder="0"
+              src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=thompsonswe-20&language=en_US&marketplace=amazon&region=US&placement=B08BKXPX3N&asins=B08BKXPX3N&linkId=688b6aa9691e50132d393b6130a82799&show_border=true&link_opens_in_new_window=true"
+            ></iframe>
+
+            <iframe
+              className="affiliateAd"
+              sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin"
+              marginwidth="0"
+              marginheight="0"
+              scrolling="no"
+              frameborder="0"
+              src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=thompsonswe-20&language=en_US&marketplace=amazon&region=US&placement=B08FW7ZNC2&asins=B08FW7ZNC2&linkId=b1fa0f78041c29dc894f0fb23b67a855&show_border=true&link_opens_in_new_window=true"
+            ></iframe>
+
+            <iframe
+              className="affiliateAd"
+              sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin"
+              marginwidth="0"
+              marginheight="0"
+              scrolling="no"
+              frameborder="0"
+              src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=thompsonswe-20&language=en_US&marketplace=amazon&region=US&placement=B091ZT4L78&asins=B091ZT4L78&linkId=d6dfc39b4a047fed7b6cc07c17e1e7d7&show_border=true&link_opens_in_new_window=true"
+            ></iframe>
+            
+            <iframe
+              className="affiliateAd"
+              sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin"
+              marginwidth="0"
+              marginheight="0"
+              scrolling="no"
+              frameborder="0"
+              src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=thompsonswe-20&language=en_US&marketplace=amazon&region=US&placement=B073177QS8&asins=B073177QS8&linkId=896b07d4a5462c0ec6d73727f1282e67&show_border=true&link_opens_in_new_window=true"
+            ></iframe>
+          </div>
         </section>
+
+        
       </main>
       <Footer></Footer>
     </>
