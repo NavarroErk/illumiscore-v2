@@ -15,6 +15,14 @@ function EditLights() {
   const [lightDataState, setLightDataState] = useState(
     JSON.parse(localStorage.getItem("userData")).data.LifxLights
   );
+
+  const [lightDelay, setLightDelay] = useState(
+    JSON.parse(localStorage.getItem("userData")).data.LifxLights[0]
+      ? JSON.parse(localStorage.getItem("userData")).data.LifxLights[0]
+          .lightDelay
+      : "0"
+  );
+
   const [userInput, setUserInput] = useState({
     _id: JSON.parse(localStorage.getItem("userData")).data._id,
     apiKey: "",
@@ -58,13 +66,16 @@ function EditLights() {
     setShowHelpComponent(false);
   }
 
-  function setDelayClicked() {
+  async function setDelayClicked() {
     const lightDelayInput = document.querySelector(".lightDelayInput");
-    console.log(lightDelayInput.value);
-    context.globalState.functionList.AddDelayToLights(
+    await context.globalState.functionList.AddDelayToLights(
       JSON.parse(localStorage.getItem("userData")).data._id,
       lightDelayInput.value
     );
+    const userData = await context.globalState.functionList.GetUserFromWeb(
+      JSON.parse(localStorage.getItem("userData")).data._id
+    );
+    setLightDelay(userData.data.LifxLights[0].lightDelay);
   }
 
   return (
@@ -164,20 +175,26 @@ function EditLights() {
                 />
                 <button onClick={setDelayClicked}>Set Delay</button>
               </div>
-              <div>
-                <p>
-                  Current Delay:{" "}
-                  {/* UPDATE LIGHTDATA STATE TO REFLECT UPDATED DELAY */}
-                  {JSON.parse(localStorage.getItem("userData")).data
-                    .LifxLights[0].lightDelay ? (
-                    JSON.parse(localStorage.getItem("userData")).data
-                      .LifxLights[0].lightDelay
-                  ) : (
-                    <></>
-                  )}{" "}
-                  second
-                </p>
-              </div>
+              {JSON.parse(localStorage.getItem("userData")).data
+                .LifxLights[0] ? (
+                <div>
+                  <p id="delayPara">
+                    Current Delay:{" "}
+                    {(() => {
+                      if (lightDelay) {
+                        return (
+                          lightDelay +
+                          (lightDelay === "1" ? " second" : " seconds")
+                        );
+                      } else {
+                        return;
+                      }
+                    })()}
+                  </p>
+                </div>
+              ) : (
+                <></>
+              )}
             </div>
 
             {lightDataState.map((light, index) => (

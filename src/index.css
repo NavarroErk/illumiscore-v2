@@ -17,12 +17,13 @@ body {
   height: 100%;
   /* background-color: rgb(21, 21, 21); */
   background-color: black;
+  /* background-color: #2C2C2C; */
 }
 main{
   margin: 0;
 }
 p, h1, h2, h3, h4, h5{
-  color: #efefef;
+  color: #EAEAEA;
 }
 
 #root{

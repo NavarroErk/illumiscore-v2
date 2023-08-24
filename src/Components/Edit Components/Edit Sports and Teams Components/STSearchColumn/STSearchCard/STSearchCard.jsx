@@ -50,7 +50,7 @@ function STSearchCard({
     console.log(apiKey);
     console.log(lightId);
     await context.globalState.functionList.FlashLifxFromWeb(
-      apiKey,
+      _id,
       lightId,
       "red",
       "blue"

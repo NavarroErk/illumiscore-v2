@@ -41,7 +41,7 @@ function STEditPopup({
     const selectedValue = JSON.parse(lightSelect.value);
 
     await context.globalState.functionList.FlashLifxFromWeb(
-      selectedValue.apiKey,
+      _id,
       selectedValue.lightId,
       tempColor1,
       tempColor2

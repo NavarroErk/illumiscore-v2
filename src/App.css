@@ -1,10 +1,6 @@
-body {
-  height: calc(100% - 150px);
-  font-family: Arial, sans-serif;  /* Added a general font for better readability */
-}
 
 #app {
-  /* overflow-y: scroll; */
+
   display: flex;
   flex-direction: column;
   /* justify-content: center; */

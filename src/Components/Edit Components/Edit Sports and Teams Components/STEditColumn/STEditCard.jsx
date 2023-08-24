@@ -60,7 +60,8 @@ function STEditCard({
   }
   async function flashLifxFromWeb() {
     await context.globalState.functionList.FlashLifxFromWeb(
-      apiKey,
+      // apiKey,
+      _id,
       lightId,
       "red",
       "blue"
