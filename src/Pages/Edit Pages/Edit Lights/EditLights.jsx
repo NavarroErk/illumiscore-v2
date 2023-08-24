@@ -8,6 +8,7 @@ import STSearchPopup from "../../../Components/Edit Components/Edit Sports and T
 import Header from "../../../Components/Header/Header";
 import Footer from "../../../Components/Footer/Footer";
 import { Link } from "react-router-dom";
+import { logDOM } from "@testing-library/react";
 
 function EditLights() {
   const context = useContext(GlobalContext);
@@ -75,6 +76,7 @@ function EditLights() {
     const userData = await context.globalState.functionList.GetUserFromWeb(
       JSON.parse(localStorage.getItem("userData")).data._id
     );
+    console.log(userData);
     setLightDelay(userData.data.LifxLights[0].lightDelay);
   }
 
