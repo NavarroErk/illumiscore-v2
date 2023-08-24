@@ -108,6 +108,15 @@ function About() {
             </em>
           </p>
 
+          <h2 className="aboutHeader">
+            Compatible lights can be found on{" "}
+            <a target="_blank" rel="noreferrer" href="https://amzn.to/3ssRIHZ">
+              Amazon
+            </a>{" "}
+            and at other familiar retail locations
+          </h2>
+          <p> Here are our Affiliate Links:</p>
+
           <div id="adColTS">
             <iframe
               className="affiliateAd"
@@ -148,7 +157,7 @@ function About() {
               frameborder="0"
               src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=thompsonswe-20&language=en_US&marketplace=amazon&region=US&placement=B091ZT4L78&asins=B091ZT4L78&linkId=d6dfc39b4a047fed7b6cc07c17e1e7d7&show_border=true&link_opens_in_new_window=true"
             ></iframe>
-            
+
             <iframe
               className="affiliateAd"
               sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin"
@@ -160,8 +169,6 @@ function About() {
             ></iframe>
           </div>
         </section>
-
-        
       </main>
       <Footer></Footer>
     </>

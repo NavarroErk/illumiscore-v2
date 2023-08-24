@@ -119,6 +119,7 @@ function EditLights() {
 
             {searchResults}
           </div>
+          <h2>Our Affiliate Links to compatible lights:</h2>
           <div id="adColTS">
             <iframe
               className="affiliateAd"
