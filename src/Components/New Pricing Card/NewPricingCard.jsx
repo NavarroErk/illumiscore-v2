@@ -15,7 +15,7 @@ function NewPricingCard({ planName, price, features, onClick, linkText, id }) {
           ))}
         </ul>
         <div className="pricingCardLinkContainer">
-          {/* <button
+          <button
             id={id}
             className="pricingCardLink"
             onClick={(e) => {
@@ -26,7 +26,7 @@ function NewPricingCard({ planName, price, features, onClick, linkText, id }) {
             }}
           >
             {linkText}
-          </button> */}
+          </button>
         </div>
       </div>
       {/* <div className="pricingCardBg"></div> */}
