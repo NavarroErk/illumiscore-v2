@@ -11,7 +11,6 @@ import PayPalBtn from "./Components/PayPalBtn/PayPalBtn";
 import PayPalSubBtn from "./Components/PayPalBtn/PayPalSubBtn";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
-import GlowingBackground from "./Components/App BGComponent/GlowingBackground";
 
 function App() {
   // Accessing global state using context

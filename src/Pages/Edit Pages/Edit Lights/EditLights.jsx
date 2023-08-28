@@ -18,7 +18,7 @@ function EditLights() {
   );
 
   const [lightDelay, setLightDelay] = useState(
-    JSON.parse(localStorage.getItem("userData")).data.LifxLights[0]
+    JSON.parse(localStorage.getItem("userData")).data.LifxLights[0].lightDelay
       ? JSON.parse(localStorage.getItem("userData")).data.LifxLights[0]
           .lightDelay
       : "0"
