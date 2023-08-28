@@ -17,12 +17,19 @@ function EditLights() {
     JSON.parse(localStorage.getItem("userData")).data.LifxLights
   );
 
-  const [lightDelay, setLightDelay] = useState(
-    JSON.parse(localStorage.getItem("userData")).data.LifxLights[0].lightDelay
-      ? JSON.parse(localStorage.getItem("userData")).data.LifxLights[0]
-          .lightDelay
-      : "0"
-  );
+
+  // const [lightDelay, setLightDelay] = useState(
+  //   JSON.parse(localStorage.getItem("userData")).data.LifxLights[0].lightDelay
+  //     ? JSON.parse(localStorage.getItem("userData")).data.LifxLights[0]
+  //         .lightDelay
+  //     : "0"
+  // );
+
+  const lightDataForDelay = JSON.parse(localStorage.getItem("userData"))?.data?.LifxLights?.[0];
+  const lightDelayValue = lightDataForDelay?.lightDelay || "0";
+  
+  const [lightDelay, setLightDelay] = useState(lightDelayValue);
+  
 
   const [userInput, setUserInput] = useState({
     _id: JSON.parse(localStorage.getItem("userData")).data._id,
