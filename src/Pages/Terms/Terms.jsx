@@ -46,7 +46,6 @@ function Terms() {
               The Website features content, designs, graphics, and other intellectual property either owned by or licensed to Thompson SWE LLC, all of which are protected by intellectual property laws. Certain imagery used may be sourced from third-party providers. Unauthorized use or duplication of any materials from our Website is strictly prohibited.
           </p>
 
-
           <p className="termsPara">
             <strong>6. Disclaimers</strong>
           </p>
@@ -58,7 +57,7 @@ function Terms() {
             <strong>7. LIFX Integration Terms</strong>
           </p>
           <p className="termsPara">
-            For services and products integrated with LIFX, users are also subject to LIFX's terms and conditions. Before using these integrated features, please ensure you are in agreement with <a href="https://www.lifx.com/pages/terms-of-service" target="_blank" rel="noopener noreferrer">LIFX's Terms of Service</a>. We are not affiliated with LIFX nor do we receive any pay, benefits, or compensation from LIFX. If you have any technical issues with your LIFX products, please reach out to their customer support team.
+            By using features integrated with LIFX, users implicitly agree to abide by the LIFX API usage terms, including but not limited to limitations on requests per second. It is imperative to review and adhere to the <a href="https://www.lifx.com/pages/terms-of-service" target="_blank" rel="noopener noreferrer">LIFX's Terms of Service</a> when using these features. Please note that illumiscore or Thompson SWE LLC are not affiliated with LIFX in any capacity and do not receive any compensation from them.
           </p>
 
           <p className="termsPara">
