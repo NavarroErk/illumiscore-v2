@@ -142,16 +142,16 @@ function App() {
             planName="Basic"
             price="$3 / month"
             features={["Up to 5 Lights", "Up to 5 Teams"]}
-            onClick={() => handlePlanClick(0)} // price for Free Plan
-            linkText="Get Started"
+            onClick={() => handlePlanClick(3, "P-46V9859400931834WMTV2J7Y")} // price for Free Plan
+            linkText="Subscribe"
           />
           <NewPricingCard
             id="standardPlanCardLink"
             planName="Standard"
             price="$10 / month"
             features={["Up to 30 Lights", "Up to 30 Teams"]}
-            onClick={() => handlePlanClick(5, "P-0B3312413S344771CMTLSR5I")} // price for Standard Plan
-            linkText="Upgrade"
+            onClick={() => handlePlanClick(5, "P-6GT677128V195550XMTV2OCI")} // price for Standard Plan
+            linkText="Subscribe"
             // linkText={linkText}
           />
           <NewPricingCard
@@ -159,8 +159,8 @@ function App() {
             planName="Premium"
             price="$20 / month"
             features={["Up to 100 Lights", "Unlimited Teams"]}
-            onClick={() => handlePlanClick(10, "P-8YJ70211W29776809MTLSWOY")} // price for Premium Plan
-            linkText="Upgrade"
+            onClick={() => handlePlanClick(10, "P-42F03021K8837170UMTV2OUQ")} // price for Premium Plan
+            linkText="Subscribe"
           />
         </section>
 
