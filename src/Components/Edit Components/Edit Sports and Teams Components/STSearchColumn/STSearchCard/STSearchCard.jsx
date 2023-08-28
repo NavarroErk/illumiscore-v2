@@ -47,10 +47,8 @@ function STSearchCard({
   }
 
   async function flashLifxFromWeb() {
-    console.log(apiKey);
-    console.log(lightId);
-    await context.globalState.functionList.FlashLifxFromWeb(
-      _id,
+    await context.globalState.functionList.FlashLifxFromWebSearch(
+      apiKey,
       lightId,
       "red",
       "blue"

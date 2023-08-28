@@ -11,7 +11,6 @@ import PayPalBtn from "./Components/PayPalBtn/PayPalBtn";
 import PayPalSubBtn from "./Components/PayPalBtn/PayPalSubBtn";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
-import GlowingBackground from "./Components/App BGComponent/GlowingBackground";
 
 function App() {
   // Accessing global state using context
@@ -143,7 +142,7 @@ function App() {
             planName="Basic"
             price="$3 / month"
             features={["Up to 5 Lights", "Up to 5 Teams"]}
-            onClick={() => handlePlanClick(3, "P-46V9859400931834WMTV2J7Y")} // price for Free Plan
+            //onClick={() => handlePlanClick(3, "P-46V9859400931834WMTV2J7Y")} // price for Free Plan
             linkText="Subscribe"
           />
           <NewPricingCard
@@ -151,7 +150,7 @@ function App() {
             planName="Standard"
             price="$10 / month"
             features={["Up to 30 Lights", "Up to 30 Teams"]}
-            onClick={() => handlePlanClick(5, "P-6GT677128V195550XMTV2OCI")} // price for Standard Plan
+            //onClick={() => handlePlanClick(5, "P-6GT677128V195550XMTV2OCI")} // price for Standard Plan
             linkText="Subscribe"
             // linkText={linkText}
           />
@@ -160,7 +159,7 @@ function App() {
             planName="Premium"
             price="$20 / month"
             features={["Up to 100 Lights", "Unlimited Teams"]}
-            onClick={() => handlePlanClick(10, "P-42F03021K8837170UMTV2OUQ")} // price for Premium Plan
+            //onClick={() => handlePlanClick(10, "P-42F03021K8837170UMTV2OUQ")} // price for Premium Plan
             linkText="Subscribe"
           />
         </section>

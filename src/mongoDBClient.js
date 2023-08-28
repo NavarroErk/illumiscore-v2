@@ -53,9 +53,14 @@ async function GetTeamsInLeague(leagueName){
     return await user.functions.GetTeamsInLeague(leagueName);
 }
 
-async function FlashLifxFromWeb(apiKey, lightId, color1, color2){
+async function FlashLifxFromWeb(_id, lightId, color1, color2){
     const user = await app().logIn(credentials());
-    return await user.functions.FlashLifxFromWeb(apiKey, lightId, color1, color2);
+    return await user.functions.FlashLifxFromWeb(_id, lightId, color1, color2);
+}
+
+async function FlashLifxFromWebSearch(apiKey, lightId, color1, color2){
+    const user = await app().logIn(credentials());
+    return await user.functions.FlashLifxFromWebSearch(apiKey, lightId, color1, color2);
 }
 
 async function ListLifxLights(apiKey){
@@ -91,4 +96,4 @@ async function AddDelayToLights(_id, delay){
 
 
 
-export { CreateUserFromWeb, AddLifxLightFromWeb, AddMlbTeamFromWeb, RemoveLifxLightFromUser, RemoveMlbTeamFromUser, GetDataFromToken, GetUserFromWeb, GetTeamsInLeague, FlashLifxFromWeb, ListLifxLights, CaptureOrder, CreateOrder, CaptureSubscription, UpdateUserTeamColors, GetTeamColors, AddDelayToLights }
+export { CreateUserFromWeb, AddLifxLightFromWeb, AddMlbTeamFromWeb, RemoveLifxLightFromUser, RemoveMlbTeamFromUser, GetDataFromToken, GetUserFromWeb, GetTeamsInLeague, FlashLifxFromWeb, FlashLifxFromWebSearch, ListLifxLights, CaptureOrder, CreateOrder, CaptureSubscription, UpdateUserTeamColors, GetTeamColors, AddDelayToLights }

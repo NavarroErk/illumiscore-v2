@@ -68,6 +68,14 @@ function Contact() {
               href="https://instagram.com/illumiscore"
             >
               Instagram
+            </a>{" "}
+            |{" "}
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://www.reddit.com/r/illumiscore/"
+            >
+              Reddit
             </a>
             <br />
             <a
