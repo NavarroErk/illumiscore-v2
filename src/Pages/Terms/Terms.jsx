@@ -57,7 +57,7 @@ function Terms() {
             <strong>7. LIFX Integration Terms</strong>
           </p>
           <p className="termsPara">
-            By using features integrated with LIFX, users implicitly agree to abide by the LIFX API usage terms, including but not limited to limitations on requests per second. It is imperative to review and adhere to the <a href="https://www.lifx.com/pages/terms-of-service" target="_blank" rel="noopener noreferrer">LIFX's Terms of Service</a> when using these features. Please note that illumiscore or Thompson SWE LLC are not affiliated with LIFX in any capacity and do not receive any compensation from them.
+            By using features integrated with LIFX, users implicitly agree to abide by the LIFX API usage terms, including but not limited to limitations on requests per second. It is imperative to review and adhere to the <a href="https://www.lifx.com/pages/terms-of-service" target="_blank" rel="noopener noreferrer">LIFX's Terms of Service</a> when using these features. Please note that illumiscore or Thompson SWE LLC are not affiliated with LIFX in any capacity and do not receive any compensation from LIFX.
           </p>
 
           <p className="termsPara">
