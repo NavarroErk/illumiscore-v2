@@ -17,7 +17,6 @@ function EditLights() {
     JSON.parse(localStorage.getItem("userData")).data.LifxLights
   );
 
-
   // const [lightDelay, setLightDelay] = useState(
   //   JSON.parse(localStorage.getItem("userData")).data.LifxLights[0].lightDelay
   //     ? JSON.parse(localStorage.getItem("userData")).data.LifxLights[0]
@@ -25,11 +24,11 @@ function EditLights() {
   //     : "0"
   // );
 
-  const lightDataForDelay = JSON.parse(localStorage.getItem("userData"))?.data?.LifxLights?.[0];
+  const lightDataForDelay = JSON.parse(localStorage.getItem("userData"))?.data
+    ?.LifxLights?.[0];
   const lightDelayValue = lightDataForDelay?.lightDelay || "0";
-  
+
   const [lightDelay, setLightDelay] = useState(lightDelayValue);
-  
 
   const [userInput, setUserInput] = useState({
     _id: JSON.parse(localStorage.getItem("userData")).data._id,
@@ -75,16 +74,21 @@ function EditLights() {
   }
 
   async function setDelayClicked() {
-    const lightDelayInput = document.querySelector(".lightDelayInput");
+    const lightDelaySlider = document.querySelector(".lightDelaySlider");
     await context.globalState.functionList.AddDelayToLights(
       JSON.parse(localStorage.getItem("userData")).data._id,
-      lightDelayInput.value
+      lightDelaySlider.value
     );
     const userData = await context.globalState.functionList.GetUserFromWeb(
       JSON.parse(localStorage.getItem("userData")).data._id
     );
     console.log(userData);
     setLightDelay(userData.data.LifxLights[0].lightDelay);
+  }
+
+  function delaySliderChanged(e) {
+    const delaySliderPara = document.querySelector("#delaySliderPara");
+    delaySliderPara.textContent = e.target.value;
   }
 
   return (
@@ -123,7 +127,6 @@ function EditLights() {
                 Submit
               </button>
             </div>
-
             {searchResults}
           </div>
           <h2>Our Affiliate Links to compatible lights:</h2>
@@ -175,19 +178,30 @@ function EditLights() {
             <p className="editColTSTitle">Your Lights</p>
 
             <div className="delayContainer">
-              <div>
+              <div className="delayParaContainer">
                 <p>Flashing Too Early? Set a Delay: </p>
-                <input
+                {/* <input
                   type="number"
                   className="lightDelayInput"
                   min="0"
                   max="60"
-                />
+                /> */}
+                <div className="delaySliderContainer">
+                  <input
+                    type="range"
+                    className="lightDelaySlider"
+                    min="0"
+                    max="60"
+                    onChange={delaySliderChanged}
+                  />
+                  <label id="delaySliderPara">50</label>
+                </div>
+
                 <button onClick={setDelayClicked}>Set Delay</button>
               </div>
               {JSON.parse(localStorage.getItem("userData")).data
                 .LifxLights[0] ? (
-                <div>
+                <div className="delayParaContainer">
                   <p id="delayPara">
                     Current Delay:{" "}
                     {(() => {
