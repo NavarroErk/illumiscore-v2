@@ -174,7 +174,7 @@ function EditLights() {
                   type="number"
                   className="lightDelayInput"
                   min="0"
-                  max="10"
+                  max="60"
                 />
                 <button onClick={setDelayClicked}>Set Delay</button>
               </div>
