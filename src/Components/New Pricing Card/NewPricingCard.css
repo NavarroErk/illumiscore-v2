@@ -64,6 +64,7 @@
   align-items: center;
   border-radius: 10px;
   transition: all .2s ease;
+  margin-bottom: 20px;
  }
  .pricingCardLink:hover{
   cursor: pointer;
@@ -188,7 +189,7 @@ cite {
 
 .pricingCard {
 width: 90%;
-height: 25vh;
+height: 28vh;
 transition: transform 0.3s;
 padding-bottom: 20px;
 text-decoration: none;
@@ -226,25 +227,28 @@ box-shadow: 0px 3px 10px rgba(253, 248, 248, 0.3);
   z-index: 2;
   position: relative;
   bottom: 50px;
-  left: 160px;
   margin: auto;
   font-weight: bold;
   transition: color .5s ease;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   height: 100%;
   width: 100%;
 }
+.pricingCardContent ul{
+
+}
 .pricingCardContent ul li{
-  width: 200px;
-  margin-left: 20px;
+  /* width: 100%; */
+  /* margin-left: 20px; */
+  /* font-size: 80%; */
 }
 .price{
   margin-left: 20px;
   margin-right: 20px;
   position: relative;
-  top: 10px;
+  /* top: 10px; */
 }
 
  .pricingCardBg {
@@ -271,7 +275,7 @@ height: 50px;
 width: 120px;
 background-color: #641788;
 background-color: rgb(0, 0, 0);
-border: 1px solid white;
+/* border: 1px solid white; */
 text-decoration: none;
 color: #efefef;
 display: flex;
@@ -279,6 +283,8 @@ justify-content: center;
 align-items: center;
 border-radius: 10px;
 transition: all .2s ease;
+font-size: 80%;
+margin-right: 20px;
 }
 .pricingCardLink:hover{
 cursor: pointer;
@@ -376,7 +382,7 @@ margin-top: 20px;
 @media screen and (max-width: 480px) {
   .pricingCard{
     margin-bottom: 0;
-    height: 200px;
+    height: 28vh;
   }
   .pricingCardTitle{
     position: relative;
@@ -384,14 +390,15 @@ margin-top: 20px;
   }
   .price{
     position: relative;
-    right: 130px;
     font-size: 20px;
   }
   .pricingCardContent ul{
     position: relative;
-    right: 150px;
-    top: 10px;
-    font-size: 20px;
+    font-size: 70%;
+  }
+  .pricingCardLink{
+    width: 100%;
+    margin-left: 20px;
   }
   .joinUs{
     margin-top: 20px;
