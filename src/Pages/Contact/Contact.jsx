@@ -20,6 +20,16 @@ function Contact() {
             <strong>Email:</strong>{" "}
             <a href="mailto:support@illumiscore.com">support@illumiscore.com</a>
           </p>
+          <p className="contactPara">
+            <strong>Support Forum:</strong>{" "}
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://reddit.com/r/illumiscore"
+            >
+              r/illumiscore
+            </a>
+          </p>
           {/* <form action="#" method="post">
           <label for="name">Name:</label>
           <br />
