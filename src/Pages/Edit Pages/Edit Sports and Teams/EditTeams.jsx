@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import "./EditSportsTeams.css";
+// import "./EditSportsTeams.css";
 import STSearchCard from "../../../Components/Edit Components/Edit Sports and Teams Components/STSearchColumn/STSearchCard/STSearchCard";
 import STEditCard from "../../../Components/Edit Components/Edit Sports and Teams Components/STEditColumn/STEditCard";
 import { GlobalContext } from "../../..";

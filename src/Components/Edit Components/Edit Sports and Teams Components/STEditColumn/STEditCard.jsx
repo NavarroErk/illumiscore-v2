@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useLocation } from "react-router-dom";
-import "./STEdit.css";
+// import "./STEdit.css";
 import STEditPopup from "./STEditPopup";
 import { GlobalContext } from "../../../..";
 
@@ -82,7 +82,7 @@ function STEditCard({
   // console.log(defaultTeamColors);
 
   return (
-    <div className="editCard">
+    <div className="teamCard">
       {/* <STEditIcon editImg={editImg}></STEditIcon> */}
       <div className="editCardDiv">
         <p className="editCardPara">{title}</p>

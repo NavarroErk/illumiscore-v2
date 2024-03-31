@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import STSearchIcon from "../STSearchIcon/STSearchIcon";
-import "../STSearch.css";
+// import "../STSearch.css";
 import { GlobalContext } from "../../../../..";
 import { useLocation } from "react-router-dom";
 

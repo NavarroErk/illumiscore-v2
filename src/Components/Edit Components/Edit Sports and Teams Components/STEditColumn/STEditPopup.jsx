@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import "./STEdit.css";
+// import "./STEdit.css";
 import { GlobalContext } from "../../../..";
 import { UpdateUserTeamColors } from "../../../../mongoDBClient";
 import { useNavigate } from "react-router-dom";

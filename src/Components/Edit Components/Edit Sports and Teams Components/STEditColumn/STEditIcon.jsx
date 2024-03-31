@@ -1,12 +1,12 @@
 import React from "react";
-import "./STEdit.css"
+// import "./STEdit.css"
 
-function STEditIcon({editImg}){
-    return(
-        <div id="editIcon">
-            <img src={editImg} alt="A" />
-        </div>
-    )
+function STEditIcon({ editImg }) {
+  return (
+    <div id="editIcon">
+      <img src={editImg} alt="A" />
+    </div>
+  );
 }
 
-export default STEditIcon
+export default STEditIcon;
