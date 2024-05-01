@@ -1,3 +1,5 @@
+/*? REGION Dashboard */
+/* #region dashboard */
 #dashboard {
   /* height: 100%; */
   width: 100%;
@@ -40,13 +42,67 @@
   justify-content: space-around;
   align-items: center;
 }
+.react-tabs {
+  width: 100%;
+}
+/* #endregion Dashboard */
 
+/*? REGION TEAMS*/
+/* #region Teams */
 #editTeams {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+#editTeams > div {
+  width: 80%;
+  height: 300px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 2px solid black;
+}
+#addTeamContainer {
+  height: 100%;
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-right: 2px solid black;
+}
+#addTeamContainer > p {
+  width: 90%;
+}
+#leagueSelect {
+  width: 90%;
+  height: 40px;
+  margin-top: 10px;
+  background-color: rgb(231, 231, 231);
+  border: 2px solid black;
+}
+.teamResults {
+  /* border: 2px solid blue; */
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  scrollbar-color: rgb(89, 89, 89) rgb(202, 202, 202);
+  scrollbar-width: thin;
+  border-top: 2px solid black;
+}
+
+.teamResultsCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid black;
+  margin: 5px 10px 5px 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 40px;
 }
 
 #teamCardContainer {
@@ -55,8 +111,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-y: scroll;
-  border: 2px solid black;
+  overflow-y: auto;
+  scrollbar-color: rgb(89, 89, 89) rgb(202, 202, 202);
+  scrollbar-width: thin;
 }
 
 .teamCard {
@@ -71,6 +128,99 @@
 
 .teamCardTitle {
   color: black;
+}
+/* #endregion teams */
+
+/*? REGION LIGHTS */
+/* #region Lights */
+#editLights {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#addLightsContainer {
+  /* border: 2px solid blue; */
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 10px;
+}
+#addLightsContainer > div {
+  width: 50%;
+}
+#lightApiKeyInputContainer {
+  display: flex;
+  justify-content: center;
+}
+
+#lightApiKeyInput {
+  width: 300px;
+}
+
+#editLightsContent {
+  width: 80%;
+  height: 300px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 2px solid black;
+}
+
+#delayContainer {
+  height: 100%;
+  width: 35%;
+  border-right: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.setDelayContainer,
+.userDelayContainer,
+#listLightsContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#listLightsContainer {
+  border-top: 2px solid black;
+  overflow: auto;
+}
+#lightCardContainer {
+  height: 100%;
+  width: 65%;
+}
+
+.lightCard {
+  border-bottom: 1px solid gray;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+/* #endregion Lights */
+
+#editTeamPopup {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  bottom: 0;
+  border: 2px solid blue;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#editTeamPopupContent {
+  background-color: #fff;
+  padding: 20px;
 }
 
 /* #newDashCardContainer {

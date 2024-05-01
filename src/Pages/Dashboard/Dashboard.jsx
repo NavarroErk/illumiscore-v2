@@ -8,14 +8,17 @@ import STSearchCard from "../../Components/Edit Components/Edit Sports and Teams
 import NewDashboardCard from "../../Components/Dashboard Components/NewDashboardCard";
 import { GetUserFromWeb } from "../../mongoDBClient";
 import { GlobalContext } from "../..";
+import DashTabs from "../Tabs/Tabs";
 
 function Dashboard() {
   //! #region variables from EditTeams.jsx
+
   const context = useContext(GlobalContext);
   const userTeams = JSON.parse(localStorage.getItem("userData")).data.MlbTeams;
   const [searchResults, setSearchResults] = useState([]);
   const [teamDataState, setTeamDataState] = useState();
   const [teamDefaultColors, setTeamDefaultColors] = useState();
+  GetUserFromWeb(JSON.parse(localStorage.getItem("userData")).data._id);
 
   async function loadSearchResults() {
     const leagueSelect = document.querySelector("#leagueSelect");
@@ -54,7 +57,6 @@ function Dashboard() {
     apiKey: "",
   });
   const [showHelpComponent, setShowHelpComponent] = useState(false);
-  GetUserFromWeb(JSON.parse(localStorage.getItem("userData")).data._id);
 
   function textboxValueChange(e, inputText) {
     setUserInput((prevState) => ({
@@ -77,7 +79,7 @@ function Dashboard() {
           apiKey={userInput.apiKey}
           lightId={userLightInfo.id}
           name={userLightInfo.label}
-          setLightDataState={setLightDataState}
+          setlightdatastate={setLightDataState}
         ></STSearchCard>
       ));
     });
@@ -111,26 +113,6 @@ function Dashboard() {
   }
   //! #endregion variables from EditLights.jsx
 
-  GetUserFromWeb(JSON.parse(localStorage.getItem("userData")).data._id);
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const googleSportsView = document.getElementById("googleSportsView");
-    const desiredScrollPosition = 200;
-
-    googleSportsView.addEventListener("load", () => {
-      googleSportsView.contentWindow.scrollTo(0, desiredScrollPosition);
-    });
-  });
-
-  // const mlbCookieBanner = document.getElementById("onetrust-banner-sdk");
-  // setTimeout(() => {
-  //   if (mlbCookieBanner) {
-  //     mlbCookieBanner.remove();
-  //   } else {
-  //     alert("FUCK YOU");
-  //   }
-  // }, 1000);
-
   return (
     <>
       <Header></Header>
@@ -145,114 +127,7 @@ function Dashboard() {
             </div>
           </section>
           <section id="dashSection2">
-            {/* <div id="newDashCardContainer"> */}
-            {/* <NewDashboardCard
-              className="newDashboardCard"
-              title="Manage Your Teams"
-              route="/dashboard/editTeams"
-            /> */}
-            <div id="editTeams">
-              <p className="">Your Teams</p>
-              <div id="teamCardContainer">
-                {userTeams.length === 0 ? (
-                  <p id="">Your teams will appear here</p>
-                ) : (
-                  <></>
-                )}
-                {userTeams.map((teamObj, index) => (
-                  // <STEditCard
-                  //   key={index}
-                  //   title={teamObj.teamName}
-                  //   profileColor1={teamObj.color1}
-                  //   profileColor2={teamObj.color2}
-                  //   setTeamDataState={setTeamDataState}
-                  // ></STEditCard>
-                  <div
-                    className="teamCard"
-                    key={index}
-                    profileColor1={teamObj.color1}
-                    profileColor2={teamObj.color2}
-                    setTeamDataState={setTeamDataState}
-                  >
-                    <p className="teamCardTitle">{teamObj.teamName}</p>
-                    <div className="teamCardBtnContainer">
-                      <button className="teamCardEditBtn">Edit</button>
-                      <button className="teamCardDeleteBtn">Delete</button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* <NewDashboardCard
-              className="newDashboardCard"
-              title="Manage Your Lights"
-              route="/dashboard/editLights"
-            /> */}
-            <div className="editColTS">
-              <div className="editColContainer">
-                <p className="editColTSTitle">Your Lights</p>
-
-                <div className="delayContainer">
-                  <div className="delayParaContainer">
-                    <p>Flashing Too Early? Set a Delay: </p>
-                    {/* <input
-                  type="number"
-                  className="lightDelayInput"
-                  min="0"
-                  max="60"
-                /> */}
-                    <div className="delaySliderContainer">
-                      <input
-                        type="range"
-                        className="lightDelaySlider"
-                        min="0"
-                        max="60"
-                        onChange={delaySliderChanged}
-                      />
-                      <label id="delaySliderPara">50</label>
-                    </div>
-
-                    <button onClick={setDelayClicked}>Set Delay</button>
-                  </div>
-                  {JSON.parse(localStorage.getItem("userData")).data
-                    .LifxLights[0] ? (
-                    <div className="delayParaContainer">
-                      <p id="delayPara">
-                        Current Delay:{" "}
-                        {(() => {
-                          if (lightDelay) {
-                            return (
-                              lightDelay +
-                              (lightDelay === "1" ? " second" : " seconds")
-                            );
-                          } else {
-                            return;
-                          }
-                        })()}
-                      </p>
-                    </div>
-                  ) : (
-                    <></>
-                  )}
-                </div>
-
-                {lightDataState.map((light, index) => (
-                  <div
-                    className="lightCard"
-                    key={index}
-                    title={light.lightName}
-                    lightName={light.lightName}
-                    apiKey={light.ApiKey}
-                    lightId={light.LightIds}
-                    setLightDataState={setLightDataState}
-                  >
-                    <p className="lightCardTitle">{light.lightName}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            {/* </div> */}
+            <DashTabs></DashTabs>
           </section>
         </div>
       </main>

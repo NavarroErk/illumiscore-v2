@@ -1,0 +1,380 @@
+import React, { useState, useContext } from "react";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { GetUserFromWeb } from "../../mongoDBClient";
+import { GlobalContext } from "../..";
+
+import EditTeamPopup from "../../Components/Edit Components/EditTeamPopup";
+
+function DashTabs() {
+  //! #region variables from EditTeams.jsx
+  const context = useContext(GlobalContext);
+  const [userData, setUserData] = useState(
+    JSON.parse(localStorage.getItem("userData"))
+  );
+  const [searchResults, setSearchResults] = useState([]);
+  const [lightSearchResults, setLightSearchResults] = useState([]);
+  const [teamDataState, setTeamDataState] = useState(userData.data.MlbTeams);
+  const [lightDataState, setLightDataState] = useState(
+    JSON.parse(localStorage.getItem("userData")).data.LifxLights
+  );
+  const [teamDefaultColors, setTeamDefaultColors] = useState();
+  const _id = JSON.parse(localStorage.getItem("userData")).data._id;
+  const [showEditTeamPopup, setShowEditTeamPopup] = useState(false);
+  const [editTeamPopupState, setEditTeamPopupState] = useState();
+  const [lightApiKeyInput, setLightApiKeyInput] = useState();
+
+  const lightDataForDelay = JSON.parse(localStorage.getItem("userData"))?.data
+    ?.LifxLights?.[0];
+  const lightDelayValue = lightDataForDelay?.lightDelay || "0";
+
+  const [lightDelay, setLightDelay] = useState(lightDelayValue);
+
+  const [userInput, setUserInput] = useState({
+    _id: JSON.parse(localStorage.getItem("userData")).data._id,
+    apiKey: "",
+  });
+  const [showHelpComponent, setShowHelpComponent] = useState(false);
+  GetUserFromWeb(JSON.parse(localStorage.getItem("userData")).data._id);
+
+  function editTeamClicked(teamObj) {
+    setShowEditTeamPopup(!showEditTeamPopup);
+    setEditTeamPopupState(teamObj);
+  }
+
+  async function loadSearchResults() {
+    const leagueSelect = document.querySelector("#leagueSelect");
+    const results = await context.globalState.functionList.GetTeamsInLeague(
+      leagueSelect.value
+    );
+    console.log(results);
+
+    setSearchResults(results.sort());
+  }
+
+  function lightsHelpBtnClicked() {
+    setShowHelpComponent(true);
+  }
+  function closeLightsHelpPopup() {
+    setShowHelpComponent(false);
+  }
+
+  async function setDelayClicked() {
+    const lightDelaySlider = document.querySelector(".lightDelaySlider");
+    await context.globalState.functionList.AddDelayToLights(
+      JSON.parse(localStorage.getItem("userData")).data._id,
+      lightDelaySlider.value
+    );
+    const userData = await context.globalState.functionList.GetUserFromWeb(
+      JSON.parse(localStorage.getItem("userData")).data._id
+    );
+    console.log(userData);
+    setLightDelay(userData.data.LifxLights[0].lightDelay);
+  }
+
+  function delaySliderChanged(e) {
+    const delaySliderPara = document.querySelector("#delaySliderPara");
+    delaySliderPara.textContent = e.target.value;
+  }
+
+  async function addTeamToUser(teamName) {
+    console.log("addTeamToUser has run");
+    await context.globalState.functionList.AddMlbTeamFromWeb(_id, teamName);
+
+    const userData = await context.globalState.functionList.GetUserFromWeb(_id);
+
+    //! maybe add MlbTeams.teamName?
+    setTeamDataState(userData.data.MlbTeams);
+  }
+
+  async function removeTeamFromUser(teamName) {
+    await context.globalState.functionList.RemoveMlbTeamFromUser(_id, teamName);
+    const userData = await context.globalState.functionList.GetUserFromWeb(_id);
+    setTeamDataState(userData.data.MlbTeams);
+  }
+
+  function textboxValueChange(e) {
+    setLightApiKeyInput(e.target.value);
+  }
+  async function submitApiKeyClicked() {
+    const userLightData = await context.globalState.functionList.ListLifxLights(
+      lightApiKeyInput
+    );
+    setLightSearchResults(userLightData);
+    console.log(userLightData);
+  }
+
+  async function addLightToUser(lightName, lightId) {
+    await context.globalState.functionList.AddLifxLightFromWeb(
+      _id,
+      lightName,
+      lightApiKeyInput,
+      lightId
+    );
+
+    const userData = await context.globalState.functionList.GetUserFromWeb(_id);
+    setLightDataState(userData.data.LifxLights);
+  }
+  async function removeLightFromUser(lightName) {
+    await context.globalState.functionList.RemoveLifxLightFromUser(
+      _id,
+      lightName
+    );
+
+    console.log(lightName);
+    const userData = await context.globalState.functionList.GetUserFromWeb(_id);
+    setLightDataState(userData.data.LifxLights);
+  }
+
+  return (
+    <>
+      <Tabs>
+        <TabList>
+          <Tab>Edit Teams</Tab>
+          <Tab>Edit Lights</Tab>
+        </TabList>
+
+        <TabPanel>
+          <div id="editTeams">
+            <p className="">Your Teams</p>
+            <div>
+              <div id="addTeamContainer">
+                <select onChange={loadSearchResults} id="leagueSelect">
+                  <option value="">Please Select a League</option>
+                  <optgroup label="Baseball">
+                    <option value="Major League Baseball">
+                      Major League Baseball
+                    </option>
+                    <option value="Nippon Professional Baseball">
+                      Nippon Professional Baseball
+                    </option>
+                  </optgroup>
+                  <optgroup label="Football">
+                    <option value="National Football League">
+                      National Football League
+                    </option>
+                    <option value="American Athletic Conference">
+                      American Athletic Conference
+                    </option>
+                    <option value="ACC (Atlantic Coast Conference)">
+                      ACC (Atlantic Coast Conference)
+                    </option>
+                    <option value="Big 12">Big 12</option>
+                    <option value="Big Ten">Big Ten</option>
+                    <option value="Conference USA">Conference USA</option>
+                    <option value="FBS Independents">FBS Independents</option>
+                    <option value="Mid-American">Mid-American</option>
+                    <option value="Mountain West">Mountain West</option>
+                    <option value="Pac-12">Pac-12</option>
+                    <option value="SEC">SEC</option>
+                    <option value="Sun Belt">Sun Belt</option>
+                  </optgroup>
+                  <optgroup label="Hockey">
+                    <option value="National Hockey League">
+                      National Hockey League
+                    </option>
+                  </optgroup>
+                  <optgroup label="Soccer">
+                    <option value="English Football League">
+                      English Football League
+                    </option>
+                    <option value="Major League Soccer">
+                      Major League Soccer
+                    </option>
+                    <option value="LaLiga">LaLiga</option>
+                    <option value="Serie A">Serie A</option>
+                    <option value="Bundesliga">Bundesliga</option>
+                    <option value="Ligue 1">Ligue 1</option>
+                    <option value="Chinese Super League">
+                      Chinese Super League
+                    </option>
+                  </optgroup>
+                </select>
+                <p className="">
+                  Click the + button to add teams to your account
+                </p>
+                <div className="teamResults">
+                  {searchResults.map((team, index) => (
+                    <div className="teamResultsCard" key={index}>
+                      <p className="">{team}</p>
+                      <button onClick={() => addTeamToUser(team)}>+</button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div id="teamCardContainer">
+                {teamDataState.length === 0 ? (
+                  <p id="">Your teams will appear here</p>
+                ) : (
+                  <></>
+                )}
+                {teamDataState.map((teamObj, index) => (
+                  <div
+                    className="teamCard"
+                    key={index}
+                    teamcolor1={teamObj.color1}
+                    teamcolor2={teamObj.color2}
+                    teamname={teamObj.teamName}
+                  >
+                    <p className="teamCardTitle">{teamObj.teamName}</p>
+                    <div className="teamCardBtnContainer">
+                      <button
+                        className="teamCardEditBtn"
+                        onClick={() => editTeamClicked(teamObj)}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        className="teamCardDeleteBtn"
+                        onClick={() => removeTeamFromUser(teamObj.teamName)}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </TabPanel>
+        <TabPanel>
+          <div id="editLights">
+            <p id="">Your Lights</p>
+            <div id="addLightsContainer">
+              <div id="lightApiKeyInputContainer">
+                <input
+                  id="lightApiKeyInput"
+                  type="text"
+                  placeholder="Enter LIFX Access Token Here"
+                  onChange={textboxValueChange}
+                />
+                <button onClick={() => submitApiKeyClicked()}>Submit</button>
+              </div>
+              <div>
+                <a target="_blank" rel="noreferrer" href="illumiscore.com">
+                  Setup Instructions
+                </a>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://cloud.lifx.com"
+                >
+                  Go To LIFX Cloud Website
+                </a>
+              </div>
+            </div>
+            <div id="editLightsContent">
+              <div id="delayContainer">
+                <div className="setDelayContainer">
+                  <p>Flashing Too Early? Set a Delay: </p>
+                  <div className="delaySliderContainer">
+                    <input
+                      type="range"
+                      className="lightDelaySlider"
+                      min="0"
+                      max="60"
+                      onChange={delaySliderChanged}
+                    />
+                    <label id="delaySliderPara">50</label>
+                  </div>
+
+                  <button onClick={setDelayClicked}>Set Delay</button>
+                </div>
+                {JSON.parse(localStorage.getItem("userData")).data
+                  .LifxLights[0] ? (
+                  <div className="userDelayContainer">
+                    <p id="delayPara">
+                      Current Delay:{" "}
+                      {(() => {
+                        if (lightDelay) {
+                          return (
+                            lightDelay +
+                            (lightDelay === "1" ? " second" : " seconds")
+                          );
+                        } else {
+                          return;
+                        }
+                      })()}
+                    </p>
+                  </div>
+                ) : (
+                  <></>
+                )}
+                <div id="listLightsContainer">
+                  {lightSearchResults.length === 0 ? (
+                    <p>Search Results Will Appear Here</p>
+                  ) : (
+                    lightSearchResults.map((light, index) => (
+                      <div
+                        className="listLightsCard"
+                        key={index}
+                        lightname={light.label}
+                        lightid={light.id}
+                        setlightdatastate={setLightDataState}
+                      >
+                        <p className="lightCardTitle">{light.label}</p>
+                        <div className="lightCardBtnContainer">
+                          <button
+                            className="lightCardDeleteBtn"
+                            onClick={() =>
+                              addLightToUser(light.label, light.id)
+                            }
+                          >
+                            Add Light To Profile
+                          </button>
+                        </div>
+                      </div>
+                    ))
+                  )}
+                </div>
+              </div>
+              <div id="lightCardContainer">
+                {lightDataState.map((light, index) => (
+                  <div
+                    className="lightCard"
+                    key={index}
+                    title={light.lightName}
+                    lightname={light.lightName}
+                    apikey={light.ApiKey}
+                    lightid={light.LightIds}
+                    setlightdatastate={setLightDataState}
+                  >
+                    <p className="lightCardTitle">{light.lightName}</p>
+                    <div className="lightCardBtnContainer">
+                      <button
+                        className="lightCardDeleteBtn"
+                        onClick={() => removeLightFromUser(light.lightName)}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </TabPanel>
+      </Tabs>
+      {showEditTeamPopup === false ? (
+        <></>
+      ) : (
+        <EditTeamPopup
+          showEditTeamPopup={showEditTeamPopup}
+          setShowEditTeamPopup={setShowEditTeamPopup}
+          editTeamPopupState={editTeamPopupState}
+          updateTeamColors={(color1, color2) => {
+            // Update team colors in state
+            const updatedTeams = teamDataState.map((team) => {
+              if (team.teamName === editTeamPopupState.teamName) {
+                return { ...team, color1, color2 };
+              }
+              return team;
+            });
+            setTeamDataState(updatedTeams);
+          }}
+        />
+      )}
+    </>
+  );
+}
+
+export default DashTabs;
