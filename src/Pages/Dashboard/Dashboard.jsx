@@ -121,8 +121,11 @@ function Dashboard() {
           <section id="dashSection1">
             <div id="banner">
               <p id="bannerHeading">Welcome to Your Dashboard</p>
-              <div className="bannerContent">
+              {/* <div className="bannerContent">
                 Manage Your Upcoming Games, Active Games, and More!
+              </div> */}
+              <div className="bannerContent">
+                Manage the Teams and Lights Connected to Your Profile!
               </div>
             </div>
           </section>

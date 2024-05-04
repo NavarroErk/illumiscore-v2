@@ -1,0 +1,8 @@
+#setup-help {
+  display: flex;
+  justify-content: center;
+}
+#setup-helpContent {
+  width: 80%;
+  margin-bottom: 100px;
+}

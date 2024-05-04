@@ -1,0 +1,32 @@
+.alertMessage {
+  color: #efefef;
+  border: 2px solid black;
+  padding: 10px;
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  animation: fadeAlert 3s; /* Adjust duration as needed */
+  opacity: 0; /* Initially hidden */
+}
+
+@keyframes fadeAlert {
+  /* Fade in */
+  0% {
+    opacity: 0;
+  }
+
+  /* Stay */
+  30% {
+    opacity: 1;
+  }
+
+  /* Stay */
+  80% {
+    opacity: 1;
+  }
+
+  /* Fade out */
+  100% {
+    opacity: 0;
+  }
+}

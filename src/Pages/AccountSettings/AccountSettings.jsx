@@ -30,7 +30,7 @@ function AccountSettings() {
               </span>{" "}
             </p>
           </div>
-          <div className="accountSettingsParaContainer">
+          {/* <div className="accountSettingsParaContainer">
             <p className="accountSettingsPara">
               Lights:{" "}
               <span className="accountSettingsParaValue">
@@ -55,7 +55,7 @@ function AccountSettings() {
             <Link className="accountSettingsEditLink" to="/dashboard/editTeams">
               Edit Teams
             </Link>
-          </div>
+          </div> */}
         </div>
       </main>
       <Footer></Footer>

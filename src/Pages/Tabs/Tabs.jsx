@@ -1,9 +1,10 @@
 import React, { useState, useContext } from "react";
+import ReactDOM from "react-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import { GetUserFromWeb } from "../../mongoDBClient";
 import { GlobalContext } from "../..";
 
 import EditTeamPopup from "../../Components/Edit Components/EditTeamPopup";
+import AlertMessage from "../../Components/AlertMessage Component/AlertMessage";
 
 function DashTabs() {
   //! #region variables from EditTeams.jsx
@@ -11,7 +12,7 @@ function DashTabs() {
   const [userData, setUserData] = useState(
     JSON.parse(localStorage.getItem("userData"))
   );
-  const [searchResults, setSearchResults] = useState([]);
+  const [teamSearchResults, setTeamSearchResults] = useState([]);
   const [lightSearchResults, setLightSearchResults] = useState([]);
   const [teamDataState, setTeamDataState] = useState(userData.data.MlbTeams);
   const [lightDataState, setLightDataState] = useState(
@@ -26,15 +27,21 @@ function DashTabs() {
   const lightDataForDelay = JSON.parse(localStorage.getItem("userData"))?.data
     ?.LifxLights?.[0];
   const lightDelayValue = lightDataForDelay?.lightDelay || "0";
-
   const [lightDelay, setLightDelay] = useState(lightDelayValue);
 
-  const [userInput, setUserInput] = useState({
-    _id: JSON.parse(localStorage.getItem("userData")).data._id,
-    apiKey: "",
-  });
-  const [showHelpComponent, setShowHelpComponent] = useState(false);
-  GetUserFromWeb(JSON.parse(localStorage.getItem("userData")).data._id);
+  function activateAlertMessage(message, isSuccessful) {
+    const alertMessageContainer = document.createElement("div");
+    document.body.appendChild(alertMessageContainer);
+
+    ReactDOM.render(
+      <AlertMessage
+        message={message}
+        isSuccessful={isSuccessful}
+        alertMessageContainer={alertMessageContainer}
+      />,
+      alertMessageContainer
+    );
+  }
 
   function editTeamClicked(teamObj) {
     setShowEditTeamPopup(!showEditTeamPopup);
@@ -46,16 +53,8 @@ function DashTabs() {
     const results = await context.globalState.functionList.GetTeamsInLeague(
       leagueSelect.value
     );
-    console.log(results);
 
-    setSearchResults(results.sort());
-  }
-
-  function lightsHelpBtnClicked() {
-    setShowHelpComponent(true);
-  }
-  function closeLightsHelpPopup() {
-    setShowHelpComponent(false);
+    setTeamSearchResults(results.sort());
   }
 
   async function setDelayClicked() {
@@ -77,19 +76,34 @@ function DashTabs() {
   }
 
   async function addTeamToUser(teamName) {
-    console.log("addTeamToUser has run");
-    await context.globalState.functionList.AddMlbTeamFromWeb(_id, teamName);
+    try {
+      await context.globalState.functionList.AddMlbTeamFromWeb(_id, teamName);
 
-    const userData = await context.globalState.functionList.GetUserFromWeb(_id);
+      const userData = await context.globalState.functionList.GetUserFromWeb(
+        _id
+      );
 
-    //! maybe add MlbTeams.teamName?
-    setTeamDataState(userData.data.MlbTeams);
+      setTeamDataState(userData.data.MlbTeams);
+      activateAlertMessage(`Successfully Added Team: ${teamName}`, true);
+    } catch {
+      activateAlertMessage(`Unable To Add Team: ${teamName}`, false);
+    }
   }
 
   async function removeTeamFromUser(teamName) {
-    await context.globalState.functionList.RemoveMlbTeamFromUser(_id, teamName);
-    const userData = await context.globalState.functionList.GetUserFromWeb(_id);
-    setTeamDataState(userData.data.MlbTeams);
+    try {
+      await context.globalState.functionList.RemoveMlbTeamFromUser(
+        _id,
+        teamName
+      );
+      const userData = await context.globalState.functionList.GetUserFromWeb(
+        _id
+      );
+      setTeamDataState(userData.data.MlbTeams);
+      activateAlertMessage(`Successfully Removed Team: ${teamName}`, true);
+    } catch {
+      activateAlertMessage(`Unable To Remove Team: ${teamName}`, false);
+    }
   }
 
   function textboxValueChange(e) {
@@ -99,38 +113,63 @@ function DashTabs() {
     const userLightData = await context.globalState.functionList.ListLifxLights(
       lightApiKeyInput
     );
-    setLightSearchResults(userLightData);
-    console.log(userLightData);
+    const userData = await context.globalState.functionList.GetUserFromWeb(_id);
+
+    const updatedLightData = userLightData.filter((listLight) => {
+      return !userData.data.LifxLights.some(
+        (profileLight) => listLight.label === profileLight.lightName
+      );
+    });
+
+    setLightSearchResults(updatedLightData);
   }
 
   async function addLightToUser(lightName, lightId) {
-    await context.globalState.functionList.AddLifxLightFromWeb(
-      _id,
-      lightName,
-      lightApiKeyInput,
-      lightId
-    );
+    try {
+      await context.globalState.functionList.AddLifxLightFromWeb(
+        _id,
+        lightName,
+        lightApiKeyInput,
+        lightId
+      );
 
-    const userData = await context.globalState.functionList.GetUserFromWeb(_id);
-    setLightDataState(userData.data.LifxLights);
+      const userData = await context.globalState.functionList.GetUserFromWeb(
+        _id
+      );
+      setLightDataState(userData.data.LifxLights);
+      const filteredResults = lightSearchResults.filter(
+        (result) => result.label !== lightName
+      );
+      setLightSearchResults(filteredResults);
+      activateAlertMessage(`Successfully Added Light: ${lightName}`, true);
+    } catch {
+      activateAlertMessage(`Unable To Remove Light: ${lightName}`, false);
+    }
   }
+
   async function removeLightFromUser(lightName) {
-    await context.globalState.functionList.RemoveLifxLightFromUser(
-      _id,
-      lightName
-    );
+    try {
+      await context.globalState.functionList.RemoveLifxLightFromUser(
+        _id,
+        lightName
+      );
 
-    console.log(lightName);
-    const userData = await context.globalState.functionList.GetUserFromWeb(_id);
-    setLightDataState(userData.data.LifxLights);
+      console.log(lightName);
+      const userData = await context.globalState.functionList.GetUserFromWeb(
+        _id
+      );
+      setLightDataState(userData.data.LifxLights);
+      activateAlertMessage(`Successfully Removed Light: ${lightName}`, true);
+    } catch {
+      activateAlertMessage(`Unable To Remove Light: ${lightName}`, false);
+    }
   }
-
   return (
     <>
       <Tabs>
         <TabList>
-          <Tab>Edit Teams</Tab>
-          <Tab>Edit Lights</Tab>
+          <Tab className="editTeamsTab">Edit Teams</Tab>
+          <Tab className="editLightsTab">Edit Lights</Tab>
         </TabList>
 
         <TabPanel>
@@ -190,10 +229,10 @@ function DashTabs() {
                   </optgroup>
                 </select>
                 <p className="">
-                  Click the + button to add teams to your account
+                  Click the + button to <br /> add teams to your profile
                 </p>
                 <div className="teamResults">
-                  {searchResults.map((team, index) => (
+                  {teamSearchResults.map((team, index) => (
                     <div className="teamResultsCard" key={index}>
                       <p className="">{team}</p>
                       <button onClick={() => addTeamToUser(team)}>+</button>
@@ -239,31 +278,39 @@ function DashTabs() {
         <TabPanel>
           <div id="editLights">
             <p id="">Your Lights</p>
-            <div id="addLightsContainer">
-              <div id="lightApiKeyInputContainer">
-                <input
-                  id="lightApiKeyInput"
-                  type="text"
-                  placeholder="Enter LIFX Access Token Here"
-                  onChange={textboxValueChange}
-                />
-                <button onClick={() => submitApiKeyClicked()}>Submit</button>
-              </div>
-              <div>
-                <a target="_blank" rel="noreferrer" href="illumiscore.com">
-                  Setup Instructions
-                </a>
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href="https://cloud.lifx.com"
-                >
-                  Go To LIFX Cloud Website
-                </a>
-              </div>
-            </div>
+
             <div id="editLightsContent">
               <div id="delayContainer">
+                <div id="addLightsContainer">
+                  <div id="lightApiKeyInputContainer">
+                    <input
+                      id="lightApiKeyInput"
+                      type="text"
+                      placeholder="Enter LIFX Access Token Here"
+                      onChange={textboxValueChange}
+                    />
+                    <button onClick={() => submitApiKeyClicked()}>
+                      Submit
+                    </button>
+                  </div>
+                  <div id="setupLinksContainer">
+                    <a
+                      target="_blank"
+                      rel="noreferrer"
+                      href="http://localhost:3000/setup-help"
+                      // href="https://illumiscore.com/setup-help"
+                    >
+                      Setup Instructions
+                    </a>
+                    <a
+                      target="_blank"
+                      rel="noreferrer"
+                      href="https://cloud.lifx.com"
+                    >
+                      Go To LIFX Cloud Website
+                    </a>
+                  </div>
+                </div>
                 <div className="setDelayContainer">
                   <p>Flashing Too Early? Set a Delay: </p>
                   <div className="delaySliderContainer">
@@ -299,38 +346,11 @@ function DashTabs() {
                 ) : (
                   <></>
                 )}
-                <div id="listLightsContainer">
-                  {lightSearchResults.length === 0 ? (
-                    <p>Search Results Will Appear Here</p>
-                  ) : (
-                    lightSearchResults.map((light, index) => (
-                      <div
-                        className="listLightsCard"
-                        key={index}
-                        lightname={light.label}
-                        lightid={light.id}
-                        setlightdatastate={setLightDataState}
-                      >
-                        <p className="lightCardTitle">{light.label}</p>
-                        <div className="lightCardBtnContainer">
-                          <button
-                            className="lightCardDeleteBtn"
-                            onClick={() =>
-                              addLightToUser(light.label, light.id)
-                            }
-                          >
-                            Add Light To Profile
-                          </button>
-                        </div>
-                      </div>
-                    ))
-                  )}
-                </div>
               </div>
               <div id="lightCardContainer">
                 {lightDataState.map((light, index) => (
                   <div
-                    className="lightCard"
+                    className="userLightCard"
                     key={index}
                     title={light.lightName}
                     lightname={light.lightName}
@@ -338,10 +358,10 @@ function DashTabs() {
                     lightid={light.LightIds}
                     setlightdatastate={setLightDataState}
                   >
-                    <p className="lightCardTitle">{light.lightName}</p>
+                    <p className="userLightCardTitle">{light.lightName}</p>
                     <div className="lightCardBtnContainer">
                       <button
-                        className="lightCardDeleteBtn"
+                        className="userLightCardDeleteBtn"
                         onClick={() => removeLightFromUser(light.lightName)}
                       >
                         Delete
@@ -350,6 +370,31 @@ function DashTabs() {
                   </div>
                 ))}
               </div>
+            </div>
+            <div id="listLightsContainer">
+              {lightSearchResults.length > 0 ? (
+                lightSearchResults.map((light, index) => (
+                  <div
+                    className="listLightsCard"
+                    key={index}
+                    lightname={light.label}
+                    lightid={light.id}
+                    setlightdatastate={setLightDataState}
+                  >
+                    <p className="listLightsCardTitle">{light.label}</p>
+                    <div className="lightCardBtnContainer">
+                      <button
+                        className="listLightsCardDeleteBtn"
+                        onClick={() => addLightToUser(light.label, light.id)}
+                      >
+                        Add Light To Profile
+                      </button>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <></>
+              )}
             </div>
           </div>
         </TabPanel>

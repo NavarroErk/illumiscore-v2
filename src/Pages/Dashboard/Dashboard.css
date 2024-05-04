@@ -44,7 +44,38 @@
 }
 .react-tabs {
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
+.react-tabs__tab-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  width: 80%;
+  border-bottom: 2px solid black;
+  align-self: center;
+  outline: none;
+  justify-self: center;
+}
+
+.editTeamsTab,
+.editLightsTab {
+  padding: 5px;
+}
+
+.editTeamsTab:hover,
+.editLightsTab:hover {
+  cursor: pointer;
+  background-color: #efefef;
+}
+
+/* .editTeamsTab:focus,
+.editLightsTab:focus {
+  outline: 2px solid black;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+} */
+
 /* #endregion Dashboard */
 
 /*? REGION TEAMS*/
@@ -140,24 +171,6 @@
   align-items: center;
   justify-content: center;
 }
-#addLightsContainer {
-  /* border: 2px solid blue; */
-  width: 80%;
-  display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 10px;
-}
-#addLightsContainer > div {
-  width: 50%;
-}
-#lightApiKeyInputContainer {
-  display: flex;
-  justify-content: center;
-}
-
-#lightApiKeyInput {
-  width: 300px;
-}
 
 #editLightsContent {
   width: 80%;
@@ -178,25 +191,62 @@
   align-items: center;
   justify-content: space-evenly;
 }
+#addLightsContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+#addLightsContainer > div {
+  /* border: 2px solid yellow; */
+}
+
+#lightApiKeyInput {
+  width: 200px;
+}
+
+#setupLinksContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .setDelayContainer,
-.userDelayContainer,
-#listLightsContainer {
+.userDelayContainer {
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 #listLightsContainer {
-  border-top: 2px solid black;
+  max-height: 300px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   overflow: auto;
+  padding: 5px;
+}
+.listLightsBorder {
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+.listLightsCard {
+  border: 2px solid black;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+  background-color: #efefef;
 }
 #lightCardContainer {
   height: 100%;
   width: 65%;
 }
 
-.lightCard {
+.userLightCard {
   border-bottom: 1px solid gray;
   display: flex;
   align-items: center;
@@ -212,7 +262,6 @@
   height: 100vh;
   width: 100%;
   bottom: 0;
-  border: 2px solid blue;
   background-color: rgba(0, 0, 0, 0.9);
   display: flex;
   justify-content: center;

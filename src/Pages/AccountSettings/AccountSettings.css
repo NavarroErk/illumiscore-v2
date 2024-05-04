@@ -1,56 +1,57 @@
-#accountSettings{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+#accountSettings {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-#accountSettingsContainer{
-    height: 80%;
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #171717;
-    border-radius: 10px;
-    border: 2px solid #626262;
-    box-shadow: 0px 3px 10px rgba(253, 248, 248, 0.4);
+#accountSettingsContainer {
+  height: 80%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #efefef;
+  border-radius: 10px;
+  border: 2px solid #626262;
+  box-shadow: 0px 3px 10px rgba(253, 248, 248, 0.4);
 }
-.accountSettingsParaContainer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 80%;
+.accountSettingsParaContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
 }
-.accountSettingsPara{
-    font-size: 28px;
+.accountSettingsPara {
+  font-size: 28px;
 }
-.accountSettingsEditLink{
-    margin-right: 40%;
-    background-color: black;
-    width: 100px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    color: #efefef;
-    border: 1px solid white;
-    transition: 0.3s ease;
+.accountSettingsEditLink {
+  margin-right: 40%;
+  background-color: black;
+  width: 100px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: #efefef;
+  border: 1px solid white;
+  transition: 0.3s ease;
 }
-.accountSettingsEditLink:hover{
-    text-decoration: none;
-    background-color: #313131;
+.accountSettingsEditLink:hover {
+  text-decoration: none;
+  background-color: #313131;
 }
 /* .accountSettingsParaValue{
     font-size: 24px;
     color: rgb(255, 255, 255);
 } */
-@media (max-width:1000px){
-    #accountSettingsContainer{
-        width: 90%;
-    }
-    .accountSettingsParaValue, .accountSettingsPara{
-        font-size: 24px;
-    }
+@media (max-width: 1000px) {
+  #accountSettingsContainer {
+    width: 90%;
+  }
+  .accountSettingsParaValue,
+  .accountSettingsPara {
+    font-size: 24px;
+  }
 }

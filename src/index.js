@@ -18,6 +18,7 @@ import PrivacyPolicy from './Pages/PrivacyPolicy/PrivacyPolicy';
 import AccountSettings from './Pages/AccountSettings/AccountSettings';
 
 import * as functionList from "./mongoDBClient";
+import SetupHelp from './Pages/SetupHelp/SetupHelp';
 
 
 
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
   {
     path: "/accountSettings", 
     element: <AccountSettings/>
+  }, 
+  {
+    path: "/setup-help",
+    element: <SetupHelp/>
   }
 ])
 
