@@ -303,12 +303,13 @@
     background-color: rgba(0, 0, 0, 0.4);
   }
   #syncFeatureHeader {
-    font-size: 32px;
+    font-size: 2rem;
+    padding: 5px;
     position: relative;
     top: 40px;
   }
   #syncFeaturePara {
-    /* align-items: baseline; */
+    font-size: 1.2rem;
   }
   .featureImgPlatform {
     height: 300px;
@@ -472,5 +473,8 @@
   }
   #securityFeature {
     width: 100%;
+  }
+  .pricingCardFeature {
+    font-size: 0.8rem;
   }
 }

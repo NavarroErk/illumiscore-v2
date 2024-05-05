@@ -6,6 +6,20 @@ import { GlobalContext } from "../..";
 import EditTeamPopup from "../../Components/Edit Components/EditTeamPopup";
 import AlertMessage from "../../Components/AlertMessage Component/AlertMessage";
 
+export function activateAlertMessage(message, isSuccessful) {
+  const alertMessageContainer = document.createElement("div");
+  document.body.appendChild(alertMessageContainer);
+
+  ReactDOM.render(
+    <AlertMessage
+      message={message}
+      isSuccessful={isSuccessful}
+      alertMessageContainer={alertMessageContainer}
+    />,
+    alertMessageContainer
+  );
+}
+
 function DashTabs() {
   //! #region variables from EditTeams.jsx
   const context = useContext(GlobalContext);
@@ -29,20 +43,6 @@ function DashTabs() {
   const lightDelayValue = lightDataForDelay?.lightDelay || "0";
   const [lightDelay, setLightDelay] = useState(lightDelayValue);
 
-  function activateAlertMessage(message, isSuccessful) {
-    const alertMessageContainer = document.createElement("div");
-    document.body.appendChild(alertMessageContainer);
-
-    ReactDOM.render(
-      <AlertMessage
-        message={message}
-        isSuccessful={isSuccessful}
-        alertMessageContainer={alertMessageContainer}
-      />,
-      alertMessageContainer
-    );
-  }
-
   function editTeamClicked(teamObj) {
     setShowEditTeamPopup(!showEditTeamPopup);
     setEditTeamPopupState(teamObj);
@@ -58,16 +58,25 @@ function DashTabs() {
   }
 
   async function setDelayClicked() {
-    const lightDelaySlider = document.querySelector(".lightDelaySlider");
-    await context.globalState.functionList.AddDelayToLights(
-      JSON.parse(localStorage.getItem("userData")).data._id,
-      lightDelaySlider.value
-    );
-    const userData = await context.globalState.functionList.GetUserFromWeb(
-      JSON.parse(localStorage.getItem("userData")).data._id
-    );
-    console.log(userData);
-    setLightDelay(userData.data.LifxLights[0].lightDelay);
+    try {
+      const lightDelaySlider = document.querySelector(".lightDelaySlider");
+      await context.globalState.functionList.AddDelayToLights(
+        JSON.parse(localStorage.getItem("userData")).data._id,
+        lightDelaySlider.value
+      );
+      const userData = await context.globalState.functionList.GetUserFromWeb(
+        JSON.parse(localStorage.getItem("userData")).data._id
+      );
+      const secondOrSeconds =
+        userData.data.LifxLights[0].lightDelay === "1" ? "second" : "seconds";
+      setLightDelay(userData.data.LifxLights[0].lightDelay);
+      activateAlertMessage(
+        `Successfully Updated Light Delay: ${lightDelaySlider.value} ${secondOrSeconds}`,
+        true
+      );
+    } catch {
+      activateAlertMessage(`Unable to Update Light Delay`, false);
+    }
   }
 
   function delaySliderChanged(e) {
@@ -177,61 +186,64 @@ function DashTabs() {
             <p className="">Your Teams</p>
             <div>
               <div id="addTeamContainer">
-                <select onChange={loadSearchResults} id="leagueSelect">
-                  <option value="">Please Select a League</option>
-                  <optgroup label="Baseball">
-                    <option value="Major League Baseball">
-                      Major League Baseball
-                    </option>
-                    <option value="Nippon Professional Baseball">
-                      Nippon Professional Baseball
-                    </option>
-                  </optgroup>
-                  <optgroup label="Football">
-                    <option value="National Football League">
-                      National Football League
-                    </option>
-                    <option value="American Athletic Conference">
-                      American Athletic Conference
-                    </option>
-                    <option value="ACC (Atlantic Coast Conference)">
-                      ACC (Atlantic Coast Conference)
-                    </option>
-                    <option value="Big 12">Big 12</option>
-                    <option value="Big Ten">Big Ten</option>
-                    <option value="Conference USA">Conference USA</option>
-                    <option value="FBS Independents">FBS Independents</option>
-                    <option value="Mid-American">Mid-American</option>
-                    <option value="Mountain West">Mountain West</option>
-                    <option value="Pac-12">Pac-12</option>
-                    <option value="SEC">SEC</option>
-                    <option value="Sun Belt">Sun Belt</option>
-                  </optgroup>
-                  <optgroup label="Hockey">
-                    <option value="National Hockey League">
-                      National Hockey League
-                    </option>
-                  </optgroup>
-                  <optgroup label="Soccer">
-                    <option value="English Football League">
-                      English Football League
-                    </option>
-                    <option value="Major League Soccer">
-                      Major League Soccer
-                    </option>
-                    <option value="LaLiga">LaLiga</option>
-                    <option value="Serie A">Serie A</option>
-                    <option value="Bundesliga">Bundesliga</option>
-                    <option value="Ligue 1">Ligue 1</option>
-                    <option value="Chinese Super League">
-                      Chinese Super League
-                    </option>
-                  </optgroup>
-                </select>
-                <p className="">
-                  Click the + button to <br /> add teams to your profile
-                </p>
-                <div className="teamResults">
+                <div id="leagueSelectContainer">
+                  <select onChange={loadSearchResults} id="leagueSelect">
+                    <option value="">Leagues</option>
+                    <optgroup label="Baseball">
+                      <option value="Major League Baseball">
+                        Major League Baseball
+                      </option>
+                      <option value="Nippon Professional Baseball">
+                        Nippon Professional Baseball
+                      </option>
+                    </optgroup>
+                    <optgroup label="Football">
+                      <option value="National Football League">
+                        National Football League
+                      </option>
+                      <option value="American Athletic Conference">
+                        American Athletic Conference
+                      </option>
+                      <option value="ACC (Atlantic Coast Conference)">
+                        ACC (Atlantic Coast Conference)
+                      </option>
+                      <option value="Big 12">Big 12</option>
+                      <option value="Big Ten">Big Ten</option>
+                      <option value="Conference USA">Conference USA</option>
+                      <option value="FBS Independents">FBS Independents</option>
+                      <option value="Mid-American">Mid-American</option>
+                      <option value="Mountain West">Mountain West</option>
+                      <option value="Pac-12">Pac-12</option>
+                      <option value="SEC">SEC</option>
+                      <option value="Sun Belt">Sun Belt</option>
+                    </optgroup>
+                    <optgroup label="Hockey">
+                      <option value="National Hockey League">
+                        National Hockey League
+                      </option>
+                    </optgroup>
+                    <optgroup label="Soccer">
+                      <option value="English Football League">
+                        English Football League
+                      </option>
+                      <option value="Major League Soccer">
+                        Major League Soccer
+                      </option>
+                      <option value="LaLiga">LaLiga</option>
+                      <option value="Serie A">Serie A</option>
+                      <option value="Bundesliga">Bundesliga</option>
+                      <option value="Ligue 1">Ligue 1</option>
+                      <option value="Chinese Super League">
+                        Chinese Super League
+                      </option>
+                    </optgroup>
+                  </select>
+                  <p className="">
+                    Click the + button to add teams to your profile
+                  </p>
+                </div>
+
+                <div className="teamResultsContainer">
                   {teamSearchResults.map((team, index) => (
                     <div className="teamResultsCard" key={index}>
                       <p className="">{team}</p>
@@ -240,7 +252,7 @@ function DashTabs() {
                   ))}
                 </div>
               </div>
-              <div id="teamCardContainer">
+              <div id="userTeamCardContainer">
                 {teamDataState.length === 0 ? (
                   <p id="">Your teams will appear here</p>
                 ) : (
@@ -248,22 +260,22 @@ function DashTabs() {
                 )}
                 {teamDataState.map((teamObj, index) => (
                   <div
-                    className="teamCard"
+                    className="userTeamCard"
                     key={index}
                     teamcolor1={teamObj.color1}
                     teamcolor2={teamObj.color2}
                     teamname={teamObj.teamName}
                   >
-                    <p className="teamCardTitle">{teamObj.teamName}</p>
-                    <div className="teamCardBtnContainer">
+                    <p className="userTeamCardTitle">{teamObj.teamName}</p>
+                    <div className="userTeamCardBtnContainer">
                       <button
-                        className="teamCardEditBtn"
+                        className="userTeamCardEditBtn"
                         onClick={() => editTeamClicked(teamObj)}
                       >
                         Edit
                       </button>
                       <button
-                        className="teamCardDeleteBtn"
+                        className="userTeamCardDeleteBtn"
                         onClick={() => removeTeamFromUser(teamObj.teamName)}
                       >
                         Delete
@@ -286,7 +298,7 @@ function DashTabs() {
                     <input
                       id="lightApiKeyInput"
                       type="text"
-                      placeholder="Enter LIFX Access Token Here"
+                      placeholder="LIFX API Key"
                       onChange={textboxValueChange}
                     />
                     <button onClick={() => submitApiKeyClicked()}>
@@ -312,7 +324,9 @@ function DashTabs() {
                   </div>
                 </div>
                 <div className="setDelayContainer">
-                  <p>Flashing Too Early? Set a Delay: </p>
+                  <p>
+                    Flashing Too Early? <br /> Set a Delay:{" "}
+                  </p>
                   <div className="delaySliderContainer">
                     <input
                       type="range"
@@ -325,10 +339,8 @@ function DashTabs() {
                   </div>
 
                   <button onClick={setDelayClicked}>Set Delay</button>
-                </div>
-                {JSON.parse(localStorage.getItem("userData")).data
-                  .LifxLights[0] ? (
-                  <div className="userDelayContainer">
+                  {JSON.parse(localStorage.getItem("userData")).data
+                    .LifxLights[0] ? (
                     <p id="delayPara">
                       Current Delay:{" "}
                       {(() => {
@@ -342,10 +354,10 @@ function DashTabs() {
                         }
                       })()}
                     </p>
-                  </div>
-                ) : (
-                  <></>
-                )}
+                  ) : (
+                    <></>
+                  )}
+                </div>
               </div>
               <div id="lightCardContainer">
                 {lightDataState.map((light, index) => (
@@ -421,5 +433,4 @@ function DashTabs() {
     </>
   );
 }
-
 export default DashTabs;

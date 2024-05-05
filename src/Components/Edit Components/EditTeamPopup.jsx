@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import { GlobalContext } from "../..";
 import { UpdateUserTeamColors } from "../../mongoDBClient";
 import { useNavigate } from "react-router-dom";
+import { activateAlertMessage } from "../../Pages/Tabs/Tabs";
 
 function EditTeamPopup({
   onClose,
@@ -56,15 +57,25 @@ function EditTeamPopup({
   }
 
   async function updateUserTeamColors() {
-    await context.globalState.functionList.UpdateUserTeamColors(
-      userData.data._id,
-      editTeamPopupState.teamName,
-      tempColor1,
-      tempColor2
-    );
-    setTempColor1(tempColor1);
-    updateTeamColors(tempColor1, tempColor2);
-    alert(`Success! ${title} colors have been updated.`);
+    try {
+      await context.globalState.functionList.UpdateUserTeamColors(
+        userData.data._id,
+        editTeamPopupState.teamName,
+        tempColor1,
+        tempColor2
+      );
+      setTempColor1(tempColor1);
+      updateTeamColors(tempColor1, tempColor2);
+      activateAlertMessage(
+        `Successfully Updated Colors for: ${editTeamPopupState.teamName}`,
+        true
+      );
+    } catch {
+      activateAlertMessage(
+        `Unable to Update Colors for: ${editTeamPopupState.teamName}`,
+        false
+      );
+    }
   }
 
   return (
